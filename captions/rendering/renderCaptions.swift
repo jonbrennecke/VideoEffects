@@ -36,6 +36,7 @@ public func renderCaptions(
     layer: layer,
     backgroundHeight: backgroundHeight,
     map: map,
+    timestampOfFirstSegment: stringSegmentLines.first?.first?.timestamp ?? 0,
     getSizeOfRow: { (_: CaptionRowKey) -> CGSize in
       rowSize
     }

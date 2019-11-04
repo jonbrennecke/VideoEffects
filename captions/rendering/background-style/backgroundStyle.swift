@@ -5,6 +5,7 @@ func renderCapionBackground(
   layer: CALayer,
   backgroundHeight: Float,
   map: CaptionStringsMap,
+  timestampOfFirstSegment: CFTimeInterval,
   getSizeOfRow: @escaping (CaptionRowKey) -> CGSize
 ) {
   switch captionStyle.backgroundStyle {
@@ -18,7 +19,7 @@ func renderCapionBackground(
     return renderSolidBackgroundStyle(
       captionStyle: captionStyle,
       layer: layer,
-      map: map
+      timestampOfFirstSegment: timestampOfFirstSegment
     )
   case .textBoundingBox:
     return renderTextBoundingBoxBackgroundStyle(
@@ -35,21 +36,15 @@ func renderCapionBackground(
 func renderSolidBackgroundStyle(
   captionStyle: CaptionStyle,
   layer: CALayer,
-  map: CaptionStringsMap
+  timestampOfFirstSegment: CFTimeInterval
 ) {
-  guard
-    let rowSegments = map.segmentsByRow[.a],
-    let beginTime = rowSegments.first?.first?.timestamp
-  else {
-    return
-  }
   let backgroundLayer = CALayer()
   backgroundLayer.frame = layer.bounds
   backgroundLayer.opacity = 0
   backgroundLayer.backgroundColor = captionStyle.backgroundColor.withAlphaComponent(0.9).cgColor
   backgroundLayer.masksToBounds = true
   layer.insertSublayer(backgroundLayer, at: 0)
-  let animation = AnimationUtil.fadeIn(at: beginTime - 0.25)
+  let animation = AnimationUtil.fadeIn(at: timestampOfFirstSegment - 0.25)
   backgroundLayer.add(animation, forKey: nil)
 }
 
