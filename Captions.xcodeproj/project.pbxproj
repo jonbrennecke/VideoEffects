@@ -15,8 +15,6 @@
 		FCB27DDD236FB49900F522B9 /* CaptionRowKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DA9236FB49900F522B9 /* CaptionRowKey.swift */; };
 		FCB27DDF236FB49900F522B9 /* lineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DAC236FB49900F522B9 /* lineStyle.swift */; };
 		FCB27DE1236FB49900F522B9 /* wordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DAF236FB49900F522B9 /* wordStyle.swift */; };
-		FCB27DE2236FB49900F522B9 /* noWordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB0236FB49900F522B9 /* noWordStyle.swift */; };
-		FCB27DE3236FB49900F522B9 /* animatedWordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB1236FB49900F522B9 /* animatedWordStyle.swift */; };
 		FCB27DEF236FB49900F522B9 /* CaptionSizingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DC5236FB49900F522B9 /* CaptionSizingUtil.swift */; };
 		FCB27E00236FB4CE00F522B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */; };
 		FCB27E02236FB4CE00F522B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E01236FB4CE00F522B9 /* SceneDelegate.swift */; };
@@ -61,9 +59,7 @@
 		FCB27DA6236FB49900F522B9 /* backgroundStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = backgroundStyle.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27DA9236FB49900F522B9 /* CaptionRowKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionRowKey.swift; sourceTree = "<group>"; };
 		FCB27DAC236FB49900F522B9 /* lineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = lineStyle.swift; sourceTree = "<group>"; tabWidth = 2; };
-		FCB27DAF236FB49900F522B9 /* wordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wordStyle.swift; sourceTree = "<group>"; };
-		FCB27DB0236FB49900F522B9 /* noWordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noWordStyle.swift; sourceTree = "<group>"; };
-		FCB27DB1236FB49900F522B9 /* animatedWordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = animatedWordStyle.swift; sourceTree = "<group>"; tabWidth = 2; };
+		FCB27DAF236FB49900F522B9 /* wordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = wordStyle.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27DC5236FB49900F522B9 /* CaptionSizingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionSizingUtil.swift; sourceTree = "<group>"; };
 		FCB27DFD236FB4CE00F522B9 /* Captions-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Captions-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				FCB27DAF236FB49900F522B9 /* wordStyle.swift */,
-				FCB27DB0236FB49900F522B9 /* noWordStyle.swift */,
-				FCB27DB1236FB49900F522B9 /* animatedWordStyle.swift */,
 			);
 			path = "word-style";
 			sourceTree = "<group>";
@@ -298,13 +292,11 @@
 				FCB27DEF236FB49900F522B9 /* CaptionSizingUtil.swift in Sources */,
 				FCB27E19236FB6D100F522B9 /* CenteredTextLayer.swift in Sources */,
 				FCB27DDF236FB49900F522B9 /* lineStyle.swift in Sources */,
-				FCB27DE2236FB49900F522B9 /* noWordStyle.swift in Sources */,
 				FCB27E15236FB5E200F522B9 /* AnimationUtil.swift in Sources */,
 				FCB27DD8236FB49900F522B9 /* renderCaptions.swift in Sources */,
 				FCB27DD5236FB49900F522B9 /* CaptionStringsMap.swift in Sources */,
 				FCB27E17236FB66200F522B9 /* clamp.swift in Sources */,
 				FCB27DDD236FB49900F522B9 /* CaptionRowKey.swift in Sources */,
-				FCB27DE3236FB49900F522B9 /* animatedWordStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

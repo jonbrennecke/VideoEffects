@@ -8,6 +8,17 @@ public struct CaptionStyle {
   let backgroundColor: UIColor
   let font: UIFont
   let textColor: UIColor
+  let textShadow: TextShadow
+  
+  public class TextShadow {
+    let opacity: Float
+    let color: UIColor
+    
+    public init(opacity: Float, color: UIColor) {
+      self.opacity = opacity
+      self.color = color
+    }
+  }
 
   public init(
     wordStyle: CaptionWordStyle,
@@ -16,7 +27,8 @@ public struct CaptionStyle {
     backgroundStyle: CaptionBackgroundStyle,
     backgroundColor: UIColor,
     font: UIFont,
-    textColor: UIColor
+    textColor: UIColor,
+    textShadow: TextShadow
   ) {
     self.wordStyle = wordStyle
     self.lineStyle = lineStyle
@@ -25,6 +37,7 @@ public struct CaptionStyle {
     self.backgroundColor = backgroundColor
     self.font = font
     self.textColor = textColor
+    self.textShadow = textShadow
   }
 }
 

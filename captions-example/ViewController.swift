@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    let captionViewHeight = CGFloat(200)
+    let captionViewHeight = CGFloat(100)
     view.backgroundColor = .black
     captionLayer.frame = CGRect(
       origin: CGPoint(x: 0, y: (view.frame.height - captionViewHeight) / 2),
@@ -30,14 +30,18 @@ class ViewController: UIViewController {
       style: CaptionStyle(
         wordStyle: .animated,
         lineStyle: .fadeInOut(
-          numberOfLines: 6,
+          numberOfLines: 3,
           padding: CaptionLineStyle.Padding(vertical: 0.33)
         ),
         textAlignment: .center,
         backgroundStyle: .solid,
         backgroundColor: .white,
         font: UIFont.systemFont(ofSize: 20),
-        textColor: .red
+        textColor: .red,
+        textShadow: CaptionStyle.TextShadow(
+          opacity: 0.5,
+          color: .black
+        )
       ),
       textSegments: textSegments,
       duration: CFTimeInterval(textSegments.count) * 0.5,
