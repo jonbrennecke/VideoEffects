@@ -4,7 +4,7 @@ func renderCapionBackground(
   captionStyle: CaptionStyle,
   layer: CALayer,
   backgroundHeight: Float,
-  map: CaptionStringsMap,
+  linesByRowKey: [CaptionRowKey: Array<CaptionStringSegmentLine>],
   timestampOfFirstSegment: CFTimeInterval,
   getSizeOfRow: @escaping (CaptionRowKey) -> CGSize
 ) {
@@ -25,7 +25,7 @@ func renderCapionBackground(
     return renderTextBoundingBoxBackgroundStyle(
       captionStyle: captionStyle,
       layer: layer,
-      map: map,
+      linesByRowKey: linesByRowKey,
       getSizeOfRow: getSizeOfRow
     )
   case .none:
@@ -92,13 +92,13 @@ fileprivate let padding = Padding(vertical: 0.75, horizontal: 0.75)
 func renderTextBoundingBoxBackgroundStyle(
   captionStyle: CaptionStyle,
   layer: CALayer,
-  map: CaptionStringsMap,
+  linesByRowKey: [CaptionRowKey: Array<CaptionStringSegmentLine>],
   getSizeOfRow: @escaping (CaptionRowKey) -> CGSize
 ) {
   let attributes = stringAttributes(for: captionStyle)
   let backgroundLayer = CALayer()
   backgroundLayer.backgroundColor = captionStyle.backgroundColor.cgColor
-  let rowBoundingRects = map.segmentsByRow.flatMap({ key, rowSegments -> [CGRect] in
+  let rowBoundingRects = linesByRowKey.flatMap({ key, rowSegments -> [CGRect] in
     let rowSize = getSizeOfRow(key)
     return rowSegments.map {
       let str = string(from: $0)

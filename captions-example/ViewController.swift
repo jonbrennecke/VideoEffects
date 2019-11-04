@@ -27,13 +27,13 @@ class ViewController: UIViewController {
     renderCaptions(
       layer: captionLayer,
       style: CaptionStyle(
-        wordStyle: .animated,
-        lineStyle: .fadeInOut(numberOfLines: 2),
+        wordStyle: .none,
+        lineStyle: .fadeInOut(numberOfLines: 6),
         textAlignment: .center,
-        backgroundStyle: .none,
+        backgroundStyle: .solid,
         backgroundColor: .white,
-        font: UIFont.systemFont(ofSize: 27),
-        textColor: .white
+        font: UIFont.systemFont(ofSize: 20),
+        textColor: .red
       ),
       textSegments: textSegments,
       duration: CFTimeInterval(textSegments.count) * 0.5,

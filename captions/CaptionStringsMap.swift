@@ -58,14 +58,14 @@ func stringAttributes(for style: CaptionStyle) -> [NSAttributedString.Key: Any] 
   ]
 }
 
-func makeGroupedCaptionStringSegmentLines(
+func groupCaptionStringSegmentLines(
   lines: Array<CaptionStringSegmentLine>,
   numberOfLinesToDisplay: Int
 ) -> GroupedCaptionStringSegmentLines {
   var groupedCaptionStringSegments = GroupedCaptionStringSegmentLines()
   for i in stride(from: 0, to: lines.count, by: numberOfLinesToDisplay) {
     var linesAtIndex = Array<CaptionStringSegmentLine>()
-    for j in i ..< i + numberOfLinesToDisplay {
+    for j in i ..< min(i + numberOfLinesToDisplay, lines.count) {
       let line = lines[j]
       linesAtIndex.append(line)
     }
@@ -104,17 +104,12 @@ func makeCaptionStringSegmentLines(
   return captionStringSegments
 }
 
-struct CaptionStringsMap {
-  let segmentsByRow: [CaptionRowKey: Array<CaptionStringSegmentLine>]
-}
-
-// TODO: rename to groupCaptionStringSegmentLinesByRowKey
-func makeCaptionStringsMap(
+func groupCaptionStringSegmentLinesByRowKey(
   textSegments: [CaptionTextSegment],
   size: CGSize,
   style: CaptionStyle,
   keys: [CaptionRowKey]
-) -> CaptionStringsMap {
+) -> [CaptionRowKey: Array<CaptionStringSegmentLine>] {
   let attributes = stringAttributes(for: style)
   var segments = textSegments
   var segmentsByRow = [CaptionRowKey: Array<Array<CaptionStringSegment>>]()
@@ -135,7 +130,7 @@ func makeCaptionStringsMap(
       segmentsByRow[key] = [lineSegments]
     }
   }
-  return CaptionStringsMap(segmentsByRow: segmentsByRow)
+  return segmentsByRow
 }
 
 fileprivate func interpolate(segments: [CaptionTextSegment]) -> [CaptionTextSegment] {

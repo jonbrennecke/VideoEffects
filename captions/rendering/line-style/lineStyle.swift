@@ -1,4 +1,5 @@
 import AVFoundation
+import UIKit.UIColor
 
 fileprivate let ANIM_IN_OUT_DURATION = CFTimeInterval(0.5)
 
@@ -7,7 +8,6 @@ func renderCaptionLines(
   layer: CALayer,
   duration: CFTimeInterval,
   rowSize: CGSize,
-  numberOfLines: Int,
   stringSegmentLines: [CaptionStringSegmentLine]
 ) {
   switch style.lineStyle {
@@ -25,21 +25,20 @@ func renderCaptionLines(
         layer.addSublayer(lineStyleLayer)
       }
     }
-  case .fadeInOut:
-    let groupedSegments = makeGroupedCaptionStringSegmentLines(
+  case let .fadeInOut(numberOfLines):
+    let groupedSegments = groupCaptionStringSegmentLines(
       lines: stringSegmentLines,
       numberOfLinesToDisplay: numberOfLines
     )
     for timedLines in groupedSegments {
       for (index, stringSegments) in timedLines.data.enumerated() {
-        let rowKey = CaptionRowKey.from(index: index)
-        let positions = CaptionPresetLinePositions(for: rowSize, in: layer.frame.size)
         let lineStyleLayer = makeFadeInOutLineStyleLayer(
           within: layer.frame,
-          positions: positions,
+          rowSize: rowSize,
           style: style,
           duration: duration,
-          rowKey: rowKey,
+          currentLineIndexInGroup: index,
+          numberOfLinesPerGroup: numberOfLines,
           stringSegments: stringSegments,
           timedLines: timedLines
         )
@@ -51,18 +50,20 @@ func renderCaptionLines(
 
 func makeFadeInOutLineStyleLayer(
   within bounds: CGRect,
-  positions: CaptionPresetLinePositions,
+  rowSize: CGSize,
   style: CaptionStyle,
   duration: CFTimeInterval,
-  rowKey: CaptionRowKey,
+  currentLineIndexInGroup: Int,
+  numberOfLinesPerGroup: Int,
   stringSegments: [CaptionStringSegment],
   timedLines: Timed<Array<CaptionStringSegmentLine>>
 ) -> CALayer {
+  let position = CGPoint(
+    x: bounds.size.width / 2,
+    y: (bounds.size.height * (CGFloat(currentLineIndexInGroup) + 0.5)) / CGFloat(numberOfLinesPerGroup)
+  )
   let lineStyleLayer = CALayer()
-  lineStyleLayer.frame = bounds
-  let indexIsOdd = rowKey.index % 2 == 1
-  let positionKey: CaptionPresetLinePositions.Key = indexIsOdd ? .inFrameBottom : .inFrameTop
-  let position = positions.getPosition(forKey: positionKey)
+  lineStyleLayer.frame = CGRect(origin: bounds.origin, size: rowSize)
   lineStyleLayer.position = position
   let wordStyleLayer = makeWordStyleLayer(
     within: lineStyleLayer.frame,
