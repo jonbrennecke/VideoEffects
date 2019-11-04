@@ -13,7 +13,6 @@
 		FCB27DD8236FB49900F522B9 /* renderCaptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DA3236FB49900F522B9 /* renderCaptions.swift */; };
 		FCB27DDA236FB49900F522B9 /* backgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DA6236FB49900F522B9 /* backgroundStyle.swift */; };
 		FCB27DDD236FB49900F522B9 /* CaptionRowKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DA9236FB49900F522B9 /* CaptionRowKey.swift */; };
-		FCB27DDE236FB49900F522B9 /* CaptionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DAA236FB49900F522B9 /* CaptionAnimation.swift */; };
 		FCB27DDF236FB49900F522B9 /* lineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DAC236FB49900F522B9 /* lineStyle.swift */; };
 		FCB27DE1236FB49900F522B9 /* wordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DAF236FB49900F522B9 /* wordStyle.swift */; };
 		FCB27DE2236FB49900F522B9 /* noWordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB0236FB49900F522B9 /* noWordStyle.swift */; };
@@ -61,7 +60,6 @@
 		FCB27DA3236FB49900F522B9 /* renderCaptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = renderCaptions.swift; sourceTree = "<group>"; };
 		FCB27DA6236FB49900F522B9 /* backgroundStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = backgroundStyle.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27DA9236FB49900F522B9 /* CaptionRowKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionRowKey.swift; sourceTree = "<group>"; };
-		FCB27DAA236FB49900F522B9 /* CaptionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CaptionAnimation.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27DAC236FB49900F522B9 /* lineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineStyle.swift; sourceTree = "<group>"; };
 		FCB27DAF236FB49900F522B9 /* wordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wordStyle.swift; sourceTree = "<group>"; };
 		FCB27DB0236FB49900F522B9 /* noWordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noWordStyle.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 				FCB27DA4236FB49900F522B9 /* background-style */,
 				FCB27DA3236FB49900F522B9 /* renderCaptions.swift */,
 				FCB27DA9236FB49900F522B9 /* CaptionRowKey.swift */,
-				FCB27DAA236FB49900F522B9 /* CaptionAnimation.swift */,
 			);
 			path = rendering;
 			sourceTree = "<group>";
@@ -298,7 +295,6 @@
 				FCB27DE1236FB49900F522B9 /* wordStyle.swift in Sources */,
 				FCB27DDA236FB49900F522B9 /* backgroundStyle.swift in Sources */,
 				FCB27DD7236FB49900F522B9 /* CaptionPresetLinePositions.swift in Sources */,
-				FCB27DDE236FB49900F522B9 /* CaptionAnimation.swift in Sources */,
 				FCB27DEF236FB49900F522B9 /* CaptionSizingUtil.swift in Sources */,
 				FCB27E19236FB6D100F522B9 /* CenteredTextLayer.swift in Sources */,
 				FCB27DDF236FB49900F522B9 /* lineStyle.swift in Sources */,
