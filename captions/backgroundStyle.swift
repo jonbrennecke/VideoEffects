@@ -37,7 +37,7 @@ func renderCapionBackground(
 }
 
 func renderGradientBackgroundStyle(
-  captionStyle: CaptionStyle,
+  captionStyle _: CaptionStyle,
   backgroundColor: UIColor,
   backgroundHeight: Float,
   layer: CALayer
@@ -70,7 +70,7 @@ fileprivate func createGradientLayer(color: UIColor) -> CAGradientLayer {
 }
 
 func renderSolidBackgroundStyle(
-  captionStyle: CaptionStyle,
+  captionStyle _: CaptionStyle,
   backgroundColor: UIColor,
   layer: CALayer,
   timestampOfFirstSegment: CFTimeInterval

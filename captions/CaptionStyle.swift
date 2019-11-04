@@ -5,12 +5,12 @@ public struct CaptionStyle {
   let lineStyle: LineStyle
   let backgroundStyle: BackgroundStyle
   let textStyle: TextStyle
-  
+
   public enum WordStyle {
     case animated
     case none
   }
-  
+
   public enum LineStyle {
     case fadeInOut(numberOfLines: Int, padding: Padding)
     case translateUp
