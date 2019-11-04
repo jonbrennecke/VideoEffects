@@ -23,16 +23,16 @@ public func renderCaptions(
     style: style,
     numberOfRows: rowKeys.count
   )
-  renderLineStyle(
+  renderCaptionLines(
     style: style,
     layer: layer,
     duration: duration,
     rowSize: rowSize,
-    numberOfRows: rowKeys.count,
+    numberOfLines: rowKeys.count,
     stringSegmentRows: stringSegmentRows,
     map: map
   )
-  renderBackgroundStyle(
+  renderCapionBackground(
     captionStyle: style,
     layer: layer,
     backgroundHeight: backgroundHeight,

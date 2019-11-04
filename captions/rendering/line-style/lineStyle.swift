@@ -2,12 +2,12 @@ import AVFoundation
 
 fileprivate let ANIM_IN_OUT_DURATION = CFTimeInterval(0.5)
 
-func renderLineStyle(
+func renderCaptionLines(
   style: CaptionStyle,
   layer: CALayer,
   duration: CFTimeInterval,
   rowSize: CGSize,
-  numberOfRows: Int,
+  numberOfLines: Int,
   stringSegmentRows: [CaptionStringSegmentRow],
   map: CaptionStringsMap
 ) {
@@ -30,7 +30,7 @@ func renderLineStyle(
   case .fadeInOut:
     let groupedSegments = makeGroupedCaptionStringSegmentRows(
       rows: stringSegmentRows,
-      numberOfRowsToDisplay: numberOfRows
+      numberOfRowsToDisplay: numberOfLines
     )
     for timedRows in groupedSegments {
       for (index, stringSegments) in timedRows.data.enumerated() {

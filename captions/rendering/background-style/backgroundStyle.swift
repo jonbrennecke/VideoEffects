@@ -1,6 +1,6 @@
 import AVFoundation
 
-func renderBackgroundStyle(
+func renderCapionBackground(
   captionStyle: CaptionStyle,
   layer: CALayer,
   backgroundHeight: Float,
