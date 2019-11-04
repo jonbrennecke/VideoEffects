@@ -30,10 +30,10 @@ class ViewController: UIViewController {
         wordStyle: .animated,
         lineStyle: .translateUp,
         textAlignment: .center,
-        backgroundStyle: .textBoundingBox,
+        backgroundStyle: .none,
         backgroundColor: .white,
         font: UIFont.systemFont(ofSize: 27),
-        textColor: .black
+        textColor: .white
       ),
       textSegments: textSegments,
       duration: CFTimeInterval(textSegments.count) * 0.5,

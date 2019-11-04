@@ -27,6 +27,8 @@ func renderBackgroundStyle(
       map: map,
       getSizeOfRow: getSizeOfRow
     )
+  case .none:
+    return
   }
 }
 

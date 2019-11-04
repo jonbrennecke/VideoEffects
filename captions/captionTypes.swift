@@ -56,6 +56,7 @@ public enum CaptionTextAlignment {
 }
 
 public enum CaptionBackgroundStyle {
+  case none
   case solid
   case gradient
   case textBoundingBox
