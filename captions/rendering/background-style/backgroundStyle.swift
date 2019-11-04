@@ -1,12 +1,5 @@
 import AVFoundation
 
-@objc
-enum CaptionBackgroundStyle: Int {
-  case solid
-  case gradient
-  case textBoundingBox
-}
-
 typealias BackgroundStyleRenderFunction = (
   _ layer: CALayer,
   _ captionStyle: CaptionStyle,

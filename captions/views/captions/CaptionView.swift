@@ -1,6 +1,6 @@
 import UIKit
 
-class CaptionView: UIView {
+public class CaptionView: UIView {
   internal var state: PlaybackControllerState = .paused
 
   private var style = CaptionStyle(
@@ -17,7 +17,6 @@ class CaptionView: UIView {
     }
   }
 
-  @objc
   public var textAlignment: CaptionTextAlignment {
     get {
       return style.textAlignment
@@ -35,7 +34,6 @@ class CaptionView: UIView {
     }
   }
 
-  @objc
   public var lineStyle: CaptionLineStyle {
     get {
       return style.lineStyle
@@ -53,7 +51,6 @@ class CaptionView: UIView {
     }
   }
 
-  @objc
   public var wordStyle: CaptionWordStyle {
     get {
       return style.wordStyle
@@ -71,7 +68,6 @@ class CaptionView: UIView {
     }
   }
 
-  @objc
   public var backgroundStyle: CaptionBackgroundStyle {
     get {
       return style.backgroundStyle
@@ -89,7 +85,6 @@ class CaptionView: UIView {
     }
   }
 
-  @objc
   public var captionBackgroundColor: UIColor {
     get {
       return style.backgroundColor
@@ -107,7 +102,6 @@ class CaptionView: UIView {
     }
   }
 
-  @objc
   public var textColor: UIColor {
     get {
       return style.textColor
@@ -125,14 +119,12 @@ class CaptionView: UIView {
     }
   }
 
-  @objc
   public var duration = CFTimeInterval(0) {
     didSet {
       render()
     }
   }
 
-  @objc
   public var fontSize: CGFloat {
     get {
       return style.font.pointSize
@@ -150,7 +142,6 @@ class CaptionView: UIView {
     }
   }
 
-  @objc
   public var fontFamily: String {
     get {
       return style.font.familyName
@@ -168,14 +159,12 @@ class CaptionView: UIView {
     }
   }
 
-  @objc
   public var textSegments = [CaptionTextSegment]() {
     didSet {
       render()
     }
   }
 
-  @objc
   public var backgroundHeight = Float(0) {
     didSet {
       render()
@@ -213,12 +202,12 @@ class CaptionView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
 
-  override func didMoveToSuperview() {
+  public override func didMoveToSuperview() {
     super.didMoveToSuperview()
     render()
   }
 
-  override func layoutSubviews() {
+  public override func layoutSubviews() {
     super.layoutSubviews()
     layer.frame = bounds
     render()

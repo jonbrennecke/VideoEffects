@@ -2,12 +2,6 @@ import AVFoundation
 
 fileprivate let ANIM_IN_OUT_DURATION = CFTimeInterval(0.5)
 
-@objc
-enum CaptionLineStyle: Int {
-  case fadeInOut
-  case translateY
-}
-
 func renderLineStyle(
   style: CaptionStyle,
   layer: CALayer,

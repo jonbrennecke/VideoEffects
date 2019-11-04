@@ -2,7 +2,7 @@ import AVFoundation
 
 fileprivate let BAR_SPACE_HEIGHT_FACTOR = CGFloat(1.25)
 
-func renderCaptions(
+public func renderCaptions(
   layer: CALayer,
   style: CaptionStyle,
   textSegments: [CaptionTextSegment],

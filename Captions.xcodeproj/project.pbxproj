@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FCB27DD4236FB49900F522B9 /* CaptionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27D9E236FB49900F522B9 /* CaptionStyle.swift */; };
+		FCB27DD4236FB49900F522B9 /* captionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27D9E236FB49900F522B9 /* captionTypes.swift */; };
 		FCB27DD5236FB49900F522B9 /* CaptionStringsMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27D9F236FB49900F522B9 /* CaptionStringsMap.swift */; };
-		FCB27DD6236FB49900F522B9 /* CaptionTextSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DA0236FB49900F522B9 /* CaptionTextSegment.swift */; };
 		FCB27DD7236FB49900F522B9 /* CaptionPresetLinePositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DA1236FB49900F522B9 /* CaptionPresetLinePositions.swift */; };
 		FCB27DD8236FB49900F522B9 /* renderCaptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DA3236FB49900F522B9 /* renderCaptions.swift */; };
 		FCB27DD9236FB49900F522B9 /* gradientBackgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DA5236FB49900F522B9 /* gradientBackgroundStyle.swift */; };
@@ -19,17 +18,10 @@
 		FCB27DDD236FB49900F522B9 /* CaptionRowKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DA9236FB49900F522B9 /* CaptionRowKey.swift */; };
 		FCB27DDE236FB49900F522B9 /* CaptionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DAA236FB49900F522B9 /* CaptionAnimation.swift */; };
 		FCB27DDF236FB49900F522B9 /* lineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DAC236FB49900F522B9 /* lineStyle.swift */; };
-		FCB27DE0236FB49900F522B9 /* CaptionTextAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DAD236FB49900F522B9 /* CaptionTextAlignment.swift */; };
 		FCB27DE1236FB49900F522B9 /* wordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DAF236FB49900F522B9 /* wordStyle.swift */; };
 		FCB27DE2236FB49900F522B9 /* noWordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB0236FB49900F522B9 /* noWordStyle.swift */; };
 		FCB27DE3236FB49900F522B9 /* animatedWordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB1236FB49900F522B9 /* animatedWordStyle.swift */; };
-		FCB27DE4236FB49900F522B9 /* VideoExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB3236FB49900F522B9 /* VideoExportManager.swift */; };
-		FCB27DE5236FB49900F522B9 /* CaptionAnimationExportSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB4236FB49900F522B9 /* CaptionAnimationExportSession.swift */; };
-		FCB27DE6236FB49900F522B9 /* VideoExportTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB5236FB49900F522B9 /* VideoExportTask.swift */; };
-		FCB27DE7236FB49900F522B9 /* VideoAnimationComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB6236FB49900F522B9 /* VideoAnimationComposition.swift */; };
-		FCB27DEE236FB49900F522B9 /* VideoAnimationLayerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DC4236FB49900F522B9 /* VideoAnimationLayerLayout.swift */; };
 		FCB27DEF236FB49900F522B9 /* CaptionSizingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DC5236FB49900F522B9 /* CaptionSizingUtil.swift */; };
-		FCB27DF0236FB49900F522B9 /* VideoDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DC6236FB49900F522B9 /* VideoDimensions.swift */; };
 		FCB27DF1236FB49900F522B9 /* PlaybackControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DC8236FB49900F522B9 /* PlaybackControllerState.swift */; };
 		FCB27DF2236FB49900F522B9 /* CaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DCB236FB49900F522B9 /* CaptionView.swift */; };
 		FCB27DF4236FB49900F522B9 /* CaptionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DCD236FB49900F522B9 /* CaptionLayer.swift */; };
@@ -47,7 +39,18 @@
 		FCB27E17236FB66200F522B9 /* clamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E16236FB66200F522B9 /* clamp.swift */; };
 		FCB27E19236FB6D100F522B9 /* CenteredTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E18236FB6D100F522B9 /* CenteredTextLayer.swift */; };
 		FCB27E7C236FB74000F522B9 /* PhotosAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E7B236FB74000F522B9 /* PhotosAlbumUtil.swift */; };
+		FCB27E7E236FC2AE00F522B9 /* libCaptions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB27D94236FB40500F522B9 /* libCaptions.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCB27E7F236FC2AE00F522B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCB27D8C236FB40500F522B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCB27D93236FB40500F522B9;
+			remoteInfo = Captions;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		FCB27D92236FB40500F522B9 /* CopyFiles */ = {
@@ -63,9 +66,8 @@
 
 /* Begin PBXFileReference section */
 		FCB27D94236FB40500F522B9 /* libCaptions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCaptions.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCB27D9E236FB49900F522B9 /* CaptionStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionStyle.swift; sourceTree = "<group>"; };
-		FCB27D9F236FB49900F522B9 /* CaptionStringsMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionStringsMap.swift; sourceTree = "<group>"; };
-		FCB27DA0236FB49900F522B9 /* CaptionTextSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionTextSegment.swift; sourceTree = "<group>"; };
+		FCB27D9E236FB49900F522B9 /* captionTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = captionTypes.swift; sourceTree = "<group>"; tabWidth = 2; };
+		FCB27D9F236FB49900F522B9 /* CaptionStringsMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CaptionStringsMap.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27DA1236FB49900F522B9 /* CaptionPresetLinePositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionPresetLinePositions.swift; sourceTree = "<group>"; };
 		FCB27DA3236FB49900F522B9 /* renderCaptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = renderCaptions.swift; sourceTree = "<group>"; };
 		FCB27DA5236FB49900F522B9 /* gradientBackgroundStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gradientBackgroundStyle.swift; sourceTree = "<group>"; };
@@ -73,29 +75,22 @@
 		FCB27DA7236FB49900F522B9 /* textBoundingBoxBackgroundStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textBoundingBoxBackgroundStyle.swift; sourceTree = "<group>"; };
 		FCB27DA8236FB49900F522B9 /* solidBackgroundStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = solidBackgroundStyle.swift; sourceTree = "<group>"; };
 		FCB27DA9236FB49900F522B9 /* CaptionRowKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionRowKey.swift; sourceTree = "<group>"; };
-		FCB27DAA236FB49900F522B9 /* CaptionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionAnimation.swift; sourceTree = "<group>"; };
+		FCB27DAA236FB49900F522B9 /* CaptionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CaptionAnimation.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27DAC236FB49900F522B9 /* lineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineStyle.swift; sourceTree = "<group>"; };
-		FCB27DAD236FB49900F522B9 /* CaptionTextAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionTextAlignment.swift; sourceTree = "<group>"; };
 		FCB27DAF236FB49900F522B9 /* wordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wordStyle.swift; sourceTree = "<group>"; };
 		FCB27DB0236FB49900F522B9 /* noWordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noWordStyle.swift; sourceTree = "<group>"; };
 		FCB27DB1236FB49900F522B9 /* animatedWordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animatedWordStyle.swift; sourceTree = "<group>"; };
-		FCB27DB3236FB49900F522B9 /* VideoExportManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoExportManager.swift; sourceTree = "<group>"; };
-		FCB27DB4236FB49900F522B9 /* CaptionAnimationExportSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionAnimationExportSession.swift; sourceTree = "<group>"; };
-		FCB27DB5236FB49900F522B9 /* VideoExportTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoExportTask.swift; sourceTree = "<group>"; };
-		FCB27DB6236FB49900F522B9 /* VideoAnimationComposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAnimationComposition.swift; sourceTree = "<group>"; };
-		FCB27DC4236FB49900F522B9 /* VideoAnimationLayerLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAnimationLayerLayout.swift; sourceTree = "<group>"; };
 		FCB27DC5236FB49900F522B9 /* CaptionSizingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionSizingUtil.swift; sourceTree = "<group>"; };
-		FCB27DC6236FB49900F522B9 /* VideoDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDimensions.swift; sourceTree = "<group>"; };
 		FCB27DC8236FB49900F522B9 /* PlaybackControllerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackControllerState.swift; sourceTree = "<group>"; };
 		FCB27DCB236FB49900F522B9 /* CaptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionView.swift; sourceTree = "<group>"; };
 		FCB27DCD236FB49900F522B9 /* CaptionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionLayer.swift; sourceTree = "<group>"; };
 		FCB27DCE236FB49900F522B9 /* PlaybackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackController.swift; sourceTree = "<group>"; };
 		FCB27DD0236FB49900F522B9 /* CaptionPresetLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionPresetLayer.swift; sourceTree = "<group>"; };
-		FCB27DD2236FB49900F522B9 /* CaptionPresetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionPresetView.swift; sourceTree = "<group>"; };
+		FCB27DD2236FB49900F522B9 /* CaptionPresetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CaptionPresetView.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27DFD236FB4CE00F522B9 /* Captions-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Captions-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB27E01236FB4CE00F522B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FCB27E03236FB4CE00F522B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FCB27E03236FB4CE00F522B9 /* ViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27E06236FB4CE00F522B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCB27E08236FB4D000F522B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCB27E0B236FB4D000F522B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -119,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB27E7E236FC2AE00F522B9 /* libCaptions.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +127,7 @@
 				FCB27D96236FB40500F522B9 /* captions */,
 				FCB27DFE236FB4CE00F522B9 /* captions-example */,
 				FCB27D95236FB40500F522B9 /* Products */,
+				FCB27E7D236FC2AE00F522B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,15 +143,11 @@
 		FCB27D96236FB40500F522B9 /* captions */ = {
 			isa = PBXGroup;
 			children = (
+				FCB27D9E236FB49900F522B9 /* captionTypes.swift */,
 				FCB27DA1236FB49900F522B9 /* CaptionPresetLinePositions.swift */,
 				FCB27DC5236FB49900F522B9 /* CaptionSizingUtil.swift */,
 				FCB27D9F236FB49900F522B9 /* CaptionStringsMap.swift */,
-				FCB27D9E236FB49900F522B9 /* CaptionStyle.swift */,
-				FCB27DA0236FB49900F522B9 /* CaptionTextSegment.swift */,
-				FCB27DB2236FB49900F522B9 /* export */,
 				FCB27DA2236FB49900F522B9 /* rendering */,
-				FCB27DC4236FB49900F522B9 /* VideoAnimationLayerLayout.swift */,
-				FCB27DC6236FB49900F522B9 /* VideoDimensions.swift */,
 				FCB27DC7236FB49900F522B9 /* views */,
 				FCB27E13236FB59800F522B9 /* utils */,
 				FCB27E18236FB6D100F522B9 /* CenteredTextLayer.swift */,
@@ -165,13 +158,12 @@
 		FCB27DA2236FB49900F522B9 /* rendering */ = {
 			isa = PBXGroup;
 			children = (
-				FCB27DA3236FB49900F522B9 /* renderCaptions.swift */,
+				FCB27DAE236FB49900F522B9 /* word-style */,
+				FCB27DAB236FB49900F522B9 /* line-style */,
 				FCB27DA4236FB49900F522B9 /* background-style */,
+				FCB27DA3236FB49900F522B9 /* renderCaptions.swift */,
 				FCB27DA9236FB49900F522B9 /* CaptionRowKey.swift */,
 				FCB27DAA236FB49900F522B9 /* CaptionAnimation.swift */,
-				FCB27DAB236FB49900F522B9 /* line-style */,
-				FCB27DAD236FB49900F522B9 /* CaptionTextAlignment.swift */,
-				FCB27DAE236FB49900F522B9 /* word-style */,
 			);
 			path = rendering;
 			sourceTree = "<group>";
@@ -203,17 +195,6 @@
 				FCB27DB1236FB49900F522B9 /* animatedWordStyle.swift */,
 			);
 			path = "word-style";
-			sourceTree = "<group>";
-		};
-		FCB27DB2236FB49900F522B9 /* export */ = {
-			isa = PBXGroup;
-			children = (
-				FCB27DB3236FB49900F522B9 /* VideoExportManager.swift */,
-				FCB27DB4236FB49900F522B9 /* CaptionAnimationExportSession.swift */,
-				FCB27DB5236FB49900F522B9 /* VideoExportTask.swift */,
-				FCB27DB6236FB49900F522B9 /* VideoAnimationComposition.swift */,
-			);
-			path = export;
 			sourceTree = "<group>";
 		};
 		FCB27DC7236FB49900F522B9 /* views */ = {
@@ -270,6 +251,13 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		FCB27E7D236FC2AE00F522B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,6 +289,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FCB27E80236FC2AE00F522B9 /* PBXTargetDependency */,
 			);
 			name = "Captions-example";
 			productName = "captions-example";
@@ -362,15 +351,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCB27DD4236FB49900F522B9 /* CaptionStyle.swift in Sources */,
+				FCB27DD4236FB49900F522B9 /* captionTypes.swift in Sources */,
 				FCB27DF5236FB49900F522B9 /* PlaybackController.swift in Sources */,
 				FCB27DE1236FB49900F522B9 /* wordStyle.swift in Sources */,
 				FCB27DDA236FB49900F522B9 /* backgroundStyle.swift in Sources */,
-				FCB27DE4236FB49900F522B9 /* VideoExportManager.swift in Sources */,
 				FCB27E7C236FB74000F522B9 /* PhotosAlbumUtil.swift in Sources */,
 				FCB27DD7236FB49900F522B9 /* CaptionPresetLinePositions.swift in Sources */,
 				FCB27DDE236FB49900F522B9 /* CaptionAnimation.swift in Sources */,
-				FCB27DEE236FB49900F522B9 /* VideoAnimationLayerLayout.swift in Sources */,
 				FCB27DEF236FB49900F522B9 /* CaptionSizingUtil.swift in Sources */,
 				FCB27DF4236FB49900F522B9 /* CaptionLayer.swift in Sources */,
 				FCB27E12236FB58B00F522B9 /* OrientationUtil.swift in Sources */,
@@ -380,18 +367,12 @@
 				FCB27DDF236FB49900F522B9 /* lineStyle.swift in Sources */,
 				FCB27DE2236FB49900F522B9 /* noWordStyle.swift in Sources */,
 				FCB27DD9236FB49900F522B9 /* gradientBackgroundStyle.swift in Sources */,
-				FCB27DD6236FB49900F522B9 /* CaptionTextSegment.swift in Sources */,
 				FCB27DDC236FB49900F522B9 /* solidBackgroundStyle.swift in Sources */,
 				FCB27DF7236FB49900F522B9 /* CaptionPresetView.swift in Sources */,
-				FCB27DF0236FB49900F522B9 /* VideoDimensions.swift in Sources */,
-				FCB27DE0236FB49900F522B9 /* CaptionTextAlignment.swift in Sources */,
 				FCB27DF2236FB49900F522B9 /* CaptionView.swift in Sources */,
 				FCB27E15236FB5E200F522B9 /* AnimationUtil.swift in Sources */,
-				FCB27DE7236FB49900F522B9 /* VideoAnimationComposition.swift in Sources */,
 				FCB27DD8236FB49900F522B9 /* renderCaptions.swift in Sources */,
-				FCB27DE5236FB49900F522B9 /* CaptionAnimationExportSession.swift in Sources */,
 				FCB27DD5236FB49900F522B9 /* CaptionStringsMap.swift in Sources */,
-				FCB27DE6236FB49900F522B9 /* VideoExportTask.swift in Sources */,
 				FCB27E17236FB66200F522B9 /* clamp.swift in Sources */,
 				FCB27DDD236FB49900F522B9 /* CaptionRowKey.swift in Sources */,
 				FCB27DDB236FB49900F522B9 /* textBoundingBoxBackgroundStyle.swift in Sources */,
@@ -410,6 +391,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCB27E80236FC2AE00F522B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCB27D93236FB40500F522B9 /* Captions */;
+			targetProxy = FCB27E7F236FC2AE00F522B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FCB27E05236FB4CE00F522B9 /* Main.storyboard */ = {

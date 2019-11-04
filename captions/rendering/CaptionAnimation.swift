@@ -62,6 +62,9 @@ func build(animations: [CaptionAnimation], withMap map: CaptionStringsMap) -> [C
     guard let lines = map.segmentsByRow[animation.key] else {
       return []
     }
+    if animation.index >= lines.count {
+      return []
+    }
     let line = lines[animation.index]
     guard let timedLine = Timed.from(array: line) else {
       return []

@@ -1,11 +1,5 @@
 import AVFoundation
 
-@objc
-enum CaptionWordStyle: Int {
-  case animated
-  case none
-}
-
 func makeWordStyleLayer(
   within bounds: CGRect,
   rowKey: CaptionRowKey,
