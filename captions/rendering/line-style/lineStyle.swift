@@ -8,8 +8,7 @@ func renderCaptionLines(
   duration: CFTimeInterval,
   rowSize: CGSize,
   numberOfLines: Int,
-  stringSegmentLines: [CaptionStringSegmentLine],
-  map: CaptionStringsMap
+  stringSegmentLines: [CaptionStringSegmentLine]
 ) {
   switch style.lineStyle {
   case .translateUp:
@@ -21,8 +20,7 @@ func renderCaptionLines(
         style: style,
         duration: duration,
         timedStringSegmentRows: timedStringSegmentLines,
-        index: index,
-        map: map
+        index: index
       ) {
         layer.addSublayer(lineStyleLayer)
       }
@@ -43,7 +41,6 @@ func renderCaptionLines(
           duration: duration,
           rowKey: rowKey,
           stringSegments: stringSegments,
-          map: map,
           timedLines: timedLines
         )
         layer.addSublayer(lineStyleLayer)
@@ -59,7 +56,6 @@ func makeFadeInOutLineStyleLayer(
   duration: CFTimeInterval,
   rowKey: CaptionRowKey,
   stringSegments: [CaptionStringSegment],
-  map: CaptionStringsMap,
   timedLines: Timed<Array<CaptionStringSegmentLine>>
 ) -> CALayer {
   let lineStyleLayer = CALayer()
@@ -70,10 +66,8 @@ func makeFadeInOutLineStyleLayer(
   lineStyleLayer.position = position
   let wordStyleLayer = makeWordStyleLayer(
     within: lineStyleLayer.frame,
-    rowKey: rowKey,
     stringSegments: stringSegments,
     style: style,
-    map: map,
     duration: duration
   )
   wordStyleLayer.opacity = 0
@@ -100,22 +94,18 @@ func makeTranslateUpLineStyleLayer(
   style: CaptionStyle,
   duration: CFTimeInterval,
   timedStringSegmentRows: Array<Timed<Array<CaptionStringSegment>>>,
-  index: Int,
-  map: CaptionStringsMap
+  index: Int
 ) -> CALayer? {
   if index >= timedStringSegmentRows.count {
     return nil
   }
   let timedStringSegments = timedStringSegmentRows[index]
-  let rowKey = CaptionRowKey.from(index: index)
   let lineStyleLayer = CALayer()
   lineStyleLayer.frame = CGRect(origin: .zero, size: parentSize)
   let wordStyleLayer = makeWordStyleLayer(
     within: lineStyleLayer.frame,
-    rowKey: rowKey,
     stringSegments: timedStringSegments.data,
     style: style,
-    map: map,
     duration: duration
   )
   let positions = CaptionPresetLinePositions(for: rowSize, in: lineStyleLayer.frame.size)

@@ -29,8 +29,7 @@ public func renderCaptions(
     duration: duration,
     rowSize: rowSize,
     numberOfLines: rowKeys.count,
-    stringSegmentLines: stringSegmentLines,
-    map: map
+    stringSegmentLines: stringSegmentLines
   )
   renderCapionBackground(
     captionStyle: style,

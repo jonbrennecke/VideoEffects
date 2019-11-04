@@ -5,9 +5,7 @@ fileprivate let ANIM_FADE_IN_OUT_DURATION = CFTimeInterval(0.25)
 
 func makeAnimatedWordStyleLayer(
   within bounds: CGRect,
-  key: CaptionRowKey,
   segments: [CaptionStringSegment],
-  map: CaptionStringsMap,
   style: CaptionStyle,
   duration: CFTimeInterval
 ) -> CALayer {

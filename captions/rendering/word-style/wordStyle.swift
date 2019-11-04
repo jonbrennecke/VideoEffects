@@ -2,19 +2,15 @@ import AVFoundation
 
 func makeWordStyleLayer(
   within bounds: CGRect,
-  rowKey: CaptionRowKey,
   stringSegments: [CaptionStringSegment],
   style: CaptionStyle,
-  map: CaptionStringsMap,
   duration: CFTimeInterval
 ) -> CALayer {
   switch style.wordStyle {
   case .animated:
     return makeAnimatedWordStyleLayer(
       within: bounds,
-      key: rowKey,
       segments: stringSegments,
-      map: map,
       style: style,
       duration: duration
     )
