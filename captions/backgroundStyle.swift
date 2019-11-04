@@ -1,29 +1,32 @@
 import AVFoundation
+import UIKit
 
 func renderCapionBackground(
   captionStyle: CaptionStyle,
   layer: CALayer,
-  backgroundHeight: Float,
   linesByRowKey: [CaptionRowKey: Array<CaptionStringSegmentLine>],
   timestampOfFirstSegment: CFTimeInterval,
   getSizeOfRow: @escaping (CaptionRowKey) -> CGSize
 ) {
   switch captionStyle.backgroundStyle {
-  case .gradient:
+  case let .gradient(backgroundColor, backgroundHeight):
     return renderGradientBackgroundStyle(
       captionStyle: captionStyle,
-      layer: layer,
-      backgroundHeight: backgroundHeight
+      backgroundColor: backgroundColor,
+      backgroundHeight: backgroundHeight,
+      layer: layer
     )
-  case .solid:
+  case let .solid(backgroundColor):
     return renderSolidBackgroundStyle(
       captionStyle: captionStyle,
+      backgroundColor: backgroundColor,
       layer: layer,
       timestampOfFirstSegment: timestampOfFirstSegment
     )
-  case .textBoundingBox:
+  case let .textBoundingBox(backgroundColor):
     return renderTextBoundingBoxBackgroundStyle(
       captionStyle: captionStyle,
+      backgroundColor: backgroundColor,
       layer: layer,
       linesByRowKey: linesByRowKey,
       getSizeOfRow: getSizeOfRow
@@ -33,33 +36,17 @@ func renderCapionBackground(
   }
 }
 
-func renderSolidBackgroundStyle(
-  captionStyle: CaptionStyle,
-  layer: CALayer,
-  timestampOfFirstSegment: CFTimeInterval
-) {
-  let backgroundLayer = CALayer()
-  backgroundLayer.frame = layer.bounds
-  backgroundLayer.opacity = 0
-  backgroundLayer.backgroundColor = captionStyle.backgroundColor.withAlphaComponent(0.9).cgColor
-  backgroundLayer.masksToBounds = true
-  layer.insertSublayer(backgroundLayer, at: 0)
-  let animation = AnimationUtil.fadeIn(at: timestampOfFirstSegment - 0.25)
-  backgroundLayer.add(animation, forKey: nil)
-}
-
-import UIKit
-
 func renderGradientBackgroundStyle(
   captionStyle: CaptionStyle,
-  layer: CALayer,
-  backgroundHeight: Float
+  backgroundColor: UIColor,
+  backgroundHeight: Float,
+  layer: CALayer
 ) {
   let beginTime = CFTimeInterval(0)
   let backgroundLayer = CALayer()
   backgroundLayer.frame = layer.bounds
   backgroundLayer.masksToBounds = false
-  let gradientLayer = createGradientLayer(color: captionStyle.backgroundColor)
+  let gradientLayer = createGradientLayer(color: backgroundColor)
   gradientLayer.frame = CGRect(
     origin: .zero,
     size: CGSize(width: layer.bounds.width, height: CGFloat(backgroundHeight))
@@ -82,6 +69,22 @@ fileprivate func createGradientLayer(color: UIColor) -> CAGradientLayer {
   return gradientLayer
 }
 
+func renderSolidBackgroundStyle(
+  captionStyle: CaptionStyle,
+  backgroundColor: UIColor,
+  layer: CALayer,
+  timestampOfFirstSegment: CFTimeInterval
+) {
+  let backgroundLayer = CALayer()
+  backgroundLayer.frame = layer.bounds
+  backgroundLayer.opacity = 0
+  backgroundLayer.backgroundColor = backgroundColor.withAlphaComponent(0.9).cgColor
+  backgroundLayer.masksToBounds = true
+  layer.insertSublayer(backgroundLayer, at: 0)
+  let animation = AnimationUtil.fadeIn(at: timestampOfFirstSegment - 0.25)
+  backgroundLayer.add(animation, forKey: nil)
+}
+
 fileprivate struct Padding {
   let vertical: Float
   let horizontal: Float
@@ -91,13 +94,14 @@ fileprivate let padding = Padding(vertical: 0.75, horizontal: 0.75)
 
 func renderTextBoundingBoxBackgroundStyle(
   captionStyle: CaptionStyle,
+  backgroundColor: UIColor,
   layer: CALayer,
   linesByRowKey: [CaptionRowKey: Array<CaptionStringSegmentLine>],
   getSizeOfRow: @escaping (CaptionRowKey) -> CGSize
 ) {
   let attributes = stringAttributes(for: captionStyle)
   let backgroundLayer = CALayer()
-  backgroundLayer.backgroundColor = captionStyle.backgroundColor.cgColor
+  backgroundLayer.backgroundColor = backgroundColor.cgColor
   let rowBoundingRects = linesByRowKey.flatMap({ key, rowSegments -> [CGRect] in
     let rowSize = getSizeOfRow(key)
     return rowSegments.map {

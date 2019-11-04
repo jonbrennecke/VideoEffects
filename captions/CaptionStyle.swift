@@ -4,7 +4,6 @@ public struct CaptionStyle {
   let wordStyle: WordStyle
   let lineStyle: LineStyle
   let backgroundStyle: BackgroundStyle
-  let backgroundColor: UIColor
   let textStyle: TextStyle
   
   public enum WordStyle {
@@ -27,9 +26,9 @@ public struct CaptionStyle {
 
   public enum BackgroundStyle {
     case none
-    case solid
-    case gradient
-    case textBoundingBox
+    case solid(backgroundColor: UIColor)
+    case gradient(backgroundColor: UIColor, backgroundHeight: Float)
+    case textBoundingBox(backgroundColor: UIColor)
   }
 
   public struct TextStyle {
@@ -77,13 +76,11 @@ public struct CaptionStyle {
     wordStyle: CaptionStyle.WordStyle,
     lineStyle: CaptionStyle.LineStyle,
     backgroundStyle: CaptionStyle.BackgroundStyle,
-    backgroundColor: UIColor,
     textStyle: TextStyle
   ) {
     self.wordStyle = wordStyle
     self.lineStyle = lineStyle
     self.backgroundStyle = backgroundStyle
-    self.backgroundColor = backgroundColor
     self.textStyle = textStyle
   }
 }

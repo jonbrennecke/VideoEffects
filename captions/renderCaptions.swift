@@ -4,8 +4,7 @@ public func renderCaptions(
   layer: CALayer,
   style: CaptionStyle,
   textSegments: [CaptionTextSegment],
-  duration: CFTimeInterval,
-  backgroundHeight: Float
+  duration: CFTimeInterval
 ) {
   let rowKeys: [CaptionRowKey] = [.a, .b]
   let rowSize = CGSize(width: layer.frame.width, height: style.textStyle.font.lineHeight)
@@ -31,7 +30,6 @@ public func renderCaptions(
   renderCapionBackground(
     captionStyle: style,
     layer: layer,
-    backgroundHeight: backgroundHeight,
     linesByRowKey: linesByRowKey,
     timestampOfFirstSegment: stringSegmentLines.first?.first?.timestamp ?? 0,
     getSizeOfRow: { (_: CaptionRowKey) -> CGSize in

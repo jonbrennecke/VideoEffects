@@ -33,8 +33,7 @@ class ViewController: UIViewController {
           numberOfLines: 3,
           padding: CaptionStyle.LineStyle.Padding(vertical: 0.33)
         ),
-        backgroundStyle: .solid,
-        backgroundColor: .white,
+        backgroundStyle: .solid(backgroundColor: .white),
         textStyle: CaptionStyle.TextStyle(
           font: UIFont.systemFont(ofSize: 20),
           color: .red,
@@ -46,8 +45,7 @@ class ViewController: UIViewController {
         )
       ),
       textSegments: textSegments,
-      duration: CFTimeInterval(textSegments.count) * 0.5,
-      backgroundHeight: Float(captionViewHeight)
+      duration: CFTimeInterval(textSegments.count) * 0.5
     )
   }
 }
