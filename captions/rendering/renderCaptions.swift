@@ -17,11 +17,11 @@ public func renderCaptions(
     style: style,
     keys: rowKeys
   )
-  let stringSegmentRows = makeCaptionStringSegmentRows(
+  let stringSegmentLines = makeCaptionStringSegmentLines(
     textSegments: textSegments,
     size: rowSize,
     style: style,
-    numberOfRows: rowKeys.count
+    numberOfLines: rowKeys.count
   )
   renderCaptionLines(
     style: style,
@@ -29,7 +29,7 @@ public func renderCaptions(
     duration: duration,
     rowSize: rowSize,
     numberOfLines: rowKeys.count,
-    stringSegmentRows: stringSegmentRows,
+    stringSegmentLines: stringSegmentLines,
     map: map
   )
   renderCapionBackground(

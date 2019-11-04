@@ -28,7 +28,7 @@ class ViewController: UIViewController {
       layer: captionLayer,
       style: CaptionStyle(
         wordStyle: .animated,
-        lineStyle: .translateUp,
+        lineStyle: .fadeInOut(numberOfLines: 2),
         textAlignment: .center,
         backgroundStyle: .none,
         backgroundColor: .white,

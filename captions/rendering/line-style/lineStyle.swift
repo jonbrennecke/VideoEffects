@@ -8,19 +8,19 @@ func renderCaptionLines(
   duration: CFTimeInterval,
   rowSize: CGSize,
   numberOfLines: Int,
-  stringSegmentRows: [CaptionStringSegmentRow],
+  stringSegmentLines: [CaptionStringSegmentLine],
   map: CaptionStringsMap
 ) {
   switch style.lineStyle {
   case .translateUp:
-    let timedStringSegmentRows = stringSegmentRows.map({ Timed.from(array: $0) }).compactMap({ $0 })
-    for (index, _) in timedStringSegmentRows.enumerated() {
+    let timedStringSegmentLines = stringSegmentLines.map({ Timed.from(array: $0) }).compactMap({ $0 })
+    for (index, _) in timedStringSegmentLines.enumerated() {
       if let lineStyleLayer = makeTranslateUpLineStyleLayer(
         rowSize: rowSize,
         parentSize: layer.frame.size,
         style: style,
         duration: duration,
-        timedStringSegmentRows: timedStringSegmentRows,
+        timedStringSegmentRows: timedStringSegmentLines,
         index: index,
         map: map
       ) {
@@ -28,12 +28,12 @@ func renderCaptionLines(
       }
     }
   case .fadeInOut:
-    let groupedSegments = makeGroupedCaptionStringSegmentRows(
-      rows: stringSegmentRows,
-      numberOfRowsToDisplay: numberOfLines
+    let groupedSegments = makeGroupedCaptionStringSegmentLines(
+      lines: stringSegmentLines,
+      numberOfLinesToDisplay: numberOfLines
     )
-    for timedRows in groupedSegments {
-      for (index, stringSegments) in timedRows.data.enumerated() {
+    for timedLines in groupedSegments {
+      for (index, stringSegments) in timedLines.data.enumerated() {
         let rowKey = CaptionRowKey.from(index: index)
         let positions = CaptionPresetLinePositions(for: rowSize, in: layer.frame.size)
         let lineStyleLayer = makeFadeInOutLineStyleLayer(
@@ -44,7 +44,7 @@ func renderCaptionLines(
           rowKey: rowKey,
           stringSegments: stringSegments,
           map: map,
-          timedRows: timedRows
+          timedLines: timedLines
         )
         layer.addSublayer(lineStyleLayer)
       }
@@ -60,7 +60,7 @@ func makeFadeInOutLineStyleLayer(
   rowKey: CaptionRowKey,
   stringSegments: [CaptionStringSegment],
   map: CaptionStringsMap,
-  timedRows: Timed<Array<CaptionStringSegmentRow>>
+  timedLines: Timed<Array<CaptionStringSegmentLine>>
 ) -> CALayer {
   let lineStyleLayer = CALayer()
   lineStyleLayer.frame = bounds
@@ -81,8 +81,8 @@ func makeFadeInOutLineStyleLayer(
     let group = CAAnimationGroup()
     group.repeatCount = .greatestFiniteMagnitude
     group.animations = [
-      AnimationUtil.fadeIn(at: timedRows.timestamp, duration: ANIM_IN_OUT_DURATION),
-      AnimationUtil.fadeOut(at: clamp(timestamp: timedRows.endTimestamp), duration: ANIM_IN_OUT_DURATION),
+      AnimationUtil.fadeIn(at: timedLines.timestamp, duration: ANIM_IN_OUT_DURATION),
+      AnimationUtil.fadeOut(at: clamp(timestamp: timedLines.endTimestamp), duration: ANIM_IN_OUT_DURATION),
     ]
     group.duration = duration
     group.isRemovedOnCompletion = false

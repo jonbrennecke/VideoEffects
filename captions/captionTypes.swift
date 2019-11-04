@@ -1,6 +1,6 @@
 import UIKit
 
-public class CaptionStyle {
+public struct CaptionStyle {
   let wordStyle: CaptionWordStyle
   let lineStyle: CaptionLineStyle
   let textAlignment: CaptionTextAlignment
@@ -34,7 +34,7 @@ public enum CaptionWordStyle {
 }
 
 public enum CaptionLineStyle {
-  case fadeInOut
+  case fadeInOut(numberOfLines: Int = 2)
   case translateUp
 }
 

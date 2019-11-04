@@ -19,12 +19,6 @@
 		FCB27DE2236FB49900F522B9 /* noWordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB0236FB49900F522B9 /* noWordStyle.swift */; };
 		FCB27DE3236FB49900F522B9 /* animatedWordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DB1236FB49900F522B9 /* animatedWordStyle.swift */; };
 		FCB27DEF236FB49900F522B9 /* CaptionSizingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DC5236FB49900F522B9 /* CaptionSizingUtil.swift */; };
-		FCB27DF1236FB49900F522B9 /* PlaybackControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DC8236FB49900F522B9 /* PlaybackControllerState.swift */; };
-		FCB27DF2236FB49900F522B9 /* CaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DCB236FB49900F522B9 /* CaptionView.swift */; };
-		FCB27DF4236FB49900F522B9 /* CaptionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DCD236FB49900F522B9 /* CaptionLayer.swift */; };
-		FCB27DF5236FB49900F522B9 /* PlaybackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DCE236FB49900F522B9 /* PlaybackController.swift */; };
-		FCB27DF6236FB49900F522B9 /* CaptionPresetLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DD0236FB49900F522B9 /* CaptionPresetLayer.swift */; };
-		FCB27DF7236FB49900F522B9 /* CaptionPresetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DD2236FB49900F522B9 /* CaptionPresetView.swift */; };
 		FCB27E00236FB4CE00F522B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */; };
 		FCB27E02236FB4CE00F522B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E01236FB4CE00F522B9 /* SceneDelegate.swift */; };
 		FCB27E04236FB4CE00F522B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E03236FB4CE00F522B9 /* ViewController.swift */; };
@@ -73,12 +67,6 @@
 		FCB27DB0236FB49900F522B9 /* noWordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noWordStyle.swift; sourceTree = "<group>"; };
 		FCB27DB1236FB49900F522B9 /* animatedWordStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = animatedWordStyle.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27DC5236FB49900F522B9 /* CaptionSizingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionSizingUtil.swift; sourceTree = "<group>"; };
-		FCB27DC8236FB49900F522B9 /* PlaybackControllerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackControllerState.swift; sourceTree = "<group>"; };
-		FCB27DCB236FB49900F522B9 /* CaptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionView.swift; sourceTree = "<group>"; };
-		FCB27DCD236FB49900F522B9 /* CaptionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionLayer.swift; sourceTree = "<group>"; };
-		FCB27DCE236FB49900F522B9 /* PlaybackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackController.swift; sourceTree = "<group>"; };
-		FCB27DD0236FB49900F522B9 /* CaptionPresetLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionPresetLayer.swift; sourceTree = "<group>"; };
-		FCB27DD2236FB49900F522B9 /* CaptionPresetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CaptionPresetView.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27DFD236FB4CE00F522B9 /* Captions-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Captions-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB27E01236FB4CE00F522B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,7 +126,6 @@
 				FCB27DC5236FB49900F522B9 /* CaptionSizingUtil.swift */,
 				FCB27D9F236FB49900F522B9 /* CaptionStringsMap.swift */,
 				FCB27DA2236FB49900F522B9 /* rendering */,
-				FCB27DC7236FB49900F522B9 /* views */,
 				FCB27E13236FB59800F522B9 /* utils */,
 				FCB27E18236FB6D100F522B9 /* CenteredTextLayer.swift */,
 			);
@@ -182,35 +169,6 @@
 				FCB27DB1236FB49900F522B9 /* animatedWordStyle.swift */,
 			);
 			path = "word-style";
-			sourceTree = "<group>";
-		};
-		FCB27DC7236FB49900F522B9 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				FCB27DC8236FB49900F522B9 /* PlaybackControllerState.swift */,
-				FCB27DC9236FB49900F522B9 /* captions */,
-				FCB27DCE236FB49900F522B9 /* PlaybackController.swift */,
-				FCB27DCF236FB49900F522B9 /* presets */,
-			);
-			path = views;
-			sourceTree = "<group>";
-		};
-		FCB27DC9236FB49900F522B9 /* captions */ = {
-			isa = PBXGroup;
-			children = (
-				FCB27DCB236FB49900F522B9 /* CaptionView.swift */,
-				FCB27DCD236FB49900F522B9 /* CaptionLayer.swift */,
-			);
-			path = captions;
-			sourceTree = "<group>";
-		};
-		FCB27DCF236FB49900F522B9 /* presets */ = {
-			isa = PBXGroup;
-			children = (
-				FCB27DD0236FB49900F522B9 /* CaptionPresetLayer.swift */,
-				FCB27DD2236FB49900F522B9 /* CaptionPresetView.swift */,
-			);
-			path = presets;
 			sourceTree = "<group>";
 		};
 		FCB27DFE236FB4CE00F522B9 /* captions-example */ = {
@@ -337,20 +295,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCB27DD4236FB49900F522B9 /* captionTypes.swift in Sources */,
-				FCB27DF5236FB49900F522B9 /* PlaybackController.swift in Sources */,
 				FCB27DE1236FB49900F522B9 /* wordStyle.swift in Sources */,
 				FCB27DDA236FB49900F522B9 /* backgroundStyle.swift in Sources */,
 				FCB27DD7236FB49900F522B9 /* CaptionPresetLinePositions.swift in Sources */,
 				FCB27DDE236FB49900F522B9 /* CaptionAnimation.swift in Sources */,
 				FCB27DEF236FB49900F522B9 /* CaptionSizingUtil.swift in Sources */,
-				FCB27DF4236FB49900F522B9 /* CaptionLayer.swift in Sources */,
 				FCB27E19236FB6D100F522B9 /* CenteredTextLayer.swift in Sources */,
-				FCB27DF1236FB49900F522B9 /* PlaybackControllerState.swift in Sources */,
-				FCB27DF6236FB49900F522B9 /* CaptionPresetLayer.swift in Sources */,
 				FCB27DDF236FB49900F522B9 /* lineStyle.swift in Sources */,
 				FCB27DE2236FB49900F522B9 /* noWordStyle.swift in Sources */,
-				FCB27DF7236FB49900F522B9 /* CaptionPresetView.swift in Sources */,
-				FCB27DF2236FB49900F522B9 /* CaptionView.swift in Sources */,
 				FCB27E15236FB5E200F522B9 /* AnimationUtil.swift in Sources */,
 				FCB27DD8236FB49900F522B9 /* renderCaptions.swift in Sources */,
 				FCB27DD5236FB49900F522B9 /* CaptionStringsMap.swift in Sources */,

@@ -2,9 +2,9 @@ import AVFoundation
 
 typealias CaptionStringSegment = Timed<NSAttributedString>
 
-typealias CaptionStringSegmentRow = [CaptionStringSegment]
+typealias CaptionStringSegmentLine = Array<CaptionStringSegment>
 
-typealias GroupedCaptionStringSegmentRows = Array<Timed<Array<CaptionStringSegmentRow>>>
+typealias GroupedCaptionStringSegmentLines = Array<Timed<Array<CaptionStringSegmentLine>>>
 
 struct Timed<T> {
   let timestamp: CFTimeInterval
@@ -58,37 +58,37 @@ func stringAttributes(for style: CaptionStyle) -> [NSAttributedString.Key: Any] 
   ]
 }
 
-func makeGroupedCaptionStringSegmentRows(
-  rows: Array<CaptionStringSegmentRow>,
-  numberOfRowsToDisplay: Int
-) -> GroupedCaptionStringSegmentRows {
-  var groupedCaptionStringSegments = GroupedCaptionStringSegmentRows()
-  for i in stride(from: 0, to: rows.count, by: numberOfRowsToDisplay) {
-    var rowsAtIndex = Array<CaptionStringSegmentRow>()
-    for j in i ..< i + numberOfRowsToDisplay {
-      let row = rows[j]
-      rowsAtIndex.append(row)
+func makeGroupedCaptionStringSegmentLines(
+  lines: Array<CaptionStringSegmentLine>,
+  numberOfLinesToDisplay: Int
+) -> GroupedCaptionStringSegmentLines {
+  var groupedCaptionStringSegments = GroupedCaptionStringSegmentLines()
+  for i in stride(from: 0, to: lines.count, by: numberOfLinesToDisplay) {
+    var linesAtIndex = Array<CaptionStringSegmentLine>()
+    for j in i ..< i + numberOfLinesToDisplay {
+      let line = lines[j]
+      linesAtIndex.append(line)
     }
-    let flattenedRows = rowsAtIndex.flatMap({ $0 })
-    if let (timestamp, duration) = getTimestampAndTotalDuration(of: flattenedRows) {
-      let timed = Timed(timestamp: timestamp, duration: duration, data: rowsAtIndex)
+    let flattenedLines = linesAtIndex.flatMap({ $0 })
+    if let (timestamp, duration) = getTimestampAndTotalDuration(of: flattenedLines) {
+      let timed = Timed(timestamp: timestamp, duration: duration, data: linesAtIndex)
       groupedCaptionStringSegments.append(timed)
     }
   }
   return groupedCaptionStringSegments
 }
 
-func makeCaptionStringSegmentRows(
+func makeCaptionStringSegmentLines(
   textSegments: [CaptionTextSegment],
   size: CGSize,
   style: CaptionStyle,
-  numberOfRows: Int
-) -> Array<CaptionStringSegmentRow> {
+  numberOfLines: Int
+) -> Array<Array<Timed<NSAttributedString>>> {
   let attributes = stringAttributes(for: style)
   var mutableTextSegments = textSegments
   var captionStringSegments = Array<Array<CaptionStringSegment>>()
   while mutableTextSegments.count > 0 {
-    for _ in 0 ..< numberOfRows {
+    for _ in 0 ..< numberOfLines {
       let width = CaptionSizingUtil.textWidth(forLayerSize: size)
       guard case let (stringSegments?, remainingSegments) = fitNextLine(
         textSegments: mutableTextSegments,
@@ -105,9 +105,10 @@ func makeCaptionStringSegmentRows(
 }
 
 struct CaptionStringsMap {
-  let segmentsByRow: [CaptionRowKey: Array<CaptionStringSegmentRow>]
+  let segmentsByRow: [CaptionRowKey: Array<CaptionStringSegmentLine>]
 }
 
+// TODO: rename to groupCaptionStringSegmentLinesByRowKey
 func makeCaptionStringsMap(
   textSegments: [CaptionTextSegment],
   size: CGSize,
