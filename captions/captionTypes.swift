@@ -35,7 +35,7 @@ public enum CaptionWordStyle {
 
 public enum CaptionLineStyle {
   case fadeInOut
-  case translateY
+  case translateUp
 }
 
 public enum CaptionTextAlignment {

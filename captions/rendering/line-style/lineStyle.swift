@@ -12,7 +12,7 @@ func renderLineStyle(
   map: CaptionStringsMap
 ) {
   switch style.lineStyle {
-  case .translateY:
+  case .translateUp:
     let timedStringSegmentRows = stringSegmentRows.map({ Timed.from(array: $0) }).compactMap({ $0 })
     for (index, _) in timedStringSegmentRows.enumerated() {
       if let lineStyleLayer = makeTranslateUpLineStyleLayer(
