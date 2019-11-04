@@ -54,7 +54,11 @@ func renderCaptionLines(
   }
 }
 
-func makeLineStylePaddingLayer(padding: CaptionLineStyle.Padding, emUnitSize em: CGSize, parentLayerSize size: CGSize) -> CALayer {
+func makeLineStylePaddingLayer(
+  padding: CaptionStyle.LineStyle.Padding,
+  emUnitSize em: CGSize,
+  parentLayerSize size: CGSize
+) -> CALayer {
   let layer = CALayer()
   let paddingTop = em.height * CGFloat(padding.vertical)
   layer.bounds = CGRect(

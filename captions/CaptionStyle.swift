@@ -1,11 +1,36 @@
 import UIKit
 
 public struct CaptionStyle {
-  let wordStyle: CaptionWordStyle
-  let lineStyle: CaptionLineStyle
-  let backgroundStyle: CaptionBackgroundStyle
+  let wordStyle: WordStyle
+  let lineStyle: LineStyle
+  let backgroundStyle: BackgroundStyle
   let backgroundColor: UIColor
   let textStyle: TextStyle
+  
+  public enum WordStyle {
+    case animated
+    case none
+  }
+  
+  public enum LineStyle {
+    case fadeInOut(numberOfLines: Int, padding: Padding)
+    case translateUp
+
+    public struct Padding {
+      let vertical: Float
+
+      public init(vertical: Float) {
+        self.vertical = vertical
+      }
+    }
+  }
+
+  public enum BackgroundStyle {
+    case none
+    case solid
+    case gradient
+    case textBoundingBox
+  }
 
   public struct TextStyle {
     let font: UIFont
@@ -49,9 +74,9 @@ public struct CaptionStyle {
   }
 
   public init(
-    wordStyle: CaptionWordStyle,
-    lineStyle: CaptionLineStyle,
-    backgroundStyle: CaptionBackgroundStyle,
+    wordStyle: CaptionStyle.WordStyle,
+    lineStyle: CaptionStyle.LineStyle,
+    backgroundStyle: CaptionStyle.BackgroundStyle,
     backgroundColor: UIColor,
     textStyle: TextStyle
   ) {
@@ -60,42 +85,5 @@ public struct CaptionStyle {
     self.backgroundStyle = backgroundStyle
     self.backgroundColor = backgroundColor
     self.textStyle = textStyle
-  }
-}
-
-public enum CaptionWordStyle {
-  case animated
-  case none
-}
-
-public enum CaptionLineStyle {
-  case fadeInOut(numberOfLines: Int, padding: Padding)
-  case translateUp
-
-  public struct Padding {
-    let vertical: Float
-
-    public init(vertical: Float) {
-      self.vertical = vertical
-    }
-  }
-}
-
-public enum CaptionBackgroundStyle {
-  case none
-  case solid
-  case gradient
-  case textBoundingBox
-}
-
-public struct CaptionTextSegment {
-  let duration: CFTimeInterval
-  let timestamp: CFTimeInterval
-  let text: String
-
-  public init(duration: CFTimeInterval, timestamp: CFTimeInterval, text: String) {
-    self.duration = duration
-    self.timestamp = timestamp
-    self.text = text
   }
 }

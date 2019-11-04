@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         wordStyle: .animated,
         lineStyle: .fadeInOut(
           numberOfLines: 3,
-          padding: CaptionLineStyle.Padding(vertical: 0.33)
+          padding: CaptionStyle.LineStyle.Padding(vertical: 0.33)
         ),
         backgroundStyle: .solid,
         backgroundColor: .white,
