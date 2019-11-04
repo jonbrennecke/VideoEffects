@@ -48,9 +48,6 @@ func makeAnimatedWordStyleLayer(
     textLayer.add(wordAnimations, forKey: "textLayerWordAnimation")
   }
   parentLayer.opacity = 0
-  let textAnimation = createTextAnimations(map: map, key: key, duration: duration)
-  parentLayer.removeAnimation(forKey: "textLayerLineAnimation")
-  parentLayer.add(textAnimation, forKey: "textLayerLineAnimation")
   return parentLayer
 }
 
@@ -77,26 +74,6 @@ fileprivate func textHorizontalOffset(
   case .right:
     return parentWidth - textWidth
   }
-}
-
-fileprivate func createTextAnimations(map: CaptionStringsMap, key: CaptionRowKey, duration: CFTimeInterval) -> CAAnimationGroup {
-  let animations = [
-    CaptionAnimation(
-      animationsIn: [FadeInAnimationStep()],
-      animationsCenter: [],
-      animationsOut: [FadeOutAnimationStep()],
-      index: key.index,
-      key: key
-    ),
-  ]
-  let group = CAAnimationGroup()
-  group.repeatCount = .greatestFiniteMagnitude
-  group.animations = build(animations: animations, withMap: map)
-  group.duration = duration
-  group.isRemovedOnCompletion = false
-  group.fillMode = .forwards
-  group.beginTime = AVCoreAnimationBeginTimeAtZero
-  return group
 }
 
 fileprivate func createWordAnimations(timestamp: CFTimeInterval, duration: CFTimeInterval) -> CAAnimationGroup {
