@@ -17,18 +17,22 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    let captionViewHeight = CGFloat(200)
     view.backgroundColor = .black
     captionLayer.frame = CGRect(
-      origin: CGPoint(x: 0, y: (view.frame.height - 85) / 2),
-      size: CGSize(width: view.frame.width, height: 85)
+      origin: CGPoint(x: 0, y: (view.frame.height - captionViewHeight) / 2),
+      size: CGSize(width: view.frame.width, height: captionViewHeight)
     )
     view.layer.addSublayer(captionLayer)
 
     renderCaptions(
       layer: captionLayer,
       style: CaptionStyle(
-        wordStyle: .none,
-        lineStyle: .fadeInOut(numberOfLines: 6),
+        wordStyle: .animated,
+        lineStyle: .fadeInOut(
+          numberOfLines: 6,
+          padding: CaptionLineStyle.Padding(vertical: 0.33)
+        ),
         textAlignment: .center,
         backgroundStyle: .solid,
         backgroundColor: .white,
@@ -37,7 +41,7 @@ class ViewController: UIViewController {
       ),
       textSegments: textSegments,
       duration: CFTimeInterval(textSegments.count) * 0.5,
-      backgroundHeight: 85
+      backgroundHeight: Float(captionViewHeight)
     )
   }
 }

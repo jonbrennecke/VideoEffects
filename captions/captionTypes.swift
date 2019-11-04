@@ -34,8 +34,16 @@ public enum CaptionWordStyle {
 }
 
 public enum CaptionLineStyle {
-  case fadeInOut(numberOfLines: Int = 2)
+  case fadeInOut(numberOfLines: Int, padding: Padding)
   case translateUp
+
+  public struct Padding {
+    let vertical: Float
+
+    public init(vertical: Float) {
+      self.vertical = vertical
+    }
+  }
 }
 
 public enum CaptionTextAlignment {

@@ -1,5 +1,5 @@
 import AVFoundation
-import UIKit.UIColor
+import UIKit
 
 fileprivate let ANIM_IN_OUT_DURATION = CFTimeInterval(0.5)
 
@@ -25,15 +25,21 @@ func renderCaptionLines(
         layer.addSublayer(lineStyleLayer)
       }
     }
-  case let .fadeInOut(numberOfLines):
+  case let .fadeInOut(numberOfLines, padding):
     let groupedSegments = groupCaptionStringSegmentLines(
       lines: stringSegmentLines,
       numberOfLinesToDisplay: numberOfLines
     )
+    let paddingLayer = makeLineStylePaddingLayer(
+      padding: padding,
+      emUnitSize: calculateSizeOfEmUnit(font: style.font, rowSize: rowSize),
+      parentLayerSize: layer.frame.size
+    )
+    layer.addSublayer(paddingLayer)
     for timedLines in groupedSegments {
       for (index, stringSegments) in timedLines.data.enumerated() {
         let lineStyleLayer = makeFadeInOutLineStyleLayer(
-          within: layer.frame,
+          within: paddingLayer.frame,
           rowSize: rowSize,
           style: style,
           duration: duration,
@@ -42,10 +48,30 @@ func renderCaptionLines(
           stringSegments: stringSegments,
           timedLines: timedLines
         )
-        layer.addSublayer(lineStyleLayer)
+        paddingLayer.addSublayer(lineStyleLayer)
       }
     }
   }
+}
+
+func makeLineStylePaddingLayer(padding: CaptionLineStyle.Padding, emUnitSize em: CGSize, parentLayerSize size: CGSize) -> CALayer {
+  let layer = CALayer()
+  let paddingTop = em.height * CGFloat(padding.vertical)
+  layer.bounds = CGRect(
+    origin: .zero,
+    size: CGSize(width: size.width, height: size.height - paddingTop * 2)
+  )
+  layer.position = CGPoint(x: 0, y: paddingTop)
+  layer.anchorPoint = .zero
+  return layer
+}
+
+func calculateSizeOfEmUnit(font: UIFont, rowSize: CGSize) -> CGSize {
+  let attributes: [NSAttributedString.Key: Any] = [
+    .font: font,
+  ]
+  let attributedString = NSAttributedString(string: "—", attributes: attributes)
+  return attributedString.boundingRect(with: rowSize, options: [], context: nil).size
 }
 
 func makeFadeInOutLineStyleLayer(
