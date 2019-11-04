@@ -17,9 +17,9 @@ class ViewController: UIViewController {
       A long while amid the noises of coming and going, of drinking and oath and smutty jest,
       There we two, content, happy in being together, speaking little, perhaps not a word.
     """
-      .components(separatedBy: .whitespacesAndNewlines)
-      .enumerated()
-      .map { x in CaptionTextSegment(duration: 0.5, timestamp: CFTimeInterval(x.offset) * 0.5, text: x.element) }
+    .components(separatedBy: .whitespacesAndNewlines)
+    .enumerated()
+    .map { x in CaptionTextSegment(duration: 0.5, timestamp: CFTimeInterval(x.offset) * 0.5, text: x.element) }
 
     renderCaptions(
       layer: captionLayer,
@@ -27,9 +27,9 @@ class ViewController: UIViewController {
         wordStyle: .none,
         lineStyle: .fadeInOut,
         textAlignment: .center,
-        backgroundStyle: .solid,
+        backgroundStyle: .textBoundingBox,
         backgroundColor: .white,
-        font: UIFont.systemFont(ofSize: 17),
+        font: UIFont.systemFont(ofSize: 27),
         textColor: .black
       ),
       textSegments: textSegments,

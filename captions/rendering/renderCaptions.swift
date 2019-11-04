@@ -32,8 +32,12 @@ public func renderCaptions(
     stringSegmentRows: stringSegmentRows,
     map: map
   )
-  render(backgroundStyle: style.backgroundStyle)(
-    layer, style, backgroundHeight, map, { (_: CaptionRowKey) -> CGSize in
+  renderBackgroundStyle(
+    captionStyle: style,
+    layer: layer,
+    backgroundHeight: backgroundHeight,
+    map: map,
+    getSizeOfRow: { (_: CaptionRowKey) -> CGSize in
       rowSize
     }
   )
