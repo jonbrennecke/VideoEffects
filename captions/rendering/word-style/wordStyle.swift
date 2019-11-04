@@ -41,7 +41,7 @@ func makeDefaultTextStyleLayer(
     captionStyle: captionStyle,
     within: bounds,
     attributedString: attributedString,
-    textAlignment: style.textAlignment
+    textAlignment: style.textStyle.alignment
   )
   textLayer.displayIfNeeded()
   textLayer.layoutIfNeeded()
@@ -52,7 +52,7 @@ fileprivate func createTextLayer(
   captionStyle: CaptionStyle,
   within bounds: CGRect,
   attributedString: NSAttributedString,
-  textAlignment: CaptionTextAlignment
+  textAlignment: CaptionStyle.TextStyle.Alignment
 ) -> CATextLayer {
   let textLayer = CATextLayer()
   textLayer.contentsScale = UIScreen.main.scale
@@ -68,9 +68,9 @@ fileprivate func createTextLayer(
   )
   let textFrame = CGRect(origin: CGPoint(x: textXOffset, y: textYOffset), size: textSize)
   textLayer.frame = textFrame
-  textLayer.shadowColor = captionStyle.textShadow.color.cgColor
+  textLayer.shadowColor = captionStyle.textStyle.shadow.color.cgColor
   textLayer.shadowRadius = textSize.height / 25 * 0.5
-  textLayer.shadowOpacity = captionStyle.textShadow.opacity
+  textLayer.shadowOpacity = captionStyle.textStyle.shadow.opacity
   textLayer.shadowOffset = CGSize(width: 0.0, height: textSize.height / 25)
   textLayer.string = attributedString
   textLayer.alignmentMode = textAlignment.textLayerAlignmentMode()
@@ -89,7 +89,11 @@ func makeAnimatedWordStyleLayer(
   let whitespaceCharacterSize = stringSize(matchingAttributesOf: attributedString, string: " ")
   let textSize = attributedString.size()
   let textYOffset = (bounds.height - textSize.height) / 2
-  let textXOffset = textHorizontalOffset(textWidth: textSize.width, parentLayerWidth: bounds.width, textAlignment: style.textAlignment)
+  let textXOffset = textHorizontalOffset(
+    textWidth: textSize.width,
+    parentLayerWidth: bounds.width,
+    textAlignment: style.textStyle.alignment
+  )
   let textFrame = CGRect(origin: CGPoint(x: textXOffset, y: textYOffset), size: textSize)
   let parentLayer = CenteredTextLayer()
   parentLayer.contentsScale = UIScreen.main.scale
@@ -99,17 +103,20 @@ func makeAnimatedWordStyleLayer(
     let substringNaturalSize = segment.data.size()
     let substringSize = CGSize(width: substringNaturalSize.width + 5, height: substringNaturalSize.height)
     let textLayer = CATextLayer()
-    textLayer.frame = CGRect(origin: CGPoint(x: style.textAlignment == .center ? xOffsetAcc - 2.5 : xOffsetAcc, y: 0), size: substringSize)
+    textLayer.frame = CGRect(
+      origin: CGPoint(x: style.textStyle.alignment == .center ? xOffsetAcc - 2.5 : xOffsetAcc, y: 0),
+      size: substringSize
+    )
     xOffsetAcc += substringNaturalSize.width + whitespaceCharacterSize.width
     textLayer.contentsScale = UIScreen.main.scale
     textLayer.allowsFontSubpixelQuantization = true
     textLayer.allowsEdgeAntialiasing = true
-    textLayer.shadowColor = captionStyle.textShadow.color.cgColor
+    textLayer.shadowColor = captionStyle.textStyle.shadow.color.cgColor
     textLayer.shadowRadius = textSize.height / 25 * 0.5
-    textLayer.shadowOpacity = captionStyle.textShadow.opacity
+    textLayer.shadowOpacity = captionStyle.textStyle.shadow.opacity
     textLayer.shadowOffset = CGSize(width: 0.0, height: textSize.height / 25)
     textLayer.string = segment.data
-    textLayer.alignmentMode = style.textAlignment.textLayerAlignmentMode()
+    textLayer.alignmentMode = style.textStyle.alignment.textLayerAlignmentMode()
     textLayer.displayIfNeeded()
     textLayer.layoutIfNeeded()
     parentLayer.addSublayer(textLayer)
@@ -137,7 +144,7 @@ fileprivate func stringSize(matchingAttributesOf attributedString: NSAttributedS
 fileprivate func textHorizontalOffset(
   textWidth: CGFloat,
   parentLayerWidth parentWidth: CGFloat,
-  textAlignment: CaptionTextAlignment
+  textAlignment: CaptionStyle.TextStyle.Alignment
 ) -> CGFloat {
   switch textAlignment {
   case .center:

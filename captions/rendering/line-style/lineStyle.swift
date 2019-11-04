@@ -32,7 +32,7 @@ func renderCaptionLines(
     )
     let paddingLayer = makeLineStylePaddingLayer(
       padding: padding,
-      emUnitSize: calculateSizeOfEmUnit(font: style.font, rowSize: rowSize),
+      emUnitSize: calculateSizeOfEmUnit(font: style.textStyle.font, rowSize: rowSize),
       parentLayerSize: layer.frame.size
     )
     layer.addSublayer(paddingLayer)

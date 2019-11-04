@@ -8,7 +8,7 @@ public func renderCaptions(
   backgroundHeight: Float
 ) {
   let rowKeys: [CaptionRowKey] = [.a, .b]
-  let rowSize = CGSize(width: layer.frame.width, height: style.font.lineHeight)
+  let rowSize = CGSize(width: layer.frame.width, height: style.textStyle.font.lineHeight)
   let linesByRowKey = groupCaptionStringSegmentLinesByRowKey(
     textSegments: textSegments,
     size: rowSize,

@@ -3,41 +3,63 @@ import UIKit
 public struct CaptionStyle {
   let wordStyle: CaptionWordStyle
   let lineStyle: CaptionLineStyle
-  let textAlignment: CaptionTextAlignment
   let backgroundStyle: CaptionBackgroundStyle
   let backgroundColor: UIColor
-  let font: UIFont
-  let textColor: UIColor
-  let textShadow: TextShadow
-  
-  public class TextShadow {
-    let opacity: Float
+  let textStyle: TextStyle
+
+  public struct TextStyle {
+    let font: UIFont
     let color: UIColor
-    
-    public init(opacity: Float, color: UIColor) {
-      self.opacity = opacity
+    let shadow: Shadow
+    let alignment: Alignment
+
+    public init(font: UIFont, color: UIColor, shadow: Shadow, alignment: Alignment) {
+      self.font = font
       self.color = color
+      self.shadow = shadow
+      self.alignment = alignment
+    }
+
+    public struct Shadow {
+      let opacity: Float
+      let color: UIColor
+
+      public init(opacity: Float, color: UIColor) {
+        self.opacity = opacity
+        self.color = color
+      }
+    }
+
+    public enum Alignment {
+      case center
+      case left
+      case right
+
+      public func textLayerAlignmentMode() -> CATextLayerAlignmentMode {
+        switch self {
+        case .center:
+          return .center
+        case .left:
+          return .left
+        case .right:
+          return .right
+        }
+      }
     }
   }
 
   public init(
     wordStyle: CaptionWordStyle,
     lineStyle: CaptionLineStyle,
-    textAlignment: CaptionTextAlignment,
     backgroundStyle: CaptionBackgroundStyle,
     backgroundColor: UIColor,
-    font: UIFont,
-    textColor: UIColor,
-    textShadow: TextShadow
+    textStyle: TextStyle
   ) {
     self.wordStyle = wordStyle
     self.lineStyle = lineStyle
-    self.textAlignment = textAlignment
     self.backgroundStyle = backgroundStyle
     self.backgroundColor = backgroundColor
-    self.font = font
-    self.textColor = textColor
-    self.textShadow = textShadow
+    self.textStyle = textStyle
   }
 }
 
@@ -55,23 +77,6 @@ public enum CaptionLineStyle {
 
     public init(vertical: Float) {
       self.vertical = vertical
-    }
-  }
-}
-
-public enum CaptionTextAlignment {
-  case center
-  case left
-  case right
-
-  public func textLayerAlignmentMode() -> CATextLayerAlignmentMode {
-    switch self {
-    case .center:
-      return .center
-    case .left:
-      return .left
-    case .right:
-      return .right
     }
   }
 }

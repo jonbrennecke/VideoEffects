@@ -53,8 +53,8 @@ func string(from segments: [CaptionStringSegment]) -> String {
 
 func stringAttributes(for style: CaptionStyle) -> [NSAttributedString.Key: Any] {
   return [
-    .foregroundColor: style.textColor.cgColor,
-    .font: style.font,
+    .foregroundColor: style.textStyle.color.cgColor,
+    .font: style.textStyle.font,
   ]
 }
 

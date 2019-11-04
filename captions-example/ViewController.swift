@@ -33,14 +33,16 @@ class ViewController: UIViewController {
           numberOfLines: 3,
           padding: CaptionLineStyle.Padding(vertical: 0.33)
         ),
-        textAlignment: .center,
         backgroundStyle: .solid,
         backgroundColor: .white,
-        font: UIFont.systemFont(ofSize: 20),
-        textColor: .red,
-        textShadow: CaptionStyle.TextShadow(
-          opacity: 0.5,
-          color: .black
+        textStyle: CaptionStyle.TextStyle(
+          font: UIFont.systemFont(ofSize: 20),
+          color: .red,
+          shadow: CaptionStyle.TextStyle.Shadow(
+            opacity: 0.5,
+            color: .black
+          ),
+          alignment: .center
         )
       ),
       textSegments: textSegments,
