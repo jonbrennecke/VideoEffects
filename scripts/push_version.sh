@@ -1,6 +1,5 @@
-
 #!/usr/bin/env zsh
-version=$(cat version.txt)
+version="0.0.11"
 
 git commit --allow-empty -m "v$version"
 
