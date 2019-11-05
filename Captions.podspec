@@ -1,4 +1,4 @@
-version = `cat version.txt`.strip
+version = `git describe --exact-match --tags $(git log -n1 --pretty='%h')`.strip
 
 source = { :git => 'https://github.com/jonbrennecke/captions.git' }
 source[:commit] = `git rev-parse HEAD`.strip
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   s.summary                = 'Swift library for rendering animated captions/subtitles'
   s.source_files           = 'captions/**/*.swift'
   s.swift_version          = '5'
-  s.preserve_paths         = "version.txt"
+  s.preserve_paths         = 'version.txt'
 end
