@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   s.summary                = 'Swift library for rendering animated captions/subtitles'
   s.source_files           = 'captions/**/*.swift'
   s.swift_version          = '5'
+  s.preserve_paths         = "version.txt"
 end
