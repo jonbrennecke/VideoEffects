@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
-version="0.0.11"
+version="0.0.12"
 
-git commit --allow-empty -m "v$version"
+git commit -a --allow-empty -m "v$version"
 
 if [ -z "$(git status --porcelain)" ]; then 
   git tag "v$version"
