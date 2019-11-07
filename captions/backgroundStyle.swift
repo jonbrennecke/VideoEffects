@@ -11,7 +11,6 @@ func renderCapionBackground(
   switch captionStyle.backgroundStyle {
   case let .gradient(backgroundColor, backgroundHeight):
     return renderGradientBackgroundStyle(
-      captionStyle: captionStyle,
       backgroundColor: backgroundColor,
       backgroundHeight: backgroundHeight,
       layer: layer,
@@ -19,7 +18,6 @@ func renderCapionBackground(
     )
   case let .solid(backgroundColor):
     return renderSolidBackgroundStyle(
-      captionStyle: captionStyle,
       backgroundColor: backgroundColor,
       layer: layer,
       timestampOfFirstSegment: timestampOfFirstSegment
@@ -38,7 +36,6 @@ func renderCapionBackground(
 }
 
 func renderGradientBackgroundStyle(
-  captionStyle _: CaptionStyle,
   backgroundColor: UIColor,
   backgroundHeight: Float,
   layer: CALayer,
@@ -71,7 +68,6 @@ fileprivate func createGradientLayer(color: UIColor) -> CAGradientLayer {
 }
 
 func renderSolidBackgroundStyle(
-  captionStyle _: CaptionStyle,
   backgroundColor: UIColor,
   layer: CALayer,
   timestampOfFirstSegment: CFTimeInterval
