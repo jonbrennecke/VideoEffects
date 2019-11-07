@@ -30,10 +30,10 @@ class ViewController: UIViewController {
       style: CaptionStyle(
         wordStyle: .animated,
         lineStyle: .fadeInOut(
-          numberOfLines: 3,
-          padding: CaptionStyle.LineStyle.Padding(vertical: 0.33)
+          numberOfLines: 2,
+          padding: CaptionStyle.LineStyle.Padding(vertical: 0.5)
         ),
-        backgroundStyle: .solid(backgroundColor: .white),
+        backgroundStyle: .gradient(backgroundColor: .white, backgroundHeight: Float(captionViewHeight)),
         textStyle: CaptionStyle.TextStyle(
           font: UIFont.systemFont(ofSize: 20),
           color: .red,

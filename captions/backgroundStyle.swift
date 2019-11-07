@@ -14,7 +14,8 @@ func renderCapionBackground(
       captionStyle: captionStyle,
       backgroundColor: backgroundColor,
       backgroundHeight: backgroundHeight,
-      layer: layer
+      layer: layer,
+      timestampOfFirstSegment: timestampOfFirstSegment
     )
   case let .solid(backgroundColor):
     return renderSolidBackgroundStyle(
@@ -40,9 +41,9 @@ func renderGradientBackgroundStyle(
   captionStyle _: CaptionStyle,
   backgroundColor: UIColor,
   backgroundHeight: Float,
-  layer: CALayer
+  layer: CALayer,
+  timestampOfFirstSegment: CFTimeInterval
 ) {
-  let beginTime = CFTimeInterval(0)
   let backgroundLayer = CALayer()
   backgroundLayer.frame = layer.bounds
   backgroundLayer.masksToBounds = false
@@ -53,7 +54,7 @@ func renderGradientBackgroundStyle(
   )
   backgroundLayer.insertSublayer(gradientLayer, at: 0)
   layer.insertSublayer(backgroundLayer, at: 0)
-  let animation = AnimationUtil.fadeIn(at: beginTime)
+  let animation = AnimationUtil.fadeIn(at: min(timestampOfFirstSegment - 0.25, 0))
   backgroundLayer.add(animation, forKey: nil)
 }
 
@@ -82,7 +83,7 @@ func renderSolidBackgroundStyle(
   backgroundLayer.masksToBounds = true
   layer.masksToBounds = true
   layer.insertSublayer(backgroundLayer, at: 0)
-  let animation = AnimationUtil.fadeIn(at: timestampOfFirstSegment - 0.25)
+  let animation = AnimationUtil.fadeIn(at: min(timestampOfFirstSegment - 0.25, 0))
   backgroundLayer.add(animation, forKey: nil)
 }
 
