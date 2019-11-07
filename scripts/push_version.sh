@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-version="0.0.15"
+version="0.0.16"
 
 git commit -a --allow-empty -m "v$version"
 

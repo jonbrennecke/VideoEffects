@@ -1,4 +1,4 @@
-version = '0.0.15'
+version = '0.0.16'
 
 source = { :git => 'https://github.com/jonbrennecke/captions.git' }
 source[:commit] = `git rev-parse HEAD`.strip
