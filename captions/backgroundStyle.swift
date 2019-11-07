@@ -51,6 +51,7 @@ func renderGradientBackgroundStyle(
   )
   backgroundLayer.insertSublayer(gradientLayer, at: 0)
   layer.insertSublayer(backgroundLayer, at: 0)
+  layer.masksToBounds = false
   let animation = AnimationUtil.fadeIn(at: min(timestampOfFirstSegment - 0.25, 0))
   backgroundLayer.add(animation, forKey: nil)
 }
