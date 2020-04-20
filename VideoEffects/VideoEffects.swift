@@ -6,7 +6,7 @@ public protocol Effect {
 }
 
 public struct TrimEffect {
-  let range: CMTimeRange
+  public let range: CMTimeRange
 
   public init(range: CMTimeRange) {
     self.range = range
@@ -19,9 +19,48 @@ extension TrimEffect: Effect {
   }
 }
 
+public struct CropEffect {
+  public let aspectRatio: CGSize
+    
+  public init(aspectRatio: CGSize) {
+    self.aspectRatio = aspectRatio
+  }
+}
+
+extension CropEffect: Effect {
+  public func apply(exportSession: AVAssetExportSession) {
+    
+    // TODO: repeat for all video tracks
+    guard let videoTrack = exportSession.asset.tracks(withMediaType: .video).first else {
+      return
+    }
+    let aspectRatio = self.aspectRatio.width / self.aspectRatio.height
+    
+    // dimensions are reversed if video is in portrait orientation
+    let height = videoTrack.naturalSize.height
+    let width = height * aspectRatio
+    
+    let composition = AVMutableVideoComposition()
+    composition.renderSize = CGSize(width: width, height: height)
+    composition.frameDuration = CMTimeMake(value: 1, timescale: CMTimeScale(videoTrack.nominalFrameRate))
+    
+    let videoTrackInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
+    let instruction = AVMutableVideoCompositionInstruction()
+    instruction.layerInstructions = [
+      videoTrackInstruction
+    ]
+    instruction.enablePostProcessing = true
+    instruction.timeRange = videoTrack.timeRange
+    composition.instructions = [instruction]
+    exportSession.videoComposition = composition
+  }
+}
+
 public func applyEffects(exportSession: AVAssetExportSession, effects: [Effect]) {
   effects.forEach { $0.apply(exportSession: exportSession) }
 }
+
+// File utils
 
 public func makeRandomFileName() -> String {
   let random_int = arc4random_uniform(.max)
