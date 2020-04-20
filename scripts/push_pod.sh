@@ -1,1 +1,1 @@
-pod repo push private-pod-specs Captions.podspec --allow-warnings  
+pod repo push private-pod-specs VideoEffects.podspec --allow-warnings  
