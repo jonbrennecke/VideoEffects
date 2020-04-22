@@ -1,5 +1,4 @@
 import AVFoundation
-import MobileCoreServices
 
 public protocol Effect {
   func apply(exportSession: AVAssetExportSession)
@@ -21,7 +20,7 @@ extension TrimEffect: Effect {
 
 public struct CropEffect {
   public let aspectRatio: CGSize
-    
+
   public init(aspectRatio: CGSize) {
     self.aspectRatio = aspectRatio
   }
@@ -29,27 +28,28 @@ public struct CropEffect {
 
 extension CropEffect: Effect {
   public func apply(exportSession: AVAssetExportSession) {
-    
-    // TODO: repeat for all video tracks
     guard let videoTrack = exportSession.asset.tracks(withMediaType: .video).first else {
       return
     }
     let aspectRatio = self.aspectRatio.width / self.aspectRatio.height
-    
+
     // dimensions are reversed if video is in portrait orientation
     let height = videoTrack.naturalSize.height
     let width = height * aspectRatio
-    
+
     let composition = AVMutableVideoComposition()
     composition.renderSize = CGSize(width: width, height: height)
     composition.frameDuration = CMTimeMake(value: 1, timescale: CMTimeScale(videoTrack.nominalFrameRate))
-    
+
+    // TODO: this has nothing to do with cropping, should be applied elsewhere
+    composition.customVideoCompositorClass = Compositor.self
+
     let videoTrackInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
     let instruction = AVMutableVideoCompositionInstruction()
     instruction.layerInstructions = [
-      videoTrackInstruction
+      videoTrackInstruction,
     ]
-    instruction.enablePostProcessing = true
+    instruction.enablePostProcessing = true // TODO: only if it uses a compositor
     instruction.timeRange = videoTrack.timeRange
     composition.instructions = [instruction]
     exportSession.videoComposition = composition
@@ -60,31 +60,22 @@ public func applyEffects(exportSession: AVAssetExportSession, effects: [Effect])
   effects.forEach { $0.apply(exportSession: exportSession) }
 }
 
-// File utils
+public struct ColorControlsFilterEffect {
+  let brightness: Double
+  let saturation: Double
+  let contrast: Double
 
-public func makeRandomFileName() -> String {
-  let random_int = arc4random_uniform(.max)
-  return NSString(format: "%x", random_int) as String
-}
-
-public func fileExtension(for fileType: AVFileType) -> String? {
-  if let ext = UTTypeCopyPreferredTagWithClass(fileType as CFString, kUTTagClassFilenameExtension)?.takeRetainedValue() {
-    return ext as String
+  public init(brightness: Double, saturation: Double, contrast: Double) {
+    self.brightness = brightness
+    self.saturation = saturation
+    self.contrast = contrast
   }
-  return .none
 }
 
-public func makeTemporaryFile(for fileType: AVFileType, fileName: String = makeRandomFileName()) throws -> URL {
-  let outputTemporaryDirectoryURL = try FileManager.default
-    .url(
-      for: .itemReplacementDirectory,
-      in: .userDomainMask,
-      appropriateFor: FileManager.default.temporaryDirectory,
-      create: true
-    )
-  let outputURL = outputTemporaryDirectoryURL
-    .appendingPathComponent(fileName)
-    .appendingPathExtension(fileExtension(for: fileType) ?? "")
-  try? FileManager.default.removeItem(at: outputURL)
-  return outputURL
+extension ColorControlsFilterEffect: Effect {
+  public func apply(exportSession: AVAssetExportSession) {
+    if let compositor = exportSession.customVideoCompositor as? Compositor {
+      // TODO:
+    }
+  }
 }

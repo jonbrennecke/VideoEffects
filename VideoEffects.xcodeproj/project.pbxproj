@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E140BB5004C1632DFAA201EE /* Pods_VideoEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3C1F141C5AACBEFB27E316 /* Pods_VideoEffects.framework */; };
 		FCB27E00236FB4CE00F522B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */; };
 		FCB27E02236FB4CE00F522B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E01236FB4CE00F522B9 /* SceneDelegate.swift */; };
 		FCB27E04236FB4CE00F522B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E03236FB4CE00F522B9 /* ViewController.swift */; };
@@ -14,8 +15,10 @@
 		FCB27E09236FB4D000F522B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB27E08236FB4D000F522B9 /* Assets.xcassets */; };
 		FCB27E0C236FB4D000F522B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB27E0A236FB4D000F522B9 /* LaunchScreen.storyboard */; };
 		FCB27E7E236FC2AE00F522B9 /* libVideoEffects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB27D94236FB40500F522B9 /* libVideoEffects.a */; };
-		FCF253FE244E2FC300971CE2 /* VideoEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF253FD244E2FC300971CE2 /* VideoEffects.swift */; };
+		FCF253FE244E2FC300971CE2 /* effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF253FD244E2FC300971CE2 /* effects.swift */; };
 		FCF2541E244E43F000971CE2 /* example.mov in Resources */ = {isa = PBXBuildFile; fileRef = FCF2541D244E43F000971CE2 /* example.mov */; };
+		FCF25421244E59E100971CE2 /* fileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF25420244E59E100971CE2 /* fileUtils.swift */; };
+		FCF25423244E5B3D00971CE2 /* Compositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF25422244E5B3D00971CE2 /* Compositor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4643101B87111AB4649A7D8E /* Pods-VideoEffects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoEffects.debug.xcconfig"; path = "Target Support Files/Pods-VideoEffects/Pods-VideoEffects.debug.xcconfig"; sourceTree = "<group>"; };
+		D558F658B04DF20BE695C97A /* Pods-VideoEffects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoEffects.release.xcconfig"; path = "Target Support Files/Pods-VideoEffects/Pods-VideoEffects.release.xcconfig"; sourceTree = "<group>"; };
+		FA3C1F141C5AACBEFB27E316 /* Pods_VideoEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27D94236FB40500F522B9 /* libVideoEffects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVideoEffects.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27DFD236FB4CE00F522B9 /* VideoEffects-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoEffects-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,8 +57,10 @@
 		FCB27E0B236FB4D000F522B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCB27E0D236FB4D000F522B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCF253FC244E2FC200971CE2 /* VideoEffects-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoEffects-Bridging-Header.h"; sourceTree = "<group>"; };
-		FCF253FD244E2FC300971CE2 /* VideoEffects.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = VideoEffects.swift; sourceTree = "<group>"; tabWidth = 2; };
+		FCF253FD244E2FC300971CE2 /* effects.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = effects.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCF2541D244E43F000971CE2 /* example.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = example.mov; sourceTree = "<group>"; };
+		FCF25420244E59E100971CE2 /* fileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileUtils.swift; sourceTree = "<group>"; };
+		FCF25422244E5B3D00971CE2 /* Compositor.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Compositor.swift; sourceTree = "<group>"; tabWidth = 2; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E140BB5004C1632DFAA201EE /* Pods_VideoEffects.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		281BE6ACF09D3A11D0DCACFE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4643101B87111AB4649A7D8E /* Pods-VideoEffects.debug.xcconfig */,
+				D558F658B04DF20BE695C97A /* Pods-VideoEffects.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FCB27D8B236FB40500F522B9 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +101,7 @@
 				FCB27DFE236FB4CE00F522B9 /* example */,
 				FCB27D95236FB40500F522B9 /* Products */,
 				FCB27E7D236FC2AE00F522B9 /* Frameworks */,
+				281BE6ACF09D3A11D0DCACFE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,7 +117,9 @@
 		FCB27D96236FB40500F522B9 /* VideoEffects */ = {
 			isa = PBXGroup;
 			children = (
-				FCF253FD244E2FC300971CE2 /* VideoEffects.swift */,
+				FCF25422244E5B3D00971CE2 /* Compositor.swift */,
+				FCF253FD244E2FC300971CE2 /* effects.swift */,
+				FCF25420244E59E100971CE2 /* fileUtils.swift */,
 				FCF253FC244E2FC200971CE2 /* VideoEffects-Bridging-Header.h */,
 			);
 			path = VideoEffects;
@@ -120,6 +142,7 @@
 		FCB27E7D236FC2AE00F522B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA3C1F141C5AACBEFB27E316 /* Pods_VideoEffects.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,6 +162,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCB27D9B236FB40500F522B9 /* Build configuration list for PBXNativeTarget "VideoEffects" */;
 			buildPhases = (
+				547743759C2572CCB02558E9 /* [CP] Check Pods Manifest.lock */,
 				FCB27D90236FB40500F522B9 /* Sources */,
 				FCB27D91236FB40500F522B9 /* Frameworks */,
 				FCB27D92236FB40500F522B9 /* CopyFiles */,
@@ -222,12 +246,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		547743759C2572CCB02558E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VideoEffects-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FCB27D90236FB40500F522B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCF253FE244E2FC300971CE2 /* VideoEffects.swift in Sources */,
+				FCF25423244E5B3D00971CE2 /* Compositor.swift in Sources */,
+				FCF253FE244E2FC300971CE2 /* effects.swift in Sources */,
+				FCF25421244E59E100971CE2 /* fileUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +438,7 @@
 		};
 		FCB27D9C236FB40500F522B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4643101B87111AB4649A7D8E /* Pods-VideoEffects.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -408,6 +460,7 @@
 		};
 		FCB27D9D236FB40500F522B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D558F658B04DF20BE695C97A /* Pods-VideoEffects.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

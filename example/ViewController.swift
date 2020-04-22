@@ -20,7 +20,8 @@ class ViewController: UIViewController {
     }
     applyEffects(exportSession: exportSession, effects: [
       TrimEffect(range: CMTimeRange(start: .zero, end: CMTime(seconds: 1, preferredTimescale: 600))),
-      CropEffect(aspectRatio: CGSize(width: 1, height: 1))
+      CropEffect(aspectRatio: CGSize(width: 1, height: 1)),
+      ColorControlsFilterEffect(brightness: 0, saturation: 0, contrast: 1),
     ])
     exportSession.outputFileType = .mov
     exportSession.outputURL = try? makeTemporaryFile(for: .mov)

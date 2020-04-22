@@ -1,0 +1,6 @@
+framework module Pods_VideoEffects {
+  umbrella header "Pods-VideoEffects-umbrella.h"
+
+  export *
+  module * { export * }
+}

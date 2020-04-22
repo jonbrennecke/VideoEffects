@@ -1,0 +1,6 @@
+framework module ImageUtils {
+  umbrella header "ImageUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}
