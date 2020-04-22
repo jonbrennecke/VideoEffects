@@ -1,4 +1,4 @@
-version = '0.0.1'
+version = '0.0.19'
 
 Pod::Spec.new do |s|
   s.name                   = 'VideoEffects'

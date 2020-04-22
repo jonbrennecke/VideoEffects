@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-version=$(ruby -e "$(head -n 1 VideoEffects.podspec);puts(version.strip);")
+version=$(ruby -e "$(head -n 1 VideoEffects.podspec); puts(version.strip);")
 
 git commit -a --allow-empty -m "v$version"
 
