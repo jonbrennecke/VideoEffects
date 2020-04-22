@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.summary                = 'Swift library for rendering videos with effects'
   s.source_files           = 'VideoEffects/**/*.swift'
   s.swift_version          = '5'
+  s.dependency 'ImageUtils'
 end
