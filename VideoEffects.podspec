@@ -1,7 +1,7 @@
 version = '0.0.1'
 
 Pod::Spec.new do |s|
-  s.name                   = 'Video Effects'
+  s.name                   = 'VideoEffects'
   s.version                = version
   s.homepage               = 'https://github.com/jonbrennecke/video-effects'
   s.author                 = 'Jon Brennecke'
