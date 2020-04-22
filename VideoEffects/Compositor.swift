@@ -1,6 +1,7 @@
 import AVFoundation
 import CoreImage
 import Metal
+import ImageUtils
 
 class Compositor: NSObject, AVVideoCompositing {
   private enum VideoCompositionRequestError: Error {
@@ -65,35 +66,31 @@ class Compositor: NSObject, AVVideoCompositing {
   }
 
   // MARK: - Utilities
+  
+  var filter: CompositorFilter?
 
-  private func composePixelBuffer(with _: AVAsynchronousVideoCompositionRequest) -> CVPixelBuffer? {
+  private func composePixelBuffer(with request: AVAsynchronousVideoCompositionRequest) -> CVPixelBuffer? {
     return autoreleasepool {
       guard
         let outputPixelBuffer = renderContext?.newPixelBuffer()
       else {
         return nil
       }
-//        request.sourceFrame(byTrackID: <#T##CMPersistentTrackID#>)
-//        Apply effects here
-//      context.render(
-//        effectImage,
-//        to: outputPixelBuffer,
-//        bounds: effectImage.extent,
-//        colorSpace: nil
-//      )
+      if let effectImage = filter?.renderImage(with: request) {
+        context.render(
+          effectImage,
+          to: outputPixelBuffer,
+          bounds: effectImage.extent,
+          colorSpace: nil
+        )
+      }
       return outputPixelBuffer
     }
-  }
-
-  // MARK: - Filter
-
-  struct Filter {
-    
   }
 }
 
 protocol CompositorFilter {
-  func apply(request: AVAsynchronousVideoCompositionRequest)
+  mutating func renderImage(with request: AVAsynchronousVideoCompositionRequest) -> CIImage?
 }
 
 struct ColorControlsCompositorFilter {
@@ -119,19 +116,18 @@ struct ColorControlsCompositorFilter {
 }
 
 extension ColorControlsCompositorFilter : CompositorFilter {
-  func apply(request: AVAsynchronousVideoCompositionRequest) {
+  mutating func renderImage(with request: AVAsynchronousVideoCompositionRequest) -> CIImage? {
     guard let pixelBuffer = request.sourceFrame(byTrackID: videoTrack) else {
-      return
+      return nil
     }
-//    let image = HSImageBuffer(pixelBuffer: videoPixelBuffer).makeCIImage(),
-//    guard let depthBlurFilter = depthBlurEffectFilter else {
-//      return nil
-//    }
-//
-//    colorControlsFilter.setValue(brightness, forKey: kCIInputBrightnessKey)
-//    colorControlsFilter.setValue(saturation, forKey: kCIInputSaturationKey)
-//    colorControlsFilter.setValue(contrast, forKey: kCIInputContrastKey)
-//    colorControlsFilter.setValue(image, forKey: kCIInputImageKey)
-//    pixelBuffer
+    let image = ImageBuffer(cvPixelBuffer: pixelBuffer).makeCIImage()
+    guard let filter = colorControlsFilter else {
+      return nil
+    }
+    filter.setValue(brightness, forKey: kCIInputBrightnessKey)
+    filter.setValue(saturation, forKey: kCIInputSaturationKey)
+    filter.setValue(contrast, forKey: kCIInputContrastKey)
+    filter.setValue(image, forKey: kCIInputImageKey)
+    return filter.outputImage
   }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1120"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DC06C07FC4F13C8B584F7FC02CA7AD9D"
-               BuildableName = "Pods_VideoEffects.framework"
-               BlueprintName = "Pods-VideoEffects"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "FCB27D93236FB40500F522B9"
+               BuildableName = "libVideoEffects.a"
+               BlueprintName = "VideoEffects"
+               ReferencedContainer = "container:VideoEffects.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,6 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FCB27D93236FB40500F522B9"
+            BuildableName = "libVideoEffects.a"
+            BlueprintName = "VideoEffects"
+            ReferencedContainer = "container:VideoEffects.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

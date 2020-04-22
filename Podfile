@@ -9,3 +9,7 @@ project 'VideoEffects.xcodeproj'
 target 'VideoEffects' do
   pod 'ImageUtils', '0.0.5'
 end
+
+target 'VideoEffects-example' do
+  pod 'ImageUtils', '0.0.5'
+end

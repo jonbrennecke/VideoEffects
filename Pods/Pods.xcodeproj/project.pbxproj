@@ -13,11 +13,14 @@
 		16205E747B4C77FC0D2277245A758177 /* pixelBufferUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D345925B60EEE595A8A2B8D9A0F4530 /* pixelBufferUtils.swift */; };
 		29A89548692B9BDA036E155E98BB6278 /* VideoFrameBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F282D4389E001DEF5EA2049A2D8DF0 /* VideoFrameBuffer.swift */; };
 		2F66B79902BCE269373BBAAF1965547C /* VideoWriterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FE271103A3B2133FF0C430B2C97EB /* VideoWriterInput.swift */; };
+		40492125118A2D4803DB4A868137CDB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		54E3EEAACB557FA9B39908613072B2DA /* AuxiliaryImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24B3CD4EBA49E07FC94695EB965EF3 /* AuxiliaryImageData.swift */; };
+		558ADB4F3F1D1EFAFDD0EF6A2000912D /* Pods-VideoEffects-example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 82930517BD20B8529FF24E19986D5FE1 /* Pods-VideoEffects-example-dummy.m */; };
+		559F9D075EDDA2B20293DACE090F29A3 /* Pods-VideoEffects-example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E761F4D868B282AA4166D6968CB8CCE4 /* Pods-VideoEffects-example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56BF232FC099D993F55E31C276CB5387 /* ImageUtils-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B903417AE5BFF43CE5F92F448B85866 /* ImageUtils-dummy.m */; };
-		5B108C48BC8B30BF0ADE65B6BA302602 /* Pods-VideoEffects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D24A560484A46DF17A2042BD2CA6E0 /* Pods-VideoEffects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B108C48BC8B30BF0ADE65B6BA302602 /* Pods-VideoEffects-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 438FED3164FFAC551DD5CAFF004E42EC /* Pods-VideoEffects-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C7E76C5991A25576259FD2AE80374BF /* VideoWriterMetadataInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E555A0668FA248C7AAA195A97E75A9E /* VideoWriterMetadataInput.swift */; };
-		689359AE6C09A03E2BBC083E4D5B7423 /* Pods-VideoEffects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7F6F34ED9415FF824B2EE9088BB32E /* Pods-VideoEffects-dummy.m */; };
+		689359AE6C09A03E2BBC083E4D5B7423 /* Pods-VideoEffects-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9BA079A03BB90CC2680536523719D6 /* Pods-VideoEffects-dummy.m */; };
 		7C363465E67FAB67FA3188B6D48E4A68 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB612CB1C005A235743045967950EAC /* Size.swift */; };
 		7C766D32CFDB5CA2D09EB917ECC81F72 /* PixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170A82EFCBFE7A82C23126F98A599D5F /* PixelBuffer.swift */; };
 		84F6CA8EBF76E36282FDDA9D1B58BAAA /* audioUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A3DEB76A996CFB1C190DF1F8599614 /* audioUtils.swift */; };
@@ -46,48 +49,65 @@
 			remoteGlobalIDString = 2C73460163D12BAA49DB803D5A89524D;
 			remoteInfo = ImageUtils;
 		};
+		B7E20287E42FDF021DDCB25099C0F513 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C73460163D12BAA49DB803D5A89524D;
+			remoteInfo = ImageUtils;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A5C88A58752471462CEEA3F7980ACC0 /* Pods-VideoEffects-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VideoEffects-example.debug.xcconfig"; sourceTree = "<group>"; };
 		170A82EFCBFE7A82C23126F98A599D5F /* PixelBuffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PixelBuffer.swift; path = source/PixelBuffer.swift; sourceTree = "<group>"; };
 		17A3DEB76A996CFB1C190DF1F8599614 /* audioUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = audioUtils.swift; path = source/util/audioUtils.swift; sourceTree = "<group>"; };
+		192C66267E66C2CF10A01D1717345487 /* Pods-VideoEffects-example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VideoEffects-example.modulemap"; sourceTree = "<group>"; };
+		1E7AEBB9493B9F22E7F1703024D0614B /* Pods-VideoEffects-example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VideoEffects-example-acknowledgements.plist"; sourceTree = "<group>"; };
+		20C473F2C7DBC63C24CB1DDBC2021A55 /* Pods_VideoEffects_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VideoEffects_example.framework; path = "Pods-VideoEffects-example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		230CDB77B5E074BBD04111FE820AD6B6 /* PixelValue32BGRA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PixelValue32BGRA.swift; path = source/PixelValue32BGRA.swift; sourceTree = "<group>"; };
 		27E800EACC76D89F1A68D1E27DD05EF8 /* VideoWriterFrameBufferInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoWriterFrameBufferInput.swift; path = source/VideoWriter/VideoWriterFrameBufferInput.swift; sourceTree = "<group>"; };
-		2F82092D3D8BFEEF03908B46802A0E0D /* Pods-VideoEffects-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VideoEffects-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2EA71A66A6B008D7555597CEC8839B14 /* Pods-VideoEffects-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VideoEffects-acknowledgements.plist"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		34089DC16C18A5480BA09610EDDA2A81 /* BufferInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BufferInfo.swift; path = source/BufferInfo.swift; sourceTree = "<group>"; };
-		3986F12E6574812F3B52ADD3F03A4313 /* Pods-VideoEffects-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VideoEffects-Info.plist"; sourceTree = "<group>"; };
+		438FED3164FFAC551DD5CAFF004E42EC /* Pods-VideoEffects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VideoEffects-umbrella.h"; sourceTree = "<group>"; };
 		46B14E06321A41B2D536D2FC5C4A5BF0 /* mathUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = mathUtils.swift; path = source/util/mathUtils.swift; sourceTree = "<group>"; };
-		4D57F7F172A80B6232FB208B6FCFA48D /* Pods-VideoEffects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VideoEffects.release.xcconfig"; sourceTree = "<group>"; };
 		51E5B52E6A43A7EB3699751A297D6EDF /* vImageUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = vImageUtils.swift; path = source/util/vImageUtils.swift; sourceTree = "<group>"; };
-		5A7F6F34ED9415FF824B2EE9088BB32E /* Pods-VideoEffects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VideoEffects-dummy.m"; sourceTree = "<group>"; };
 		5E555A0668FA248C7AAA195A97E75A9E /* VideoWriterMetadataInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoWriterMetadataInput.swift; path = source/VideoWriter/VideoWriterMetadataInput.swift; sourceTree = "<group>"; };
+		5E9BF090BEE51CB8068022D30B4E36D6 /* Pods-VideoEffects-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VideoEffects-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5ECAC9A8AAAEDA52B2F874911E662D2B /* VideoWriterAudioInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoWriterAudioInput.swift; path = source/VideoWriter/VideoWriterAudioInput.swift; sourceTree = "<group>"; };
-		60D24A560484A46DF17A2042BD2CA6E0 /* Pods-VideoEffects-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VideoEffects-umbrella.h"; sourceTree = "<group>"; };
+		674BA4AA636B54D691C7257E770E0D8F /* Pods-VideoEffects-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VideoEffects-example.release.xcconfig"; sourceTree = "<group>"; };
 		691E1573D2F6D0A58EA5F36452D5924F /* ImageUtils-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ImageUtils-Info.plist"; sourceTree = "<group>"; };
 		6D345925B60EEE595A8A2B8D9A0F4530 /* pixelBufferUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = pixelBufferUtils.swift; path = source/util/pixelBufferUtils.swift; sourceTree = "<group>"; };
 		7145F3B5CFB71C0E3FE3482FC0330FCC /* ImageBuffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageBuffer.swift; path = source/ImageBuffer.swift; sourceTree = "<group>"; };
+		72E0017DF994125CC7330A119CE68A85 /* Pods-VideoEffects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VideoEffects.release.xcconfig"; sourceTree = "<group>"; };
+		7B7D5E116BB8E75844E4AF2C15DAD37D /* Pods-VideoEffects-example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VideoEffects-example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7B903417AE5BFF43CE5F92F448B85866 /* ImageUtils-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ImageUtils-dummy.m"; sourceTree = "<group>"; };
 		7F24B3CD4EBA49E07FC94695EB965EF3 /* AuxiliaryImageData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuxiliaryImageData.swift; path = source/AuxiliaryImageData.swift; sourceTree = "<group>"; };
+		82930517BD20B8529FF24E19986D5FE1 /* Pods-VideoEffects-example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VideoEffects-example-dummy.m"; sourceTree = "<group>"; };
 		82A12DCC48645BB6C7AB5FC45DB60D0D /* PixelBufferIterator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PixelBufferIterator.swift; path = source/PixelBufferIterator.swift; sourceTree = "<group>"; };
 		849D13799BECB6732CBE0D7BD2FB60F2 /* depthUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = depthUtils.swift; path = source/util/depthUtils.swift; sourceTree = "<group>"; };
 		8A8ADAF2D20F57518D9CC390C6FE447E /* ImageUtils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ImageUtils.debug.xcconfig; sourceTree = "<group>"; };
 		8EC26F96726ECEE12851654107D08B9A /* transformUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = transformUtils.swift; path = source/util/transformUtils.swift; sourceTree = "<group>"; };
+		8F8FC0387ADF42A336F5820815A0BF6E /* Pods-VideoEffects-example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VideoEffects-example-Info.plist"; sourceTree = "<group>"; };
+		930A5521DCF61766387D8E895F265F65 /* Pods-VideoEffects-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VideoEffects-Info.plist"; sourceTree = "<group>"; };
 		9AD8C8E81805129634D3D181FDC8174C /* AVDepthDataToPixelBufferConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AVDepthDataToPixelBufferConverter.swift; path = source/AVDepthDataToPixelBufferConverter.swift; sourceTree = "<group>"; };
-		9D12B0CF8C0EC61254631591EF0618C4 /* Pods-VideoEffects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VideoEffects.modulemap"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F5DDBF5E6F36F38597869A00935494D /* VideoWriter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoWriter.swift; path = source/VideoWriter/VideoWriter.swift; sourceTree = "<group>"; };
 		A6F282D4389E001DEF5EA2049A2D8DF0 /* VideoFrameBuffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoFrameBuffer.swift; path = source/VideoFrameBuffer.swift; sourceTree = "<group>"; };
-		B3354115A80475021215767AA07D650D /* Pods-VideoEffects-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VideoEffects-acknowledgements.plist"; sourceTree = "<group>"; };
 		BED6EB2E404D1F7DD8351EBA62EBF676 /* ImageUtils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ImageUtils.release.xcconfig; sourceTree = "<group>"; };
-		C42E095890F8EE04DB44F871CFDC6B89 /* Pods-VideoEffects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VideoEffects.debug.xcconfig"; sourceTree = "<group>"; };
 		C5E550CC91B8B562BCD253E56A06BAB7 /* ImageUtils-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ImageUtils-umbrella.h"; sourceTree = "<group>"; };
 		C8AED4B5A609C34150399F39FAEDD0A2 /* VideoWriterTimedMetadataInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoWriterTimedMetadataInput.swift; path = source/VideoWriter/VideoWriterTimedMetadataInput.swift; sourceTree = "<group>"; };
 		CCB612CB1C005A235743045967950EAC /* Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Size.swift; path = source/geometry/Size.swift; sourceTree = "<group>"; };
 		CE72D6A0D3DCCA3DFAC3EB4F1F35B7D6 /* Pods_VideoEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VideoEffects.framework; path = "Pods-VideoEffects.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB9FB76CD5ADE91B3CB81A42D90DCF1 /* ImageUtils.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ImageUtils.modulemap; sourceTree = "<group>"; };
 		D910C6DA1B471096D54FCB692771C599 /* Rectangle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rectangle.swift; path = source/geometry/Rectangle.swift; sourceTree = "<group>"; };
+		E64F3FDC27B7F405D159079ABCC9C05D /* Pods-VideoEffects-example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VideoEffects-example-frameworks.sh"; sourceTree = "<group>"; };
+		E761F4D868B282AA4166D6968CB8CCE4 /* Pods-VideoEffects-example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VideoEffects-example-umbrella.h"; sourceTree = "<group>"; };
 		E90FE271103A3B2133FF0C430B2C97EB /* VideoWriterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoWriterInput.swift; path = source/VideoWriter/VideoWriterInput.swift; sourceTree = "<group>"; };
+		EA9BA079A03BB90CC2680536523719D6 /* Pods-VideoEffects-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VideoEffects-dummy.m"; sourceTree = "<group>"; };
+		F0CA208AD360AC03AC3D3EA3D1EA80A9 /* Pods-VideoEffects.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VideoEffects.modulemap"; sourceTree = "<group>"; };
+		F19F42FAD9C97B95A2D28D0C438F1AD0 /* Pods-VideoEffects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VideoEffects.debug.xcconfig"; sourceTree = "<group>"; };
 		F7F32CCC5F44EE033861A38B05C3A3B3 /* ImageUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ImageUtils.framework; path = ImageUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8D958368C53587DE4AEC9237B55D20 /* Point2D.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Point2D.swift; path = source/geometry/Point2D.swift; sourceTree = "<group>"; };
 		FEE87F1A9467E708421E438560F2A57F /* ImageUtils-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ImageUtils-prefix.pch"; sourceTree = "<group>"; };
@@ -110,32 +130,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D86D91829AADB753A685DC1FCFBA91CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40492125118A2D4803DB4A868137CDB3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		286C91D2F4EF6A597D5E9EECA92DC54C /* Products */ = {
+		56DABE2973E84AA39DEA664826081864 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F7F32CCC5F44EE033861A38B05C3A3B3 /* ImageUtils.framework */,
-				CE72D6A0D3DCCA3DFAC3EB4F1F35B7D6 /* Pods_VideoEffects.framework */,
+				7B87B794A884D873D1D8EA44BB56F5E0 /* Pods-VideoEffects */,
+				85CAF0C3D799867A7EF9EA502FB69D52 /* Pods-VideoEffects-example */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3CCD75124E985654706D632B46CBBA82 /* Pods-VideoEffects */ = {
-			isa = PBXGroup;
-			children = (
-				9D12B0CF8C0EC61254631591EF0618C4 /* Pods-VideoEffects.modulemap */,
-				2F82092D3D8BFEEF03908B46802A0E0D /* Pods-VideoEffects-acknowledgements.markdown */,
-				B3354115A80475021215767AA07D650D /* Pods-VideoEffects-acknowledgements.plist */,
-				5A7F6F34ED9415FF824B2EE9088BB32E /* Pods-VideoEffects-dummy.m */,
-				3986F12E6574812F3B52ADD3F03A4313 /* Pods-VideoEffects-Info.plist */,
-				60D24A560484A46DF17A2042BD2CA6E0 /* Pods-VideoEffects-umbrella.h */,
-				C42E095890F8EE04DB44F871CFDC6B89 /* Pods-VideoEffects.debug.xcconfig */,
-				4D57F7F172A80B6232FB208B6FCFA48D /* Pods-VideoEffects.release.xcconfig */,
-			);
-			name = "Pods-VideoEffects";
-			path = "Target Support Files/Pods-VideoEffects";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		5940168D821B69F768B0D25A080CD861 /* ImageUtils */ = {
@@ -170,20 +182,55 @@
 			path = ImageUtils;
 			sourceTree = "<group>";
 		};
+		637B88E7D68780AD09B38AFEC7B948A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7F32CCC5F44EE033861A38B05C3A3B3 /* ImageUtils.framework */,
+				CE72D6A0D3DCCA3DFAC3EB4F1F35B7D6 /* Pods_VideoEffects.framework */,
+				20C473F2C7DBC63C24CB1DDBC2021A55 /* Pods_VideoEffects_example.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B87B794A884D873D1D8EA44BB56F5E0 /* Pods-VideoEffects */ = {
+			isa = PBXGroup;
+			children = (
+				F0CA208AD360AC03AC3D3EA3D1EA80A9 /* Pods-VideoEffects.modulemap */,
+				5E9BF090BEE51CB8068022D30B4E36D6 /* Pods-VideoEffects-acknowledgements.markdown */,
+				2EA71A66A6B008D7555597CEC8839B14 /* Pods-VideoEffects-acknowledgements.plist */,
+				EA9BA079A03BB90CC2680536523719D6 /* Pods-VideoEffects-dummy.m */,
+				930A5521DCF61766387D8E895F265F65 /* Pods-VideoEffects-Info.plist */,
+				438FED3164FFAC551DD5CAFF004E42EC /* Pods-VideoEffects-umbrella.h */,
+				F19F42FAD9C97B95A2D28D0C438F1AD0 /* Pods-VideoEffects.debug.xcconfig */,
+				72E0017DF994125CC7330A119CE68A85 /* Pods-VideoEffects.release.xcconfig */,
+			);
+			name = "Pods-VideoEffects";
+			path = "Target Support Files/Pods-VideoEffects";
+			sourceTree = "<group>";
+		};
+		85CAF0C3D799867A7EF9EA502FB69D52 /* Pods-VideoEffects-example */ = {
+			isa = PBXGroup;
+			children = (
+				192C66267E66C2CF10A01D1717345487 /* Pods-VideoEffects-example.modulemap */,
+				7B7D5E116BB8E75844E4AF2C15DAD37D /* Pods-VideoEffects-example-acknowledgements.markdown */,
+				1E7AEBB9493B9F22E7F1703024D0614B /* Pods-VideoEffects-example-acknowledgements.plist */,
+				82930517BD20B8529FF24E19986D5FE1 /* Pods-VideoEffects-example-dummy.m */,
+				E64F3FDC27B7F405D159079ABCC9C05D /* Pods-VideoEffects-example-frameworks.sh */,
+				8F8FC0387ADF42A336F5820815A0BF6E /* Pods-VideoEffects-example-Info.plist */,
+				E761F4D868B282AA4166D6968CB8CCE4 /* Pods-VideoEffects-example-umbrella.h */,
+				0A5C88A58752471462CEEA3F7980ACC0 /* Pods-VideoEffects-example.debug.xcconfig */,
+				674BA4AA636B54D691C7257E770E0D8F /* Pods-VideoEffects-example.release.xcconfig */,
+			);
+			name = "Pods-VideoEffects-example";
+			path = "Target Support Files/Pods-VideoEffects-example";
+			sourceTree = "<group>";
+		};
 		A4914384A9308A15139B026817E1E899 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				5940168D821B69F768B0D25A080CD861 /* ImageUtils */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		B701E3965ED0D21A967F7A6289AA31C4 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3CCD75124E985654706D632B46CBBA82 /* Pods-VideoEffects */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -200,8 +247,8 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				A4914384A9308A15139B026817E1E899 /* Pods */,
-				286C91D2F4EF6A597D5E9EECA92DC54C /* Products */,
-				B701E3965ED0D21A967F7A6289AA31C4 /* Targets Support Files */,
+				637B88E7D68780AD09B38AFEC7B948A3 /* Products */,
+				56DABE2973E84AA39DEA664826081864 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,6 +278,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		530FE697578E9C16652AE6667EC7097A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				559F9D075EDDA2B20293DACE090F29A3 /* Pods-VideoEffects-example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F85F1BD7A74935DED2A1ED60A76BF0A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +321,25 @@
 			name = ImageUtils;
 			productName = ImageUtils;
 			productReference = F7F32CCC5F44EE033861A38B05C3A3B3 /* ImageUtils.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AA97F9DDC46EA8725DC84FE68B62D9B2 /* Pods-VideoEffects-example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A19E7A4FC0543946D8B6A214902C8819 /* Build configuration list for PBXNativeTarget "Pods-VideoEffects-example" */;
+			buildPhases = (
+				530FE697578E9C16652AE6667EC7097A /* Headers */,
+				ACFF71CE40E804E19160BDF03FB0EC31 /* Sources */,
+				D86D91829AADB753A685DC1FCFBA91CE /* Frameworks */,
+				3B7F9B08965B786CED75F47B67460BE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FFF9F7E55BD467F41D85C71F3275EA1 /* PBXTargetDependency */,
+			);
+			name = "Pods-VideoEffects-example";
+			productName = "Pods-VideoEffects-example";
+			productReference = 20C473F2C7DBC63C24CB1DDBC2021A55 /* Pods_VideoEffects_example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		DC06C07FC4F13C8B584F7FC02CA7AD9D /* Pods-VideoEffects */ = {
@@ -305,17 +379,25 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 286C91D2F4EF6A597D5E9EECA92DC54C /* Products */;
+			productRefGroup = 637B88E7D68780AD09B38AFEC7B948A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				2C73460163D12BAA49DB803D5A89524D /* ImageUtils */,
 				DC06C07FC4F13C8B584F7FC02CA7AD9D /* Pods-VideoEffects */,
+				AA97F9DDC46EA8725DC84FE68B62D9B2 /* Pods-VideoEffects-example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B7F9B08965B786CED75F47B67460BE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5751E96F31DCEABFAAA93B15FD787A42 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,6 +415,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		ACFF71CE40E804E19160BDF03FB0EC31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				558ADB4F3F1D1EFAFDD0EF6A2000912D /* Pods-VideoEffects-example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7AEE123912EA53B91A73BCEF508E7A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -375,6 +465,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4FFF9F7E55BD467F41D85C71F3275EA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ImageUtils;
+			target = 2C73460163D12BAA49DB803D5A89524D /* ImageUtils */;
+			targetProxy = B7E20287E42FDF021DDCB25099C0F513 /* PBXContainerItemProxy */;
+		};
 		87BC8E41E7CDA6C4224CEBA20A03FE27 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ImageUtils;
@@ -446,7 +542,7 @@
 		};
 		445A6F7056B6942EA88133CA14A7875B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D57F7F172A80B6232FB208B6FCFA48D /* Pods-VideoEffects.release.xcconfig */;
+			baseConfigurationReference = 72E0017DF994125CC7330A119CE68A85 /* Pods-VideoEffects.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -519,6 +615,83 @@
 			};
 			name = Debug;
 		};
+		6F9CB086F101411A6E3DEF1495B02E82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 674BA4AA636B54D691C7257E770E0D8F /* Pods-VideoEffects-example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BEA5D2FA7993B9B9524C95BADE916CB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A5C88A58752471462CEEA3F7980ACC0 /* Pods-VideoEffects-example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		DD8F832993327D1DD8046C3CBCBD97CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -585,7 +758,7 @@
 		};
 		EF905DC2DB9E066742B9EC2B2CB06D0E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C42E095890F8EE04DB44F871CFDC6B89 /* Pods-VideoEffects.debug.xcconfig */;
+			baseConfigurationReference = F19F42FAD9C97B95A2D28D0C438F1AD0 /* Pods-VideoEffects.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -684,6 +857,15 @@
 			buildConfigurations = (
 				52EEDE479E67247EAEE7759961E3D850 /* Debug */,
 				FCF3696498C06D1DBFB1B54C807684B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A19E7A4FC0543946D8B6A214902C8819 /* Build configuration list for PBXNativeTarget "Pods-VideoEffects-example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEA5D2FA7993B9B9524C95BADE916CB6 /* Debug */,
+				6F9CB086F101411A6E3DEF1495B02E82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

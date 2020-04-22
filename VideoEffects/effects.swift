@@ -74,8 +74,13 @@ public struct ColorControlsFilterEffect {
 
 extension ColorControlsFilterEffect: Effect {
   public func apply(exportSession: AVAssetExportSession) {
+    guard let videoTrack = exportSession.asset.tracks(withMediaType: .video).first else {
+      return
+    }
     if let compositor = exportSession.customVideoCompositor as? Compositor {
-      // TODO:
+      compositor.filter = ColorControlsCompositorFilter(
+        videoTrack: videoTrack.trackID, brightness: brightness, saturation: saturation, contrast: contrast
+      )
     }
   }
 }
