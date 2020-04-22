@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     textLayer.frame = CGRect(origin: .zero, size: string.size())
     textLayer.backgroundColor = UIColor.red.cgColor
     textLayer.foregroundColor = UIColor.white.cgColor
-    textLayer.display() // Calling "display()" is necessary for CATextLayers due to: http://www.openradar.me/32718905
+    textLayer.display() // Calling "display()" is necessary for CATextLayers due to an open radar: http://www.openradar.me/32718905
     layer.backgroundColor = UIColor.purple.cgColor
     layer.frame = textLayer.frame
     layer.addSublayer(textLayer)

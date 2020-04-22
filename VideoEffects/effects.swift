@@ -104,7 +104,7 @@ extension LayerEffect: Effect {
 
 public struct AudioEffect {
   public init() {
-    // TODO:
+    // TODO: enable/disable audio track
   }
 }
 
