@@ -30,13 +30,12 @@ class ViewController: UIViewController {
     layer.addSublayer(textLayer)
     layer.masksToBounds = true
 
-    let effects: [Effect] = [
-      TrimEffect(range: CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600))),
-      CropEffect(aspectRatio: CGSize(width: 1, height: 1)),
-      ColorControlsEffect(brightness: 0, saturation: 0, contrast: 1),
-      LayerEffect(layer: layer),
-//      AudioEffect()
-    ]
+    let effects = EffectConfig()
+      .setColorControls(.grayscale)
+      .setAspectRatio(CGSize(width: 1, height: 1))
+      .setTimeRange(CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)))
+      .setLayer(layer)
+
     guard let exportConfig = try? ExportConfig.defaultConfig() else {
       fatalError("Failed to configure export.")
     }

@@ -58,7 +58,7 @@ public struct ExportConfig {
 
 public func export(
   asset: AVAsset,
-  effects: [Effect],
+  effects: EffectConfig,
   config: ExportConfig,
   resultHandler: @escaping (Result<URL, ExportError>) -> Void
 ) {
@@ -69,7 +69,7 @@ public func export(
     exportSession.outputFileType = config.outputFileType
     exportSession.outputURL = config.outputURL
 
-    var composition = AVMutableVideoComposition()
+    let composition = AVMutableVideoComposition()
     composition.customVideoCompositorClass = Compositor.self
     if let videoTrack = exportSession.asset.tracks(withMediaType: .video).first {
       let videoTrackInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
@@ -79,13 +79,49 @@ public func export(
       ]
       instruction.enablePostProcessing = true
       instruction.timeRange = videoTrack.timeRange
-      composition.renderSize = videoTrack.naturalSize
+
+      if let aspectRatioSize = effects.aspectRatio {
+        // dimensions are reversed if video is in portrait orientation
+        // videoTrack.naturalSize.applying(videoTrack.preferredTransform)
+        // CGSize(width: abs(size.width), height: abs(size.height))
+        let aspectRatio = aspectRatioSize.width / aspectRatioSize.height
+        let height = videoTrack.naturalSize.height
+        let width = height * aspectRatio
+        composition.renderSize = CGSize(width: width, height: height)
+      } else {
+        composition.renderSize = videoTrack.naturalSize
+      }
+
       composition.frameDuration = CMTimeMake(value: 1, timescale: CMTimeScale(videoTrack.nominalFrameRate))
       composition.instructions = [instruction]
       exportSession.videoComposition = composition
+      if let compositor = exportSession.customVideoCompositor as? Compositor {
+        compositor.filter = ColorControlsCompositorFilter(
+          videoTrack: videoTrack.trackID,
+          brightness: effects.colorControls.brightness,
+          saturation: effects.colorControls.saturation,
+          contrast: effects.colorControls.contrast
+        )
+      }
+      
+      if let layer = effects.layer {
+        let effectLayer = CALayer()
+        let parentLayer = CALayer()
+        let videoLayer = CALayer()
+        effectLayer.addSublayer(layer)
+        let frame = CGRect(origin: .zero, size: composition.renderSize) // TODO: applying transform
+        parentLayer.isGeometryFlipped = true
+        parentLayer.frame = frame
+        effectLayer.frame = frame
+        videoLayer.frame = frame
+        parentLayer.addSublayer(videoLayer)
+        parentLayer.addSublayer(effectLayer)
+        parentLayer.display()
+        composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayers: [videoLayer], in: parentLayer)
+        exportSession.videoComposition = composition
+      }
 
-      // TODO: collect errors from effects
-      effects.forEach { $0.apply(exportSession: exportSession, videoComposition: &composition) }
+      exportSession.timeRange = effects.timeRange ?? CMTimeRange(start: .zero, duration: .positiveInfinity)
     }
 
     try? FileManager.default.removeItem(at: config.outputURL)

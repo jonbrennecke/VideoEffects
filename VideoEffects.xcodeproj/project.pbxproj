@@ -133,8 +133,8 @@
 				FCF25422244E5B3D00971CE2 /* Compositor.swift */,
 				FCF253FD244E2FC300971CE2 /* effects.swift */,
 				FCF25420244E59E100971CE2 /* fileUtils.swift */,
-				FCF253FC244E2FC200971CE2 /* VideoEffects-Bridging-Header.h */,
 				FCC3615E2450C24A00B7EC66 /* export.swift */,
+				FCF253FC244E2FC200971CE2 /* VideoEffects-Bridging-Header.h */,
 			);
 			path = VideoEffects;
 			sourceTree = "<group>";
