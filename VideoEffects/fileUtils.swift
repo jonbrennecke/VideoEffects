@@ -13,7 +13,7 @@ public func fileExtension(for fileType: AVFileType) -> String? {
   return .none
 }
 
-public func makeTemporaryFile(for fileType: AVFileType, fileName: String = makeRandomFileName()) throws -> URL {
+public func createTemporaryUrl(for fileType: AVFileType, fileName: String = makeRandomFileName()) throws -> URL {
   let outputTemporaryDirectoryURL = try FileManager.default
     .url(
       for: .itemReplacementDirectory,
@@ -24,6 +24,5 @@ public func makeTemporaryFile(for fileType: AVFileType, fileName: String = makeR
   let outputURL = outputTemporaryDirectoryURL
     .appendingPathComponent(fileName)
     .appendingPathExtension(fileExtension(for: fileType) ?? "")
-  try? FileManager.default.removeItem(at: outputURL)
   return outputURL
 }

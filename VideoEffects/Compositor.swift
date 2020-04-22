@@ -1,7 +1,7 @@
 import AVFoundation
 import CoreImage
-import Metal
 import ImageUtils
+import Metal
 
 class Compositor: NSObject, AVVideoCompositing {
   private enum VideoCompositionRequestError: Error {
@@ -41,8 +41,7 @@ class Compositor: NSObject, AVVideoCompositing {
       renderingQueue.async { [weak self] in
         guard let strongSelf = self else { return }
         if strongSelf.shouldCancelAllRequests {
-          request.finishCancelledRequest()
-          return
+          return request.finishCancelledRequest()
         }
         if let pixelBuffer = strongSelf.composePixelBuffer(with: request) {
           request.finish(withComposedVideoFrame: pixelBuffer)
@@ -66,8 +65,8 @@ class Compositor: NSObject, AVVideoCompositing {
   }
 
   // MARK: - Utilities
-  
-  var filter: CompositorFilter?
+
+  var filter: CompositorFilter? = DefaultFilter()
 
   private func composePixelBuffer(with request: AVAsynchronousVideoCompositionRequest) -> CVPixelBuffer? {
     return autoreleasepool {
@@ -93,6 +92,18 @@ protocol CompositorFilter {
   mutating func renderImage(with request: AVAsynchronousVideoCompositionRequest) -> CIImage?
 }
 
+struct DefaultFilter: CompositorFilter {
+  mutating func renderImage(with request: AVAsynchronousVideoCompositionRequest) -> CIImage? {
+    guard
+      let trackID = request.sourceTrackIDs.first,
+      let pixelBuffer = request.sourceFrame(byTrackID: trackID.int32Value as CMPersistentTrackID)
+    else {
+      return nil
+    }
+    return ImageBuffer(cvPixelBuffer: pixelBuffer).makeCIImage()
+  }
+}
+
 struct ColorControlsCompositorFilter {
   let brightness: Double
   let saturation: Double
@@ -105,7 +116,7 @@ struct ColorControlsCompositorFilter {
     self.saturation = saturation
     self.contrast = contrast
   }
-  
+
   private lazy var colorControlsFilter: CIFilter? = {
     guard let filter = CIFilter(name: "CIColorControls") else {
       return nil
@@ -115,12 +126,13 @@ struct ColorControlsCompositorFilter {
   }()
 }
 
-extension ColorControlsCompositorFilter : CompositorFilter {
+extension ColorControlsCompositorFilter: CompositorFilter {
   mutating func renderImage(with request: AVAsynchronousVideoCompositionRequest) -> CIImage? {
     guard let pixelBuffer = request.sourceFrame(byTrackID: videoTrack) else {
       return nil
     }
-    let image = ImageBuffer(cvPixelBuffer: pixelBuffer).makeCIImage()
+    let imageBuffer = ImageBuffer(cvPixelBuffer: pixelBuffer)
+    let image = imageBuffer.makeCIImage()
     guard let filter = colorControlsFilter else {
       return nil
     }

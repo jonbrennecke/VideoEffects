@@ -13,24 +13,21 @@ class ViewController: UIViewController {
   }
 
   func exportAsset(asset: AVAsset) {
-    guard let exportSession = AVAssetExportSession(
-      asset: asset, presetName: AVAssetExportPresetHighestQuality
-    ) else {
-      return
-    }
-    applyEffects(exportSession: exportSession, effects: [
+    let effects: [Effect] = [
       TrimEffect(range: CMTimeRange(start: .zero, end: CMTime(seconds: 1, preferredTimescale: 600))),
       CropEffect(aspectRatio: CGSize(width: 1, height: 1)),
-      ColorControlsFilterEffect(brightness: 0, saturation: 0, contrast: 1),
-    ])
-    exportSession.outputFileType = .mov
-    exportSession.outputURL = try? makeTemporaryFile(for: .mov)
-    exportSession.exportAsynchronously {
-      if exportSession.status != AVAssetExportSession.Status.completed {
-        fatalError("Failed to export")
+      ColorControlsEffect(brightness: 0, saturation: 0, contrast: 1),
+    ]
+    guard let exportConfig = try? ExportConfig.defaultConfig() else {
+      fatalError("Failed to configure export.")
+    }
+    export(asset: asset, effects: effects, config: exportConfig) { result in
+      switch result {
+      case let .success(url):
+        print(url)
+      case let .failure(error):
+        print(error)
       }
-      print("Completed successfully")
-      print(exportSession.outputURL as Any)
     }
   }
 }
