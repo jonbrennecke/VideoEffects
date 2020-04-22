@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.cocoapods_version      = '>= 1.2.0'
   s.license                = 'MIT'
   s.summary                = 'Swift library for rendering videos with effects'
-  s.source_files           = 'captions/**/*.swift'
+  s.source_files           = 'VideoEffects/**/*.swift'
   s.swift_version          = '5'
 end
