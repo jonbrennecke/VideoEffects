@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		FCB27E09236FB4D000F522B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB27E08236FB4D000F522B9 /* Assets.xcassets */; };
 		FCB27E0C236FB4D000F522B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB27E0A236FB4D000F522B9 /* LaunchScreen.storyboard */; };
 		FCB27E7E236FC2AE00F522B9 /* libVideoEffects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB27D94236FB40500F522B9 /* libVideoEffects.a */; };
+		FCC3615F2450C24A00B7EC66 /* export.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC3615E2450C24A00B7EC66 /* export.swift */; };
 		FCF253FE244E2FC300971CE2 /* effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF253FD244E2FC300971CE2 /* effects.swift */; };
 		FCF2541E244E43F000971CE2 /* example.mov in Resources */ = {isa = PBXBuildFile; fileRef = FCF2541D244E43F000971CE2 /* example.mov */; };
 		FCF25421244E59E100971CE2 /* fileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF25420244E59E100971CE2 /* fileUtils.swift */; };
@@ -64,6 +65,7 @@
 		FCC36153244FC9D600B7EC66 /* Pods_VideoEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_VideoEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC36157244FC9DE00B7EC66 /* ImageUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImageUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC3615A244FC9F900B7EC66 /* ImageUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImageUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCC3615E2450C24A00B7EC66 /* export.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = export.swift; sourceTree = "<group>"; };
 		FCF253FC244E2FC200971CE2 /* VideoEffects-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoEffects-Bridging-Header.h"; sourceTree = "<group>"; };
 		FCF253FD244E2FC300971CE2 /* effects.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = effects.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCF2541D244E43F000971CE2 /* example.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = example.mov; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				FCF253FD244E2FC300971CE2 /* effects.swift */,
 				FCF25420244E59E100971CE2 /* fileUtils.swift */,
 				FCF253FC244E2FC200971CE2 /* VideoEffects-Bridging-Header.h */,
+				FCC3615E2450C24A00B7EC66 /* export.swift */,
 			);
 			path = VideoEffects;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF25423244E5B3D00971CE2 /* Compositor.swift in Sources */,
+				FCC3615F2450C24A00B7EC66 /* export.swift in Sources */,
 				FCF253FE244E2FC300971CE2 /* effects.swift in Sources */,
 				FCF25421244E59E100971CE2 /* fileUtils.swift in Sources */,
 			);
