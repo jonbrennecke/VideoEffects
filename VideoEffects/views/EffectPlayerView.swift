@@ -11,11 +11,18 @@ func effectRenderSize(aspectRatio: CGSize, naturalSize: CGSize) -> CGSize {
   return CGSize(width: width, height: height)
 }
 
+public protocol EffectPlayerViewPlaybackDelegate {
+  func videoComposition(view: EffectPlayerView, didUpdateProgress progress: CFTimeInterval)
+  func videoComposition(view: EffectPlayerView, didChangePlaybackState playbackState: EffectPlayerView.PlaybackState)
+  func videoCompositionDidPlayToEnd(_ view: EffectPlayerView)
+}
+
 public class EffectPlayerView: UIView {
-  public protocol PlaybackDelegate {
-    func videoComposition(view: HSVideoCompositionView, didUpdateProgress progress: CFTimeInterval)
-    func videoComposition(view: HSVideoCompositionView, didChangePlaybackState playbackState: HSVideoPlaybackState)
-    func videoCompositionDidPlayToEnd(_ view: HSVideoCompositionView)
+  public enum PlaybackState: Int {
+    case paused
+    case playing
+    case waiting
+    case readyToPlay
   }
 
   private let playerLayer = AVPlayerLayer()
@@ -32,7 +39,7 @@ public class EffectPlayerView: UIView {
 
   // MARK: public vars
 
-  public var playbackDelegate: PlaybackDelegate?
+  public var playbackDelegate: EffectPlayerViewPlaybackDelegate?
 
   public var effects: EffectConfig = EffectConfig() {
     didSet {
@@ -171,7 +178,7 @@ public class EffectPlayerView: UIView {
         guard let strongSelf = self, let duration = strongSelf.playerItem?.duration else { return }
         let playbackTimeSeconds = CMTimeGetSeconds(playbackTime)
         let durationSeconds = CMTimeGetSeconds(duration)
-        let progress = clamp(playbackTimeSeconds / durationSeconds, min: 0, max: durationSeconds)
+        let progress = clamp(playbackTimeSeconds / durationSeconds, min: Float64(0), max: durationSeconds)
         strongSelf.playbackDelegate?.videoComposition(view: strongSelf, didUpdateProgress: progress)
       }
     )
