@@ -7,7 +7,8 @@ public func makeRandomFileName() -> String {
 }
 
 public func fileExtension(for fileType: AVFileType) -> String? {
-  if let ext = UTTypeCopyPreferredTagWithClass(fileType as CFString, kUTTagClassFilenameExtension)?.takeRetainedValue() {
+  if let ext = UTTypeCopyPreferredTagWithClass(fileType as CFString, kUTTagClassFilenameExtension)?
+    .takeRetainedValue() {
     return ext as String
   }
   return .none

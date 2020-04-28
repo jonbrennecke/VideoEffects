@@ -10,6 +10,7 @@
 		34B707495F3B471BC4B990AA /* Pods_VideoEffects_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAAA8F8C59E2AE205C3086D /* Pods_VideoEffects_example.framework */; };
 		8429B9806A9CF5DD36D68EEA /* Pods_VideoEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC36153244FC9D600B7EC66 /* Pods_VideoEffects.framework */; };
 		E140BB5004C1632DFAA201EE /* Pods_VideoEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3C1F141C5AACBEFB27E316 /* Pods_VideoEffects.framework */; };
+		FC8EBD1424587F9500A6291E /* EffectPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8EBD1324587F9500A6291E /* EffectPlayerView.swift */; };
 		FCB27E00236FB4CE00F522B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */; };
 		FCB27E02236FB4CE00F522B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E01236FB4CE00F522B9 /* SceneDelegate.swift */; };
 		FCB27E04236FB4CE00F522B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27E03236FB4CE00F522B9 /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		CC25A9190769385B2138CB35 /* Pods-VideoEffects-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoEffects-example.release.xcconfig"; path = "Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example.release.xcconfig"; sourceTree = "<group>"; };
 		D558F658B04DF20BE695C97A /* Pods-VideoEffects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoEffects.release.xcconfig"; path = "Target Support Files/Pods-VideoEffects/Pods-VideoEffects.release.xcconfig"; sourceTree = "<group>"; };
 		FA3C1F141C5AACBEFB27E316 /* Pods_VideoEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC8EBD1324587F9500A6291E /* EffectPlayerView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = EffectPlayerView.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCB27D94236FB40500F522B9 /* libVideoEffects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVideoEffects.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27DFD236FB4CE00F522B9 /* VideoEffects-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoEffects-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FC8EBD162458F62600A6291E /* views */ = {
+			isa = PBXGroup;
+			children = (
+				FC8EBD1324587F9500A6291E /* EffectPlayerView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		FCB27D8B236FB40500F522B9 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 		FCB27D96236FB40500F522B9 /* VideoEffects */ = {
 			isa = PBXGroup;
 			children = (
+				FC8EBD162458F62600A6291E /* views */,
 				FCF25422244E5B3D00971CE2 /* Compositor.swift */,
 				FCF253FD244E2FC300971CE2 /* effects.swift */,
 				FCF25420244E59E100971CE2 /* fileUtils.swift */,
@@ -339,6 +350,7 @@
 				FCC3615F2450C24A00B7EC66 /* export.swift in Sources */,
 				FCF253FE244E2FC300971CE2 /* effects.swift in Sources */,
 				FCF25421244E59E100971CE2 /* fileUtils.swift in Sources */,
+				FC8EBD1424587F9500A6291E /* EffectPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

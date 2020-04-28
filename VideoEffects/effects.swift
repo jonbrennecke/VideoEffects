@@ -11,7 +11,7 @@ public struct EffectConfig {
       self.saturation = saturation
       self.contrast = contrast
     }
-    
+
     public static let grayscale = ColorControls(brightness: 0, saturation: 0, contrast: 1)
   }
 

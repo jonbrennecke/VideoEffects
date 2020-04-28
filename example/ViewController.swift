@@ -9,10 +9,15 @@ class ViewController: UIViewController {
       fatalError("Failed to find example video file")
     }
     let asset = AVAsset(url: exampleVideoURL)
-    exportAsset(asset: asset)
+    let effectView = EffectPlayerView()
+    effectView.effects = createEffectsForDemo()
+    effectView.asset = asset
+    effectView.frame = view.frame
+    view.addSubview(effectView)
+//    exportAsset(asset: asset)
   }
 
-  func exportAsset(asset: AVAsset) {
+  func createEffectsForDemo() -> EffectConfig {
     let layer = CALayer()
     let textLayer = CATextLayer()
     let string = NSAttributedString(string: "Hello World", attributes: [
@@ -24,18 +29,19 @@ class ViewController: UIViewController {
     textLayer.frame = CGRect(origin: .zero, size: string.size())
     textLayer.backgroundColor = UIColor.red.cgColor
     textLayer.foregroundColor = UIColor.white.cgColor
-    textLayer.display() // Calling "display()" is necessary for CATextLayers due to an open radar: http://www.openradar.me/32718905
-    layer.backgroundColor = UIColor.purple.cgColor
+    textLayer
+      .display() // Calling "display()" is necessary for CATextLayers due to an open radar: http://www.openradar.me/32718905
     layer.frame = textLayer.frame
     layer.addSublayer(textLayer)
     layer.masksToBounds = true
-
-    let effects = EffectConfig()
+    return EffectConfig()
       .setColorControls(.grayscale)
       .setAspectRatio(CGSize(width: 1, height: 1))
       .setTimeRange(CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)))
       .setLayer(layer)
+  }
 
+  func exportAsset(asset: AVAsset, effects: EffectConfig) {
     guard let exportConfig = try? ExportConfig.defaultConfig() else {
       fatalError("Failed to configure export.")
     }

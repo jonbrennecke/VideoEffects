@@ -8,7 +8,7 @@ class Compositor: NSObject, AVVideoCompositing {
     case failedToComposePixelBuffer
   }
 
-  private var renderingQueue = DispatchQueue(label: "com.jonbrennecke..renderingqueue")
+  private var renderingQueue = DispatchQueue(label: "com.jonbrennecke.Compositor.renderingQueue")
   private var renderContext: AVVideoCompositionRenderContext?
 
   private lazy var context: CIContext! = {
@@ -17,6 +17,8 @@ class Compositor: NSObject, AVVideoCompositing {
     }
     return CIContext(mtlDevice: device, options: [CIContextOption.workingColorSpace: NSNull()])
   }()
+
+  public var filter: CompositorFilter? = DefaultFilter()
 
   // MARK: - AVVideoCompositing implementation
 
@@ -65,8 +67,6 @@ class Compositor: NSObject, AVVideoCompositing {
   }
 
   // MARK: - Utilities
-
-  var filter: CompositorFilter? = DefaultFilter()
 
   private func composePixelBuffer(with request: AVAsynchronousVideoCompositionRequest) -> CVPixelBuffer? {
     return autoreleasepool {
