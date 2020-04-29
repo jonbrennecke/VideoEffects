@@ -12,9 +12,9 @@ func effectRenderSize(aspectRatio: CGSize, naturalSize: CGSize) -> CGSize {
 }
 
 public protocol EffectPlayerViewPlaybackDelegate {
-  func videoComposition(view: EffectPlayerView, didUpdateProgress progress: CFTimeInterval)
-  func videoComposition(view: EffectPlayerView, didChangePlaybackState playbackState: EffectPlayerView.PlaybackState)
-  func videoCompositionDidPlayToEnd(_ view: EffectPlayerView)
+  func effectPlayer(view: EffectPlayerView, didUpdateProgress progress: CFTimeInterval)
+  func effectPlayer(view: EffectPlayerView, didChangePlaybackState playbackState: EffectPlayerView.PlaybackState)
+  func effectPlayerDidPlayToEnd(_ view: EffectPlayerView)
 }
 
 open class EffectPlayerView: UIView {
@@ -135,7 +135,9 @@ open class EffectPlayerView: UIView {
   }
 
   @objc
-  private func onDidPlayToEndNotification() {}
+  private func onDidPlayToEndNotification() {
+    playbackDelegate?.effectPlayerDidPlayToEnd(self)
+  }
 
   public override func observeValue(
     forKeyPath keyPath: String?, of _: Any?, change: [NSKeyValueChangeKey: Any]?, context _: UnsafeMutableRawPointer?
@@ -157,11 +159,11 @@ open class EffectPlayerView: UIView {
       let status = AVPlayer.TimeControlStatus(rawValue: newStatusRawValue.intValue) {
       switch status {
       case .waitingToPlayAtSpecifiedRate:
-        playbackDelegate?.videoComposition(view: self, didChangePlaybackState: .waiting)
+        playbackDelegate?.effectPlayer(view: self, didChangePlaybackState: .waiting)
       case .paused:
-        playbackDelegate?.videoComposition(view: self, didChangePlaybackState: .paused)
+        playbackDelegate?.effectPlayer(view: self, didChangePlaybackState: .paused)
       case .playing:
-        playbackDelegate?.videoComposition(view: self, didChangePlaybackState: .playing)
+        playbackDelegate?.effectPlayer(view: self, didChangePlaybackState: .playing)
       @unknown default:
         break
       }
@@ -179,7 +181,7 @@ open class EffectPlayerView: UIView {
         let playbackTimeSeconds = CMTimeGetSeconds(playbackTime)
         let durationSeconds = CMTimeGetSeconds(duration)
         let progress = clamp(playbackTimeSeconds / durationSeconds, min: Float64(0), max: durationSeconds)
-        strongSelf.playbackDelegate?.videoComposition(view: strongSelf, didUpdateProgress: progress)
+        strongSelf.playbackDelegate?.effectPlayer(view: strongSelf, didUpdateProgress: progress)
       }
     )
   }
@@ -195,6 +197,6 @@ open class EffectPlayerView: UIView {
     removePeriodicTimeObserver()
     addPeriodicTimeObserver()
     player.play()
-    playbackDelegate?.videoComposition(view: self, didChangePlaybackState: .readyToPlay)
+    playbackDelegate?.effectPlayer(view: self, didChangePlaybackState: .readyToPlay)
   }
 }
