@@ -17,7 +17,7 @@ public protocol EffectPlayerViewPlaybackDelegate {
   func videoCompositionDidPlayToEnd(_ view: EffectPlayerView)
 }
 
-public class EffectPlayerView: UIView {
+open class EffectPlayerView: UIView {
   public enum PlaybackState: Int {
     case paused
     case playing
