@@ -7,7 +7,7 @@ VideoEffects is a simple Swift library for playing and exporting videos with eff
 
 #### Color Controls
 
-The ColorControls struct allows for adjustments to the color properties of the video. All properties are optional. 
+The `ColorControls` struct allows for adjustments to the color properties of the video. All properties are optional. 
 
 ```swift
 let colorControls = EffectConfig.ColorControls(
@@ -19,11 +19,30 @@ let colorControls = EffectConfig.ColorControls(
 )
 ```
 
+#### Effect Configuration
+
+The `EffectConfig` struct defines the effecs applied to a video.
+
+Effects can be:
+- `colorControls`: Controls like hue, saturation, brightness, contrast and exposure.
+- `aspectRatio`: The aspect ratio as a `CGSize`.
+- `timeRange`: The time range of a video. Use this to trim the video.
+- `layer`: A CALayer to render on top of the video. It can be any CALayer (not associated with a UIView).
+
+All properties are optional. Omitted parameters will leave the video unchanged.
+
+```swift
+let effects = EffectConfig(
+  colorControls: EffectConfig.ColorControls(),
+  aspectRatio: CGSize(width: 1, height: 1),
+  timeRange: CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)),
+  layer: layer
+)
+```
+
 ### Playing a video with effects
 
 `EffectPlayerView` is a wrapper around `AVPlayer` that uses a custom compositor to render effects.
-
-Note: The `layer` will be rendered on top of the video. It can be any CALayer (not associated with a UIView).
 
 ```swift
 let asset = AVAsset(url: url)
