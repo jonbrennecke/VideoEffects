@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     effectView.asset = asset
     effectView.frame = view.frame
     view.addSubview(effectView)
-//    exportAsset(asset: asset)
   }
 
   func createEffectsForDemo() -> EffectConfig {
@@ -35,7 +34,7 @@ class ViewController: UIViewController {
     layer.addSublayer(textLayer)
     layer.masksToBounds = true
     return EffectConfig()
-      .setColorControls(.grayscale)
+      .setColorControls(EffectConfig.ColorControls(exposure: 1.0))
       .setAspectRatio(CGSize(width: 1, height: 1))
       .setTimeRange(CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)))
       .setLayer(layer)

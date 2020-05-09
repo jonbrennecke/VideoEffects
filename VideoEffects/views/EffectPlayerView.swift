@@ -105,7 +105,9 @@ open class EffectPlayerView: UIView {
           videoTrack: videoTrack.trackID,
           brightness: effects.colorControls.brightness,
           saturation: effects.colorControls.saturation,
-          contrast: effects.colorControls.contrast
+          contrast: effects.colorControls.contrast,
+          exposure: effects.colorControls.exposure,
+          hue: effects.colorControls.hue
         )
       }
       return playerItem

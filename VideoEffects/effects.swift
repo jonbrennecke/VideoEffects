@@ -2,14 +2,30 @@ import AVFoundation
 
 public struct EffectConfig {
   public struct ColorControls {
-    let brightness: Double
-    let saturation: Double
-    let contrast: Double
+    public static let defaultBrightness: Double = 0.0
+    public static let defaultSaturation: Double = 1.0
+    public static let defaultContrast: Double = 1.0
+    public static let defaultExposure: Double = 0.0
+    public static let defaultHue: Double = 0.0
 
-    public init(brightness: Double, saturation: Double, contrast: Double) {
+    public var brightness: Double = defaultBrightness
+    public var saturation: Double = defaultSaturation
+    public var contrast: Double = defaultContrast
+    public var exposure: Double = defaultExposure
+    public var hue: Double = defaultHue
+
+    public init(
+      brightness: Double = defaultBrightness,
+      saturation: Double = defaultSaturation,
+      contrast: Double = defaultContrast,
+      exposure: Double = defaultExposure,
+      hue: Double = defaultHue
+    ) {
       self.brightness = brightness
       self.saturation = saturation
       self.contrast = contrast
+      self.exposure = exposure
+      self.hue = hue
     }
 
     public static let grayscale = ColorControls(brightness: 0, saturation: 0, contrast: 1)
