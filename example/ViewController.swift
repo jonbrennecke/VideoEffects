@@ -33,11 +33,12 @@ class ViewController: UIViewController {
     layer.frame = textLayer.frame
     layer.addSublayer(textLayer)
     layer.masksToBounds = true
-    return EffectConfig()
-      .setColorControls(EffectConfig.ColorControls(exposure: 1.0))
-      .setAspectRatio(CGSize(width: 1, height: 1))
-      .setTimeRange(CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)))
-      .setLayer(layer)
+    return EffectConfig(
+      colorControls: EffectConfig.ColorControls(),
+      aspectRatio: CGSize(width: 1, height: 1),
+      timeRange: CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)),
+      layer: layer
+    )
   }
 
   func exportAsset(asset: AVAsset, effects: EffectConfig) {

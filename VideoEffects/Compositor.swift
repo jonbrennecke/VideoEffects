@@ -172,7 +172,7 @@ struct ColorControlsCompositorFilter {
     filter.setValue(image, forKey: kCIInputImageKey)
     return filter.outputImage
   }
-  
+
   private mutating func applyExposureAdjustFilter(image: CIImage) -> CIImage? {
     guard let filter = exposureAdjustFilter else {
       return nil
