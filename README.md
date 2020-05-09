@@ -74,6 +74,7 @@ let effects = effects = EffectConfig(
 )
 
 // finally, export the video
+let exportConfig = try! ExportConfig.defaultConfig()
 export(asset: asset, effects: effects, config: exportConfig) { result in
   // result is of type Result<URL, Error>
 }
