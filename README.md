@@ -21,15 +21,7 @@ let colorControls = EffectConfig.ColorControls(
 
 #### Effect Configuration
 
-The `EffectConfig` struct defines the effecs applied to a video.
-
-Effects can be:
-- `colorControls`: Controls like hue, saturation, brightness, contrast and exposure.
-- `aspectRatio`: The aspect ratio as a `CGSize`.
-- `timeRange`: The time range of a video. Use this to trim the video.
-- `layer`: A CALayer to render on top of the video. It can be any CALayer (not associated with a UIView).
-
-All properties are optional. Omitted parameters will leave the video unchanged.
+The `EffectConfig` struct defines the effecs applied to a video. For example:
 
 ```swift
 let effects = EffectConfig(
@@ -39,6 +31,14 @@ let effects = EffectConfig(
   layer: layer
 )
 ```
+
+Effects can be:
+- `colorControls`: Controls like hue, saturation, brightness, contrast and exposure.
+- `aspectRatio`: The aspect ratio as a `CGSize`.
+- `timeRange`: The time range of a video. Use this to trim the video.
+- `layer`: A CALayer to render on top of the video. It can be any CALayer (not associated with a UIView).
+
+All properties are optional. Omitted parameters will leave the video unchanged.
 
 ### Playing a video with effects
 
