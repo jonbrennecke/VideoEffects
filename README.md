@@ -1,6 +1,8 @@
 Video Effects
 ----
 
+VideoEffects is a simple Swift library for playing and exporting videos with effects. The library supports many possible effects. For instance, you can crop a video into a square aspect ratio, or render a video with color adjustments like brightness, hue and saturation.
+
 ### Setting up effects
 
 #### Color Controls
