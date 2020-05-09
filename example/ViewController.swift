@@ -8,10 +8,9 @@ class ViewController: UIViewController {
     guard let exampleVideoURL = Bundle.main.url(forResource: "example", withExtension: "mov") else {
       fatalError("Failed to find example video file")
     }
-    let asset = AVAsset(url: exampleVideoURL)
     let effectView = EffectPlayerView()
     effectView.effects = createEffectsForDemo()
-    effectView.asset = asset
+    effectView.asset = AVAsset(url: exampleVideoURL)
     effectView.frame = view.frame
     view.addSubview(effectView)
   }
