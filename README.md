@@ -21,7 +21,7 @@ let colorControls = EffectConfig.ColorControls(
 
 #### Effect Configuration
 
-The `EffectConfig` struct defines the effecs applied to a video. For example:
+The `EffectConfig` struct defines the effects applied to a video. For example:
 
 ```swift
 let effects = EffectConfig(
