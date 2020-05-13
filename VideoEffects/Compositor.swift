@@ -3,7 +3,7 @@ import CoreImage
 import ImageUtils
 import Metal
 
-class Compositor: NSObject, AVVideoCompositing {
+public class Compositor: NSObject, AVVideoCompositing {
   private enum VideoCompositionRequestError: Error {
     case failedToComposePixelBuffer
   }
@@ -22,23 +22,23 @@ class Compositor: NSObject, AVVideoCompositing {
 
   // MARK: - AVVideoCompositing implementation
 
-  var sourcePixelBufferAttributes = [
+  public var sourcePixelBufferAttributes = [
     kCVPixelBufferPixelFormatTypeKey: [kCVPixelFormatType_32BGRA],
   ] as [String: Any]?
 
-  var requiredPixelBufferAttributesForRenderContext = [
+  public var requiredPixelBufferAttributesForRenderContext = [
     kCVPixelBufferPixelFormatTypeKey: [kCVPixelFormatType_32BGRA],
   ] as [String: Any]
 
   var shouldCancelAllRequests: Bool = false
 
-  func renderContextChanged(_ newContext: AVVideoCompositionRenderContext) {
+  public func renderContextChanged(_ newContext: AVVideoCompositionRenderContext) {
     renderingQueue.sync { [weak self] in
       self?.renderContext = newContext
     }
   }
 
-  func startRequest(_ request: AVAsynchronousVideoCompositionRequest) {
+  public func startRequest(_ request: AVAsynchronousVideoCompositionRequest) {
     autoreleasepool {
       renderingQueue.async { [weak self] in
         guard let strongSelf = self else { return }
@@ -59,7 +59,7 @@ class Compositor: NSObject, AVVideoCompositing {
     }
   }
 
-  func cancelAllPendingVideoCompositionRequests() {
+  public func cancelAllPendingVideoCompositionRequests() {
     renderingQueue.sync { shouldCancelAllRequests = true }
     renderingQueue.async { [weak self] in
       self?.shouldCancelAllRequests = false
@@ -88,7 +88,7 @@ class Compositor: NSObject, AVVideoCompositing {
   }
 }
 
-protocol CompositorFilter {
+public protocol CompositorFilter {
   mutating func renderImage(with request: AVAsynchronousVideoCompositionRequest) -> CIImage?
 }
 
