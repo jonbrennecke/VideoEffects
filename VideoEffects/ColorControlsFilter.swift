@@ -2,30 +2,30 @@ import AVFoundation
 import CoreImage
 import ImageUtils
 
-struct ColorControlsCompositorFilter {
-  let brightness: Double
-  let saturation: Double
-  let contrast: Double
-  let exposure: Double
-  let hue: Double
+public class ColorControlsFilter {
+  public var brightness: Double
+  public var saturation: Double
+  public var contrast: Double
+  public var exposure: Double
+  public var hue: Double
 
-  let videoTrack: CMPersistentTrackID
-
+  public var videoTrack: CMPersistentTrackID?
+  
   public init(
-    videoTrack: CMPersistentTrackID,
-    brightness: Double,
-    saturation: Double,
-    contrast: Double,
-    exposure: Double,
-    hue: Double
+    brightness: Double = 0.0,
+    saturation: Double = 1.0,
+    contrast: Double = 1.0,
+    exposure: Double = 0.0,
+    hue: Double = 0.0
   ) {
-    self.videoTrack = videoTrack
     self.brightness = brightness
     self.saturation = saturation
     self.contrast = contrast
     self.exposure = exposure
     self.hue = hue
   }
+
+  public static let grayscale = ColorControlsFilter(brightness: 0, saturation: 0, contrast: 1)
 
   private lazy var colorControlsFilter: CIFilter? = {
     guard let filter = CIFilter(name: "CIColorControls") else {
@@ -51,7 +51,7 @@ struct ColorControlsCompositorFilter {
     return filter
   }()
 
-  private mutating func applyColorControlsFilter(image: CIImage) -> CIImage? {
+  private func applyColorControlsFilter(image: CIImage) -> CIImage? {
     guard let filter = colorControlsFilter else {
       return nil
     }
@@ -62,7 +62,7 @@ struct ColorControlsCompositorFilter {
     return filter.outputImage
   }
 
-  private mutating func applyHueAdjustFilter(image: CIImage) -> CIImage? {
+  private func applyHueAdjustFilter(image: CIImage) -> CIImage? {
     guard let filter = hueAdjustFilter else {
       return nil
     }
@@ -71,7 +71,7 @@ struct ColorControlsCompositorFilter {
     return filter.outputImage
   }
 
-  private mutating func applyExposureAdjustFilter(image: CIImage) -> CIImage? {
+  private func applyExposureAdjustFilter(image: CIImage) -> CIImage? {
     guard let filter = exposureAdjustFilter else {
       return nil
     }
@@ -81,9 +81,12 @@ struct ColorControlsCompositorFilter {
   }
 }
 
-extension ColorControlsCompositorFilter: CompositorFilter {
-  mutating func renderImage(with request: AVAsynchronousVideoCompositionRequest) -> CIImage? {
-    guard let pixelBuffer = request.sourceFrame(byTrackID: videoTrack) else {
+extension ColorControlsFilter: CompositorFilter {
+  public func renderFilter(with image: CIImage, request: AVAsynchronousVideoCompositionRequest) -> CIImage? {
+    guard
+      let trackID = videoTrack ?? request.sourceTrackIDs.first?.int32Value as CMPersistentTrackID?,
+      let pixelBuffer = request.sourceFrame(byTrackID: trackID)
+    else {
       return nil
     }
     let imageBuffer = ImageBuffer(cvPixelBuffer: pixelBuffer)

@@ -24,7 +24,7 @@
 		FCF2541E244E43F000971CE2 /* example.mov in Resources */ = {isa = PBXBuildFile; fileRef = FCF2541D244E43F000971CE2 /* example.mov */; };
 		FCF25421244E59E100971CE2 /* fileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF25420244E59E100971CE2 /* fileUtils.swift */; };
 		FCF25423244E5B3D00971CE2 /* Compositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF25422244E5B3D00971CE2 /* Compositor.swift */; };
-		FCF509BB246CB3F900A114B2 /* ColorControlsCompositorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF509BA246CB3F900A114B2 /* ColorControlsCompositorFilter.swift */; };
+		FCF509BB246CB3F900A114B2 /* ColorControlsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF509BA246CB3F900A114B2 /* ColorControlsFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +76,7 @@
 		FCF2541D244E43F000971CE2 /* example.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = example.mov; sourceTree = "<group>"; };
 		FCF25420244E59E100971CE2 /* fileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileUtils.swift; sourceTree = "<group>"; };
 		FCF25422244E5B3D00971CE2 /* Compositor.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Compositor.swift; sourceTree = "<group>"; tabWidth = 2; };
-		FCF509BA246CB3F900A114B2 /* ColorControlsCompositorFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorControlsCompositorFilter.swift; sourceTree = "<group>"; };
+		FCF509BA246CB3F900A114B2 /* ColorControlsFilter.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ColorControlsFilter.swift; sourceTree = "<group>"; tabWidth = 2; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				FC8EBD1324587F9500A6291E /* EffectPlayerView.swift */,
-				FCF509BA246CB3F900A114B2 /* ColorControlsCompositorFilter.swift */,
+				FCF509BA246CB3F900A114B2 /* ColorControlsFilter.swift */,
 				FCF25422244E5B3D00971CE2 /* Compositor.swift */,
 				FCF253FD244E2FC300971CE2 /* effects.swift */,
 				FCF25420244E59E100971CE2 /* fileUtils.swift */,
@@ -348,7 +348,7 @@
 				FCC3615F2450C24A00B7EC66 /* export.swift in Sources */,
 				FCF253FE244E2FC300971CE2 /* effects.swift in Sources */,
 				FC8EBD182458F8E100A6291E /* mathUtils.swift in Sources */,
-				FCF509BB246CB3F900A114B2 /* ColorControlsCompositorFilter.swift in Sources */,
+				FCF509BB246CB3F900A114B2 /* ColorControlsFilter.swift in Sources */,
 				FCF25421244E59E100971CE2 /* fileUtils.swift in Sources */,
 				FC8EBD1424587F9500A6291E /* EffectPlayerView.swift in Sources */,
 			);

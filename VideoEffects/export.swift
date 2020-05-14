@@ -95,14 +95,7 @@ public func export(
     composition.instructions = [instruction]
     exportSession.videoComposition = composition
     if let compositor = exportSession.customVideoCompositor as? Compositor {
-      compositor.filter = ColorControlsCompositorFilter(
-        videoTrack: videoTrack.trackID,
-        brightness: effects.colorControls.brightness,
-        saturation: effects.colorControls.saturation,
-        contrast: effects.colorControls.contrast,
-        exposure: effects.colorControls.exposure,
-        hue: effects.colorControls.hue
-      )
+      compositor.filters = effects.filters
     }
 
     if let layer = effects.layer {

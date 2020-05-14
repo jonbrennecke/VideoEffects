@@ -101,14 +101,7 @@ open class EffectPlayerView: UIView {
       let playerItem = AVPlayerItem(asset: asset)
       playerItem.videoComposition = createVideoComposition(videoTrack: videoTrack)
       if let compositor = playerItem.customVideoCompositor as? Compositor {
-        compositor.filter = ColorControlsCompositorFilter(
-          videoTrack: videoTrack.trackID,
-          brightness: effects.colorControls.brightness,
-          saturation: effects.colorControls.saturation,
-          contrast: effects.colorControls.contrast,
-          exposure: effects.colorControls.exposure,
-          hue: effects.colorControls.hue
-        )
+        compositor.filters = effects.filters
       }
       return playerItem
     }

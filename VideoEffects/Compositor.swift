@@ -17,8 +17,10 @@ public class Compositor: NSObject, AVVideoCompositing {
     }
     return CIContext(mtlDevice: device, options: [CIContextOption.workingColorSpace: NSNull()])
   }()
+  
+  // MARK: - public vars
 
-  public var filter: CompositorFilter? = DefaultFilter()
+  public var filters = [CompositorFilter]()
 
   // MARK: - AVVideoCompositing implementation
 
@@ -70,36 +72,44 @@ public class Compositor: NSObject, AVVideoCompositing {
 
   private func composePixelBuffer(with request: AVAsynchronousVideoCompositionRequest) -> CVPixelBuffer? {
     return autoreleasepool {
+      
+      // if there aren't any filters, just output the first video track
+      if filters.count == 0 {
+        guard
+          let trackID = request.sourceTrackIDs.first,
+          let pixelBuffer = request.sourceFrame(byTrackID: trackID.int32Value as CMPersistentTrackID)
+        else {
+          return nil
+        }
+        return pixelBuffer
+      }
+      
       guard
-        let outputPixelBuffer = renderContext?.newPixelBuffer()
+        let outputPixelBuffer = renderContext?.newPixelBuffer(),
+        let image = ImageBuffer(cvPixelBuffer: outputPixelBuffer).makeCIImage()
       else {
         return nil
       }
-      if let effectImage = filter?.renderImage(with: request) {
-        context.render(
-          effectImage,
-          to: outputPixelBuffer,
-          bounds: effectImage.extent,
-          colorSpace: nil
-        )
+
+      let outputImage = filters.reduce(into: image) { (img: inout CIImage, filter) in
+        guard let renderedImage = filter.renderFilter(with: img, request: request) else {
+          return
+        }
+        img = renderedImage
       }
+      context.render(
+        outputImage,
+        to: outputPixelBuffer,
+        bounds: outputImage.extent,
+        colorSpace: nil
+      )
       return outputPixelBuffer
     }
   }
 }
 
 public protocol CompositorFilter {
-  mutating func renderImage(with request: AVAsynchronousVideoCompositionRequest) -> CIImage?
+  var videoTrack: CMPersistentTrackID? { get set }
+  func renderFilter(with image: CIImage, request: AVAsynchronousVideoCompositionRequest) -> CIImage?
 }
 
-struct DefaultFilter: CompositorFilter {
-  mutating func renderImage(with request: AVAsynchronousVideoCompositionRequest) -> CIImage? {
-    guard
-      let trackID = request.sourceTrackIDs.first,
-      let pixelBuffer = request.sourceFrame(byTrackID: trackID.int32Value as CMPersistentTrackID)
-    else {
-      return nil
-    }
-    return ImageBuffer(cvPixelBuffer: pixelBuffer).makeCIImage()
-  }
-}
