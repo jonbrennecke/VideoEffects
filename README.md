@@ -5,12 +5,12 @@ VideoEffects is a simple Swift library for playing and exporting videos with eff
 
 ### Setting up effects
 
-#### Color Controls
+#### Color Controls Filter
 
-The `ColorControls` struct allows for adjustments to the color properties of the video. All properties are optional. 
+The `ColorControlsFilter` class allows for adjustments to the color properties of the video. All properties are optional. 
 
 ```swift
-let colorControls = EffectConfig.ColorControls(
+let colorControlsFilter = ColorControlsFilter(
   brightness: Double
   saturation: Double
   contrast: Double
@@ -25,7 +25,7 @@ The `EffectConfig` struct defines the effects applied to a video. For example:
 
 ```swift
 let effects = EffectConfig(
-  colorControls: EffectConfig.ColorControls(),
+  filters: [colorControlsFilter],
   aspectRatio: CGSize(width: 1, height: 1),
   timeRange: CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)),
   layer: layer
@@ -33,7 +33,7 @@ let effects = EffectConfig(
 ```
 
 Effects can be:
-- `colorControls`: Controls like hue, saturation, brightness, contrast and exposure.
+- `filters`: A custom filter to apply to the video. For example, the built-in `ColorControlsFilter` allows custom values for hue, saturation, brightness, contrast and exposure.
 - `aspectRatio`: The aspect ratio as a `CGSize`.
 - `timeRange`: The time range of a video. Use this to trim the video.
 - `layer`: A CALayer to render on top of the video. It can be any CALayer (not associated with a UIView).
@@ -49,7 +49,7 @@ let asset = AVAsset(url: url)
 
 // setup effects
 let effects = EffectConfig(
-  colorControls: EffectConfig.ColorControls(),
+  filters: [colorControlsFilter],
   aspectRatio: CGSize(width: 1, height: 1),
   timeRange: CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)),
   layer: layer
@@ -67,7 +67,7 @@ let asset = AVAsset(url: url)
 
 // setup effects
 let effects = effects = EffectConfig(
-  colorControls: EffectConfig.ColorControls(),
+  filters: [colorControlsFilter],
   aspectRatio: CGSize(width: 1, height: 1),
   timeRange: CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)),
   layer: layer
@@ -76,7 +76,7 @@ let effects = effects = EffectConfig(
 // finally, export the video
 let exportConfig = try! ExportConfig.defaultConfig()
 export(asset: asset, effects: effects, config: exportConfig) { result in
-  // result is of type Result<URL, Error>
+  // result has type Result<URL, Error>
 }
 ```
 
