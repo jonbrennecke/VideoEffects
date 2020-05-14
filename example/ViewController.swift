@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     layer.masksToBounds = true
     return EffectConfig(
       filters: [
-        ColorControlsFilter.grayscale
+        ColorControlsFilter.grayscale,
       ],
       aspectRatio: CGSize(width: 1, height: 1),
       timeRange: CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)),

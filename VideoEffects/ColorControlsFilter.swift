@@ -10,7 +10,7 @@ public class ColorControlsFilter {
   public var hue: Double
 
   public var videoTrack: CMPersistentTrackID?
-  
+
   public init(
     brightness: Double = 0.0,
     saturation: Double = 1.0,

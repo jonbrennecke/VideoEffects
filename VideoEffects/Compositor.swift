@@ -17,7 +17,7 @@ public class Compositor: NSObject, AVVideoCompositing {
     }
     return CIContext(mtlDevice: device, options: [CIContextOption.workingColorSpace: NSNull()])
   }()
-  
+
   // MARK: - public vars
 
   public var filters = [CompositorFilter]()
@@ -72,7 +72,6 @@ public class Compositor: NSObject, AVVideoCompositing {
 
   private func composePixelBuffer(with request: AVAsynchronousVideoCompositionRequest) -> CVPixelBuffer? {
     return autoreleasepool {
-      
       // if there aren't any filters, just output the first video track
       if filters.count == 0 {
         guard
@@ -83,7 +82,7 @@ public class Compositor: NSObject, AVVideoCompositing {
         }
         return pixelBuffer
       }
-      
+
       guard
         let outputPixelBuffer = renderContext?.newPixelBuffer(),
         let image = ImageBuffer(cvPixelBuffer: outputPixelBuffer).makeCIImage()
@@ -112,4 +111,3 @@ public protocol CompositorFilter {
   var videoTrack: CMPersistentTrackID? { get set }
   func renderFilter(with image: CIImage, request: AVAsynchronousVideoCompositionRequest) -> CIImage?
 }
-
