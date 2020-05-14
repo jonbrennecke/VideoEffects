@@ -75,31 +75,38 @@ open class EffectPlayerView: UIView {
 
   // MARK: private methods
 
-  private func createVideoComposition(videoTrack: AVAssetTrack) -> AVVideoComposition? {
-    guard videoTrack.mediaType == .video else {
-      return nil
-    }
-    let composition = AVMutableVideoComposition()
-    composition.customVideoCompositorClass = Compositor.self
-    let videoTrackInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
+  private func createVideoComposition(videoTracks: [AVAssetTrack]) -> AVVideoComposition? {
+    let videoComposition = AVMutableVideoComposition()
+    videoComposition.customVideoCompositorClass = Compositor.self
+
+    let composition = AVMutableComposition()
     let instruction = AVMutableVideoCompositionInstruction()
-    instruction.layerInstructions = [
-      videoTrackInstruction,
-    ]
     instruction.enablePostProcessing = true
-    instruction.timeRange = videoTrack.timeRange
-    composition.renderSize = effects.aspectRatio != nil
-      ? effectRenderSize(aspectRatio: effects.aspectRatio!, naturalSize: videoTrack.naturalSize)
-      : videoTrack.naturalSize
-    composition.frameDuration = CMTimeMake(value: 1, timescale: CMTimeScale(videoTrack.nominalFrameRate))
-    composition.instructions = [instruction]
-    return composition
+    instruction.layerInstructions = videoTracks.map { track in
+      let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: track.trackID)
+      try? compositionVideoTrack?.insertTimeRange(track.timeRange, of: track, at: .zero)
+      let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
+      layerInstruction.setTransform(track.preferredTransform, at: .zero)
+      return layerInstruction
+    }
+
+    if let firstVideoTrack = videoTracks.first {
+      videoComposition.renderSize = effects.aspectRatio != nil
+        ? effectRenderSize(aspectRatio: effects.aspectRatio!, naturalSize: firstVideoTrack.naturalSize)
+        : firstVideoTrack.naturalSize
+      videoComposition.frameDuration = CMTimeMake(value: 1, timescale: CMTimeScale(firstVideoTrack.nominalFrameRate))
+      instruction.timeRange = firstVideoTrack.timeRange
+    }
+
+    videoComposition.instructions = [instruction]
+    return videoComposition
   }
 
   private func createPlayerItem() -> AVPlayerItem? {
-    if let asset = asset, let videoTrack = asset.tracks(withMediaType: .video).first {
+    if let asset = asset {
       let playerItem = AVPlayerItem(asset: asset)
-      playerItem.videoComposition = createVideoComposition(videoTrack: videoTrack)
+      let videoTracks = asset.tracks(withMediaType: .video)
+      playerItem.videoComposition = createVideoComposition(videoTracks: videoTracks)
       if let compositor = playerItem.customVideoCompositor as? Compositor {
         compositor.filters = effects.filters
       }
