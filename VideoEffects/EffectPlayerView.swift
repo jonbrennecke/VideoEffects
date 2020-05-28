@@ -52,6 +52,28 @@ open class EffectPlayerView: UIView {
       configurePlayer()
     }
   }
+  
+  // MARK: public methods
+  
+  public func play() {
+    player.play()
+  }
+
+  public func pause() {
+    player.pause()
+  }
+
+  public func seek(to time: CMTime) {
+    player.seek(to: time)
+  }
+
+  public func seek(to progress: Double) {
+    if let duration = player.currentItem?.duration {
+      let durationSeconds = CMTimeGetSeconds(duration)
+      let time = CMTimeMakeWithSeconds(durationSeconds * progress, preferredTimescale: 600)
+      seek(to: time)
+    }
+  }
 
   // MARK: UIView methods
 
