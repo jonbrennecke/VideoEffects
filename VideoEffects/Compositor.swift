@@ -99,7 +99,6 @@ public class Compositor: NSObject, AVVideoCompositing {
         img = renderedImage
       }
       let transformedOutputImage = outputImage.transformed(by: transform)
-      print(transformedOutputImage.extent)
       context.render(
         transformedOutputImage,
         to: outputPixelBuffer,

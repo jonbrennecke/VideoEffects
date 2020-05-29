@@ -5,7 +5,7 @@ import VideoEffects
 class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    guard let exampleVideoURL = Bundle.main.url(forResource: "example-right", withExtension: "mov") else {
+    guard let exampleVideoURL = Bundle.main.url(forResource: "example-depth", withExtension: "mov") else {
       fatalError("Failed to find example video file")
     }
     let effectView = EffectPlayerView()

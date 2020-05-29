@@ -26,6 +26,7 @@
 		FCD9004E2480C7DC00B66869 /* example-down.mov in Resources */ = {isa = PBXBuildFile; fileRef = FCD9004A2480C7DC00B66869 /* example-down.mov */; };
 		FCD9004F2480C7DC00B66869 /* example-left.mov in Resources */ = {isa = PBXBuildFile; fileRef = FCD9004B2480C7DC00B66869 /* example-left.mov */; };
 		FCD900512480CD5B00B66869 /* orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD900502480CD5B00B66869 /* orientation.swift */; };
+		FCD900552480D30E00B66869 /* example-depth.mov in Resources */ = {isa = PBXBuildFile; fileRef = FCD900542480D30E00B66869 /* example-depth.mov */; };
 		FCF253FE244E2FC300971CE2 /* effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF253FD244E2FC300971CE2 /* effects.swift */; };
 		FCF2541E244E43F000971CE2 /* example.mov in Resources */ = {isa = PBXBuildFile; fileRef = FCF2541D244E43F000971CE2 /* example.mov */; };
 		FCF25421244E59E100971CE2 /* fileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF25420244E59E100971CE2 /* fileUtils.swift */; };
@@ -83,6 +84,7 @@
 		FCD9004A2480C7DC00B66869 /* example-down.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "example-down.mov"; sourceTree = "<group>"; };
 		FCD9004B2480C7DC00B66869 /* example-left.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "example-left.mov"; sourceTree = "<group>"; };
 		FCD900502480CD5B00B66869 /* orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orientation.swift; sourceTree = "<group>"; };
+		FCD900542480D30E00B66869 /* example-depth.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "example-depth.mov"; sourceTree = "<group>"; };
 		FCF253FC244E2FC200971CE2 /* VideoEffects-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoEffects-Bridging-Header.h"; sourceTree = "<group>"; };
 		FCF253FD244E2FC300971CE2 /* effects.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = effects.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCF2541D244E43F000971CE2 /* example.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = example.mov; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		FCF2541F244E43FA00971CE2 /* exampleAssets */ = {
 			isa = PBXGroup;
 			children = (
+				FCD900542480D30E00B66869 /* example-depth.mov */,
 				FCD9004A2480C7DC00B66869 /* example-down.mov */,
 				FCD9004B2480C7DC00B66869 /* example-left.mov */,
 				FCD900482480C7DB00B66869 /* example-right.mov */,
@@ -284,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCD900552480D30E00B66869 /* example-depth.mov in Resources */,
 				FCD9004C2480C7DC00B66869 /* example-right.mov in Resources */,
 				FCD9004E2480C7DC00B66869 /* example-down.mov in Resources */,
 				FCD9004F2480C7DC00B66869 /* example-left.mov in Resources */,

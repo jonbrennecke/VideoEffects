@@ -97,37 +97,52 @@ open class EffectPlayerView: UIView {
 
   // MARK: private methods
 
-  private func createVideoComposition(videoTracks: [AVAssetTrack]) -> AVVideoComposition? {
-    let videoComposition = AVMutableVideoComposition()
-    videoComposition.customVideoCompositorClass = Compositor.self
-
+  private func createVideoComposition(withAsset asset: AVAsset) -> (AVComposition, AVVideoComposition) {
     let composition = AVMutableComposition()
-    let instruction = AVMutableVideoCompositionInstruction()
-    instruction.enablePostProcessing = true
-    instruction.layerInstructions = videoTracks.map { track in
+    let videoTracks = asset.tracks(withMediaType: .video)
+    let timeRange = CMTimeRange(start: .zero, duration: asset.duration)
+    
+    // Add video tracks
+    let layerInstructions: [AVVideoCompositionLayerInstruction] = videoTracks.map { track in
       let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: track.trackID)
-      try? compositionVideoTrack?.insertTimeRange(track.timeRange, of: track, at: .zero)
+      try? compositionVideoTrack?.insertTimeRange(timeRange, of: track, at: .zero)
       let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
       layerInstruction.setTransform(track.preferredTransform, at: .zero)
       return layerInstruction
     }
+    
+    // Add audio track
+    // TODO: audio track should be optional
+    if
+      let audioTrack = asset.tracks(withMediaType: .audio).first,
+      let compositionAudioTrack = composition.addMutableTrack(
+        withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid
+      ) {
+      try? compositionAudioTrack.insertTimeRange(timeRange, of: audioTrack, at: .zero)
+    }
+    
+    let instruction = AVMutableVideoCompositionInstruction()
+    instruction.enablePostProcessing = true
+    instruction.backgroundColor = UIColor.black.cgColor
+    instruction.layerInstructions = layerInstructions
+    instruction.timeRange = timeRange
 
+    let videoComposition = AVMutableVideoComposition()
     if let firstVideoTrack = videoTracks.first {
       let transformedSize = firstVideoTrack.naturalSize.applying(firstVideoTrack.preferredTransform.inverted())
       videoComposition.renderSize = CGSize(width: abs(transformedSize.width), height: abs(transformedSize.height))
       videoComposition.frameDuration = CMTimeMake(value: 1, timescale: CMTimeScale(firstVideoTrack.nominalFrameRate))
-      instruction.timeRange = firstVideoTrack.timeRange
     }
-
+    videoComposition.customVideoCompositorClass = Compositor.self
     videoComposition.instructions = [instruction]
-    return videoComposition
+    return (composition, videoComposition)
   }
 
   private func createPlayerItem() -> AVPlayerItem? {
     if let asset = asset {
-      let playerItem = AVPlayerItem(asset: asset)
-      let videoTracks = asset.tracks(withMediaType: .video)
-      playerItem.videoComposition = createVideoComposition(videoTracks: videoTracks)
+      let (composition, videoComposition) = createVideoComposition(withAsset: asset)
+      let playerItem = AVPlayerItem(asset: composition)
+      playerItem.videoComposition = videoComposition
       if let compositor = playerItem.customVideoCompositor as? Compositor {
         compositor.filters = effects.filters
         if let videoTrack = asset.tracks(withMediaType: .video).first {
@@ -140,10 +155,11 @@ open class EffectPlayerView: UIView {
   }
 
   private func configurePlayer() {
-    let audioSession = AVAudioSession.sharedInstance()
-    try? audioSession.setCategory(.playback)
-    try? audioSession.setActive(true, options: .init())
+//    let audioSession = AVAudioSession.sharedInstance()
+//    try? audioSession.setCategory(.playback)
+//    try? audioSession.setActive(true, options: .init())
     playerItem = createPlayerItem()
+    playerItem?.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.error), options: [.old, .new], context: nil)
     player.replaceCurrentItem(with: playerItem)
     if let timeRange = effects.timeRange {
       playerItem?.reversePlaybackEndTime = timeRange.start
@@ -151,6 +167,7 @@ open class EffectPlayerView: UIView {
     }
     player.addObserver(self, forKeyPath: #keyPath(AVPlayer.status), options: [.old, .new], context: nil)
     player.addObserver(self, forKeyPath: #keyPath(AVPlayer.timeControlStatus), options: [.old, .new], context: nil)
+    player.addObserver(self, forKeyPath: #keyPath(AVPlayer.error), options: [.old, .new], context: nil)
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(onDidPlayToEndNotification),
@@ -175,6 +192,14 @@ open class EffectPlayerView: UIView {
       if case .readyToPlay = status {
         onReadyToPlay()
       }
+    }
+    
+    if keyPath == #keyPath(AVPlayer.error) {
+      // TODO: handle error with a delegate method
+    }
+    
+    if keyPath == #keyPath(AVPlayerItem.error) {
+      // TODO: handle error with a delegate method
     }
 
     if
