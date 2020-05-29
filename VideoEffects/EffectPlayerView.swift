@@ -52,9 +52,9 @@ open class EffectPlayerView: UIView {
       configurePlayer()
     }
   }
-  
+
   // MARK: public methods
-  
+
   public func play() {
     player.play()
   }
@@ -113,9 +113,8 @@ open class EffectPlayerView: UIView {
     }
 
     if let firstVideoTrack = videoTracks.first {
-      videoComposition.renderSize = effects.aspectRatio != nil
-        ? effectRenderSize(aspectRatio: effects.aspectRatio!, naturalSize: firstVideoTrack.naturalSize)
-        : firstVideoTrack.naturalSize
+      let transformedSize = firstVideoTrack.naturalSize.applying(firstVideoTrack.preferredTransform.inverted())
+      videoComposition.renderSize = CGSize(width: abs(transformedSize.width), height: abs(transformedSize.height))
       videoComposition.frameDuration = CMTimeMake(value: 1, timescale: CMTimeScale(firstVideoTrack.nominalFrameRate))
       instruction.timeRange = firstVideoTrack.timeRange
     }
@@ -131,6 +130,9 @@ open class EffectPlayerView: UIView {
       playerItem.videoComposition = createVideoComposition(videoTracks: videoTracks)
       if let compositor = playerItem.customVideoCompositor as? Compositor {
         compositor.filters = effects.filters
+        if let videoTrack = asset.tracks(withMediaType: .video).first {
+          compositor.transform = orientationTransform(forVideoTrack: videoTrack)
+        }
       }
       return playerItem
     }

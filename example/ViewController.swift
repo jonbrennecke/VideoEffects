@@ -5,7 +5,7 @@ import VideoEffects
 class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    guard let exampleVideoURL = Bundle.main.url(forResource: "example", withExtension: "mov") else {
+    guard let exampleVideoURL = Bundle.main.url(forResource: "example-right", withExtension: "mov") else {
       fatalError("Failed to find example video file")
     }
     let effectView = EffectPlayerView()
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
       filters: [
         ColorControlsFilter.grayscale,
       ],
-      aspectRatio: CGSize(width: 1, height: 1),
+      aspectRatio: nil, // CGSize(width: 1, height: 1),
       timeRange: CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)),
       layer: layer
     )

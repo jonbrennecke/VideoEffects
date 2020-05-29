@@ -22,6 +22,8 @@ public class Compositor: NSObject, AVVideoCompositing {
 
   public var filters = [CompositorFilter]()
 
+  public var transform: CGAffineTransform = .identity
+
   // MARK: - AVVideoCompositing implementation
 
   public var sourcePixelBufferAttributes = [
@@ -96,10 +98,12 @@ public class Compositor: NSObject, AVVideoCompositing {
         }
         img = renderedImage
       }
+      let transformedOutputImage = outputImage.transformed(by: transform)
+      print(transformedOutputImage.extent)
       context.render(
-        outputImage,
+        transformedOutputImage,
         to: outputPixelBuffer,
-        bounds: outputImage.extent,
+        bounds: transformedOutputImage.extent,
         colorSpace: nil
       )
       return outputPixelBuffer
