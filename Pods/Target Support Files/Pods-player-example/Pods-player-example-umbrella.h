@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_VideoEffects_exampleVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_VideoEffects_exampleVersionString[];
+FOUNDATION_EXPORT double Pods_player_exampleVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_player_exampleVersionString[];
 

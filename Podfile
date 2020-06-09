@@ -10,6 +10,10 @@ target 'VideoEffects' do
   pod 'ImageUtils', '0.0.5'
 end
 
-target 'VideoEffects-example' do
+target 'player-example' do
+  pod 'ImageUtils', '0.0.5'
+end
+
+target 'export-example' do
   pod 'ImageUtils', '0.0.5'
 end

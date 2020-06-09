@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA97F9DDC46EA8725DC84FE68B62D9B2"
-               BuildableName = "Pods_VideoEffects_example.framework"
-               BlueprintName = "Pods-VideoEffects-example"
+               BlueprintIdentifier = "1963F2C5964A1323CA85F767B57036E1"
+               BuildableName = "Pods_player_example.framework"
+               BlueprintName = "Pods-player-example"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

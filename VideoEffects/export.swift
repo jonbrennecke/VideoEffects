@@ -1,4 +1,5 @@
 import AVFoundation
+import UIKit.UIColor
 
 public enum ExportError: Error {
   case invalidAsset
@@ -56,69 +57,86 @@ public struct ExportConfig {
   }
 }
 
+private func createVideoComposition(withAsset asset: AVAsset) -> (AVComposition, AVMutableVideoComposition) {
+  let composition = AVMutableComposition()
+  let videoTracks = asset.tracks(withMediaType: .video)
+  let timeRange = CMTimeRange(start: .zero, duration: asset.duration)
+  
+  // Add video tracks
+  let layerInstructions: [AVVideoCompositionLayerInstruction] = videoTracks.map { track in
+    let compositionVideoTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: track.trackID)
+    try? compositionVideoTrack?.insertTimeRange(timeRange, of: track, at: .zero)
+    let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
+    layerInstruction.setTransform(track.preferredTransform, at: .zero)
+    return layerInstruction
+  }
+  
+  // Add audio track
+  // TODO: audio track should be optional
+  if
+    let audioTrack = asset.tracks(withMediaType: .audio).first,
+    let compositionAudioTrack = composition.addMutableTrack(
+      withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid
+    ) {
+    try? compositionAudioTrack.insertTimeRange(timeRange, of: audioTrack, at: .zero)
+  }
+  
+  let instruction = AVMutableVideoCompositionInstruction()
+  instruction.enablePostProcessing = true
+  instruction.backgroundColor = UIColor.black.cgColor
+  instruction.layerInstructions = layerInstructions
+  instruction.timeRange = timeRange
+
+  let videoComposition = AVMutableVideoComposition()
+  if let firstVideoTrack = videoTracks.first {
+    let transformedSize = firstVideoTrack.naturalSize.applying(firstVideoTrack.preferredTransform.inverted())
+    videoComposition.renderSize = CGSize(width: abs(transformedSize.width), height: abs(transformedSize.height))
+    videoComposition.frameDuration = CMTimeMake(value: 1, timescale: CMTimeScale(firstVideoTrack.nominalFrameRate))
+  }
+  videoComposition.customVideoCompositorClass = Compositor.self
+  videoComposition.instructions = [instruction]
+  return (composition, videoComposition)
+}
+
 public func export(
   asset: AVAsset,
   effects: EffectConfig,
   config: ExportConfig,
   resultHandler: @escaping (Result<URL, ExportError>) -> Void
 ) {
-  guard let exportSession = AVAssetExportSession(asset: asset, presetName: config.presetName) else {
+  let (composition, videoComposition) = createVideoComposition(withAsset: asset)
+  guard let exportSession = AVAssetExportSession(asset: composition, presetName: config.presetName) else {
     return resultHandler(.failure(.invalidAsset))
   }
   exportSession.outputFileType = config.outputFileType
   exportSession.outputURL = config.outputURL
-
-  let composition = AVMutableVideoComposition()
-  composition.customVideoCompositorClass = Compositor.self
-  if let videoTrack = exportSession.asset.tracks(withMediaType: .video).first {
-    let videoTrackInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
-    let instruction = AVMutableVideoCompositionInstruction()
-    instruction.layerInstructions = [
-      videoTrackInstruction,
-    ]
-    instruction.enablePostProcessing = true
-    instruction.timeRange = videoTrack.timeRange
-
-    if let aspectRatioSize = effects.aspectRatio {
-      // dimensions are reversed if video is in portrait orientation
-      // videoTrack.naturalSize.applying(videoTrack.preferredTransform)
-      // CGSize(width: abs(size.width), height: abs(size.height))
-      let aspectRatio = aspectRatioSize.width / aspectRatioSize.height
-      let height = videoTrack.naturalSize.height
-      let width = height * aspectRatio
-      composition.renderSize = CGSize(width: width, height: height)
-    } else {
-      composition.renderSize = videoTrack.naturalSize
+  exportSession.videoComposition = videoComposition
+  if let compositor = exportSession.customVideoCompositor as? Compositor {
+    compositor.filters = effects.filters
+    if let videoTrack = asset.tracks(withMediaType: .video).first {
+      compositor.transform = orientationTransform(forVideoTrack: videoTrack)
     }
-
-    composition.frameDuration = CMTimeMake(value: 1, timescale: CMTimeScale(videoTrack.nominalFrameRate))
-    composition.instructions = [instruction]
-    exportSession.videoComposition = composition
-    if let compositor = exportSession.customVideoCompositor as? Compositor {
-      compositor.filters = effects.filters
-    }
-
-    if let layer = effects.layer {
-      let effectLayer = CALayer()
-      let parentLayer = CALayer()
-      let videoLayer = CALayer()
-      effectLayer.addSublayer(layer)
-      let frame = CGRect(origin: .zero, size: composition.renderSize) // TODO: applying transform
-      parentLayer.isGeometryFlipped = true
-      parentLayer.frame = frame
-      effectLayer.frame = frame
-      videoLayer.frame = frame
-      parentLayer.addSublayer(videoLayer)
-      parentLayer.addSublayer(effectLayer)
-      parentLayer.display()
-      composition
-        .animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayers: [videoLayer], in: parentLayer)
-      exportSession.videoComposition = composition
-    }
-
-    exportSession.timeRange = effects.timeRange ?? CMTimeRange(start: .zero, duration: .positiveInfinity)
   }
-
+  if let layer = effects.layer {
+    let effectLayer = CALayer()
+    let parentLayer = CALayer()
+    let videoLayer = CALayer()
+    effectLayer.addSublayer(layer)
+    let frame = CGRect(origin: .zero, size: videoComposition.renderSize) // TODO: applying transform
+    parentLayer.isGeometryFlipped = true
+    parentLayer.frame = frame
+    effectLayer.frame = frame
+    videoLayer.frame = frame
+    parentLayer.addSublayer(videoLayer)
+    parentLayer.addSublayer(effectLayer)
+    parentLayer.display()
+    videoComposition.animationTool = AVVideoCompositionCoreAnimationTool(
+      postProcessingAsVideoLayers: [videoLayer],
+      in: parentLayer
+    )
+    exportSession.videoComposition = videoComposition
+  }
+  exportSession.timeRange = effects.timeRange ?? CMTimeRange(start: .zero, duration: .positiveInfinity)
   try? FileManager.default.removeItem(at: config.outputURL)
   exportSession.exportAsynchronously {
     if exportSession.status != AVAssetExportSession.Status.completed {

@@ -1,6 +1,0 @@
-framework module Pods_VideoEffects_example {
-  umbrella header "Pods-VideoEffects-example-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -155,9 +155,9 @@ open class EffectPlayerView: UIView {
   }
 
   private func configurePlayer() {
-//    let audioSession = AVAudioSession.sharedInstance()
-//    try? audioSession.setCategory(.playback)
-//    try? audioSession.setActive(true, options: .init())
+    let audioSession = AVAudioSession.sharedInstance()
+    try? audioSession.setCategory(.playback)
+    try? audioSession.setActive(true, options: .init())
     playerItem = createPlayerItem()
     playerItem?.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.error), options: [.old, .new], context: nil)
     player.replaceCurrentItem(with: playerItem)

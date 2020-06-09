@@ -9,7 +9,7 @@ class ViewController: UIViewController {
       fatalError("Failed to find example video file")
     }
     let effectView = EffectPlayerView()
-    effectView.effects = createEffectsForDemo()
+    effectView.effects = c
     effectView.asset = AVAsset(url: exampleVideoURL)
     effectView.frame = view.frame
     view.addSubview(effectView)
@@ -36,23 +36,9 @@ class ViewController: UIViewController {
       filters: [
         ColorControlsFilter.grayscale,
       ],
-      aspectRatio: nil, // CGSize(width: 1, height: 1),
+      aspectRatio: nil,
       timeRange: CMTimeRange(start: .zero, end: CMTime(seconds: 3, preferredTimescale: 600)),
       layer: layer
     )
-  }
-
-  func exportAsset(asset: AVAsset, effects: EffectConfig) {
-    guard let exportConfig = try? ExportConfig.defaultConfig() else {
-      fatalError("Failed to configure export.")
-    }
-    export(asset: asset, effects: effects, config: exportConfig) { result in
-      switch result {
-      case let .success(url):
-        print(url)
-      case let .failure(error):
-        print(error)
-      }
-    }
   }
 }

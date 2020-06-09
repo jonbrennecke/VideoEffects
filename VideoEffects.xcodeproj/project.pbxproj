@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34B707495F3B471BC4B990AA /* Pods_VideoEffects_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAAA8F8C59E2AE205C3086D /* Pods_VideoEffects_example.framework */; };
+		5EA01B730096CDB3EAB97D0D /* Pods_export_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38152BFD674903426555D71 /* Pods_export_example.framework */; };
 		8429B9806A9CF5DD36D68EEA /* Pods_VideoEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC36153244FC9D600B7EC66 /* Pods_VideoEffects.framework */; };
 		E140BB5004C1632DFAA201EE /* Pods_VideoEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3C1F141C5AACBEFB27E316 /* Pods_VideoEffects.framework */; };
 		FC8EBD1424587F9500A6291E /* EffectPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8EBD1324587F9500A6291E /* EffectPlayerView.swift */; };
@@ -32,6 +32,15 @@
 		FCF25421244E59E100971CE2 /* fileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF25420244E59E100971CE2 /* fileUtils.swift */; };
 		FCF25423244E5B3D00971CE2 /* Compositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF25422244E5B3D00971CE2 /* Compositor.swift */; };
 		FCF509BB246CB3F900A114B2 /* ColorControlsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF509BA246CB3F900A114B2 /* ColorControlsFilter.swift */; };
+		FCFBF855248F2B27000CF26B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBF854248F2B27000CF26B /* AppDelegate.swift */; };
+		FCFBF857248F2B27000CF26B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBF856248F2B27000CF26B /* SceneDelegate.swift */; };
+		FCFBF859248F2B27000CF26B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBF858248F2B27000CF26B /* ViewController.swift */; };
+		FCFBF85C248F2B27000CF26B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFBF85A248F2B27000CF26B /* Main.storyboard */; };
+		FCFBF85E248F2B28000CF26B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFBF85D248F2B28000CF26B /* Assets.xcassets */; };
+		FCFBF861248F2B28000CF26B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFBF85F248F2B28000CF26B /* LaunchScreen.storyboard */; };
+		FCFBF866248F2EB3000CF26B /* libVideoEffects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB27D94236FB40500F522B9 /* libVideoEffects.a */; };
+		FCFBF869248F2F03000CF26B /* example-depth.mov in Resources */ = {isa = PBXBuildFile; fileRef = FCD900542480D30E00B66869 /* example-depth.mov */; };
+		FD4AEF8D166E49594FDCDD2B /* Pods_player_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430F89630EDE9388D8DCA3FD /* Pods_player_example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +50,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = FCB27D93236FB40500F522B9;
 			remoteInfo = Captions;
+		};
+		FCFBF867248F2EB3000CF26B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCB27D8C236FB40500F522B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCB27D93236FB40500F522B9;
+			remoteInfo = VideoEffects;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -58,15 +74,20 @@
 
 /* Begin PBXFileReference section */
 		0FA9B045830B79B07C7D1812 /* Pods-VideoEffects-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoEffects-example.debug.xcconfig"; path = "Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example.debug.xcconfig"; sourceTree = "<group>"; };
-		1DAAA8F8C59E2AE205C3086D /* Pods_VideoEffects_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoEffects_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DF3A4614FD26A6F277D9691 /* Pods-player-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-player-example.debug.xcconfig"; path = "Target Support Files/Pods-player-example/Pods-player-example.debug.xcconfig"; sourceTree = "<group>"; };
+		430F89630EDE9388D8DCA3FD /* Pods_player_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_player_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4643101B87111AB4649A7D8E /* Pods-VideoEffects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoEffects.debug.xcconfig"; path = "Target Support Files/Pods-VideoEffects/Pods-VideoEffects.debug.xcconfig"; sourceTree = "<group>"; };
+		714A755B37F511B6D687AB12 /* Pods-player-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-player-example.release.xcconfig"; path = "Target Support Files/Pods-player-example/Pods-player-example.release.xcconfig"; sourceTree = "<group>"; };
+		B6A29A4737E2291EA3912C07 /* Pods-export-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-export-example.release.xcconfig"; path = "Target Support Files/Pods-export-example/Pods-export-example.release.xcconfig"; sourceTree = "<group>"; };
+		BAC41E1628C37CB85D38EF08 /* Pods-export-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-export-example.debug.xcconfig"; path = "Target Support Files/Pods-export-example/Pods-export-example.debug.xcconfig"; sourceTree = "<group>"; };
 		CC25A9190769385B2138CB35 /* Pods-VideoEffects-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoEffects-example.release.xcconfig"; path = "Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example.release.xcconfig"; sourceTree = "<group>"; };
 		D558F658B04DF20BE695C97A /* Pods-VideoEffects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoEffects.release.xcconfig"; path = "Target Support Files/Pods-VideoEffects/Pods-VideoEffects.release.xcconfig"; sourceTree = "<group>"; };
+		F38152BFD674903426555D71 /* Pods_export_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_export_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3C1F141C5AACBEFB27E316 /* Pods_VideoEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8EBD1324587F9500A6291E /* EffectPlayerView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = EffectPlayerView.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FC8EBD172458F8E100A6291E /* mathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mathUtils.swift; sourceTree = "<group>"; };
 		FCB27D94236FB40500F522B9 /* libVideoEffects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVideoEffects.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCB27DFD236FB4CE00F522B9 /* VideoEffects-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoEffects-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCB27DFD236FB4CE00F522B9 /* player-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "player-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB27E01236FB4CE00F522B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FCB27E03236FB4CE00F522B9 /* ViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
@@ -91,6 +112,14 @@
 		FCF25420244E59E100971CE2 /* fileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fileUtils.swift; sourceTree = "<group>"; };
 		FCF25422244E5B3D00971CE2 /* Compositor.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Compositor.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FCF509BA246CB3F900A114B2 /* ColorControlsFilter.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ColorControlsFilter.swift; sourceTree = "<group>"; tabWidth = 2; };
+		FCFBF852248F2B27000CF26B /* export-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "export-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFBF854248F2B27000CF26B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FCFBF856248F2B27000CF26B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FCFBF858248F2B27000CF26B /* ViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		FCFBF85B248F2B27000CF26B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCFBF85D248F2B28000CF26B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCFBF860248F2B28000CF26B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FCFBF862248F2B28000CF26B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +137,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCB27E7E236FC2AE00F522B9 /* libVideoEffects.a in Frameworks */,
-				34B707495F3B471BC4B990AA /* Pods_VideoEffects_example.framework in Frameworks */,
+				FD4AEF8D166E49594FDCDD2B /* Pods_player_example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFBF84F248F2B27000CF26B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCFBF866248F2EB3000CF26B /* libVideoEffects.a in Frameworks */,
+				5EA01B730096CDB3EAB97D0D /* Pods_export_example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +160,10 @@
 				D558F658B04DF20BE695C97A /* Pods-VideoEffects.release.xcconfig */,
 				0FA9B045830B79B07C7D1812 /* Pods-VideoEffects-example.debug.xcconfig */,
 				CC25A9190769385B2138CB35 /* Pods-VideoEffects-example.release.xcconfig */,
+				BAC41E1628C37CB85D38EF08 /* Pods-export-example.debug.xcconfig */,
+				B6A29A4737E2291EA3912C07 /* Pods-export-example.release.xcconfig */,
+				2DF3A4614FD26A6F277D9691 /* Pods-player-example.debug.xcconfig */,
+				714A755B37F511B6D687AB12 /* Pods-player-example.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -131,7 +173,8 @@
 			children = (
 				FCF2541F244E43FA00971CE2 /* exampleAssets */,
 				FCB27D96236FB40500F522B9 /* VideoEffects */,
-				FCB27DFE236FB4CE00F522B9 /* example */,
+				FCB27DFE236FB4CE00F522B9 /* player-example */,
+				FCFBF853248F2B27000CF26B /* export-example */,
 				FCB27D95236FB40500F522B9 /* Products */,
 				FCB27E7D236FC2AE00F522B9 /* Frameworks */,
 				281BE6ACF09D3A11D0DCACFE /* Pods */,
@@ -142,7 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				FCB27D94236FB40500F522B9 /* libVideoEffects.a */,
-				FCB27DFD236FB4CE00F522B9 /* VideoEffects-example.app */,
+				FCB27DFD236FB4CE00F522B9 /* player-example.app */,
+				FCFBF852248F2B27000CF26B /* export-example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,7 +207,7 @@
 			path = VideoEffects;
 			sourceTree = "<group>";
 		};
-		FCB27DFE236FB4CE00F522B9 /* example */ = {
+		FCB27DFE236FB4CE00F522B9 /* player-example */ = {
 			isa = PBXGroup;
 			children = (
 				FCB27DFF236FB4CE00F522B9 /* AppDelegate.swift */,
@@ -174,7 +218,7 @@
 				FCB27E0A236FB4D000F522B9 /* LaunchScreen.storyboard */,
 				FCB27E0D236FB4D000F522B9 /* Info.plist */,
 			);
-			path = example;
+			path = "player-example";
 			sourceTree = "<group>";
 		};
 		FCB27E7D236FC2AE00F522B9 /* Frameworks */ = {
@@ -184,7 +228,8 @@
 				FCC36157244FC9DE00B7EC66 /* ImageUtils.framework */,
 				FCC36153244FC9D600B7EC66 /* Pods_VideoEffects.framework */,
 				FA3C1F141C5AACBEFB27E316 /* Pods_VideoEffects.framework */,
-				1DAAA8F8C59E2AE205C3086D /* Pods_VideoEffects_example.framework */,
+				F38152BFD674903426555D71 /* Pods_export_example.framework */,
+				430F89630EDE9388D8DCA3FD /* Pods_player_example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,6 +246,20 @@
 				FCF2541D244E43F000971CE2 /* example.mov */,
 			);
 			path = exampleAssets;
+			sourceTree = "<group>";
+		};
+		FCFBF853248F2B27000CF26B /* export-example */ = {
+			isa = PBXGroup;
+			children = (
+				FCFBF854248F2B27000CF26B /* AppDelegate.swift */,
+				FCFBF856248F2B27000CF26B /* SceneDelegate.swift */,
+				FCFBF858248F2B27000CF26B /* ViewController.swift */,
+				FCFBF85A248F2B27000CF26B /* Main.storyboard */,
+				FCFBF85D248F2B28000CF26B /* Assets.xcassets */,
+				FCFBF85F248F2B28000CF26B /* LaunchScreen.storyboard */,
+				FCFBF862248F2B28000CF26B /* Info.plist */,
+			);
+			path = "export-example";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,9 +283,9 @@
 			productReference = FCB27D94236FB40500F522B9 /* libVideoEffects.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		FCB27DFC236FB4CE00F522B9 /* VideoEffects-example */ = {
+		FCB27DFC236FB4CE00F522B9 /* player-example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCB27E0E236FB4D000F522B9 /* Build configuration list for PBXNativeTarget "VideoEffects-example" */;
+			buildConfigurationList = FCB27E0E236FB4D000F522B9 /* Build configuration list for PBXNativeTarget "player-example" */;
 			buildPhases = (
 				74491885C59FC0DD0E75F2BA /* [CP] Check Pods Manifest.lock */,
 				FCB27DF9236FB4CE00F522B9 /* Sources */,
@@ -239,9 +298,29 @@
 			dependencies = (
 				FCB27E80236FC2AE00F522B9 /* PBXTargetDependency */,
 			);
-			name = "VideoEffects-example";
+			name = "player-example";
 			productName = "captions-example";
-			productReference = FCB27DFD236FB4CE00F522B9 /* VideoEffects-example.app */;
+			productReference = FCB27DFD236FB4CE00F522B9 /* player-example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCFBF851248F2B27000CF26B /* export-example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCFBF863248F2B28000CF26B /* Build configuration list for PBXNativeTarget "export-example" */;
+			buildPhases = (
+				891A0B912B4927E3D6F6A1B7 /* [CP] Check Pods Manifest.lock */,
+				FCFBF84E248F2B27000CF26B /* Sources */,
+				FCFBF84F248F2B27000CF26B /* Frameworks */,
+				FCFBF850248F2B27000CF26B /* Resources */,
+				D94435A89DF4718719432CA9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCFBF868248F2EB3000CF26B /* PBXTargetDependency */,
+			);
+			name = "export-example";
+			productName = "export-example";
+			productReference = FCFBF852248F2B27000CF26B /* export-example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -261,6 +340,9 @@
 					FCB27DFC236FB4CE00F522B9 = {
 						CreatedOnToolsVersion = 11.2;
 					};
+					FCFBF851248F2B27000CF26B = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
 				};
 			};
 			buildConfigurationList = FCB27D8F236FB40500F522B9 /* Build configuration list for PBXProject "VideoEffects" */;
@@ -277,7 +359,8 @@
 			projectRoot = "";
 			targets = (
 				FCB27D93236FB40500F522B9 /* VideoEffects */,
-				FCB27DFC236FB4CE00F522B9 /* VideoEffects-example */,
+				FCB27DFC236FB4CE00F522B9 /* player-example */,
+				FCFBF851248F2B27000CF26B /* export-example */,
 			);
 		};
 /* End PBXProject section */
@@ -297,6 +380,17 @@
 				FCD900472480637B00B66869 /* example-portrait.mov in Resources */,
 				FCF2541E244E43F000971CE2 /* example.mov in Resources */,
 				FCB27E07236FB4CE00F522B9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFBF850248F2B27000CF26B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCFBF861248F2B28000CF26B /* LaunchScreen.storyboard in Resources */,
+				FCFBF85E248F2B28000CF26B /* Assets.xcassets in Resources */,
+				FCFBF85C248F2B27000CF26B /* Main.storyboard in Resources */,
+				FCFBF869248F2F03000CF26B /* example-depth.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,15 +425,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-player-example/Pods-player-example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-player-example/Pods-player-example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VideoEffects-example/Pods-VideoEffects-example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-player-example/Pods-player-example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		74491885C59FC0DD0E75F2BA /* [CP] Check Pods Manifest.lock */ = {
@@ -357,11 +451,50 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VideoEffects-example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-player-example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		891A0B912B4927E3D6F6A1B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-export-example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D94435A89DF4718719432CA9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-export-example/Pods-export-example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-export-example/Pods-export-example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-export-example/Pods-export-example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -392,6 +525,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCFBF84E248F2B27000CF26B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCFBF859248F2B27000CF26B /* ViewController.swift in Sources */,
+				FCFBF855248F2B27000CF26B /* AppDelegate.swift in Sources */,
+				FCFBF857248F2B27000CF26B /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -399,6 +542,11 @@
 			isa = PBXTargetDependency;
 			target = FCB27D93236FB40500F522B9 /* VideoEffects */;
 			targetProxy = FCB27E7F236FC2AE00F522B9 /* PBXContainerItemProxy */;
+		};
+		FCFBF868248F2EB3000CF26B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCB27D93236FB40500F522B9 /* VideoEffects */;
+			targetProxy = FCFBF867248F2EB3000CF26B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -415,6 +563,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				FCB27E0B236FB4D000F522B9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FCFBF85A248F2B27000CF26B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCFBF85B248F2B27000CF26B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FCFBF85F248F2B28000CF26B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCFBF860248F2B28000CF26B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -581,12 +745,12 @@
 		};
 		FCB27E0F236FB4D000F522B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FA9B045830B79B07C7D1812 /* Pods-VideoEffects-example.debug.xcconfig */;
+			baseConfigurationReference = 2DF3A4614FD26A6F277D9691 /* Pods-player-example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6DUV3UU8M8;
-				INFOPLIST_FILE = "$(SRCROOT)/example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/player-example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -600,17 +764,55 @@
 		};
 		FCB27E10236FB4D000F522B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC25A9190769385B2138CB35 /* Pods-VideoEffects-example.release.xcconfig */;
+			baseConfigurationReference = 714A755B37F511B6D687AB12 /* Pods-player-example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6DUV3UU8M8;
-				INFOPLIST_FILE = "$(SRCROOT)/example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/player-example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonbrennecke.videoEffectsExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FCFBF864248F2B28000CF26B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAC41E1628C37CB85D38EF08 /* Pods-export-example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6DUV3UU8M8;
+				INFOPLIST_FILE = "export-example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonbrennecke.export-example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCFBF865248F2B28000CF26B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A29A4737E2291EA3912C07 /* Pods-export-example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6DUV3UU8M8;
+				INFOPLIST_FILE = "export-example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonbrennecke.export-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -638,11 +840,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCB27E0E236FB4D000F522B9 /* Build configuration list for PBXNativeTarget "VideoEffects-example" */ = {
+		FCB27E0E236FB4D000F522B9 /* Build configuration list for PBXNativeTarget "player-example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCB27E0F236FB4D000F522B9 /* Debug */,
 				FCB27E10236FB4D000F522B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCFBF863248F2B28000CF26B /* Build configuration list for PBXNativeTarget "export-example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCFBF864248F2B28000CF26B /* Debug */,
+				FCFBF865248F2B28000CF26B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
